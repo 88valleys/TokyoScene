@@ -9,4 +9,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  patch "profile" => "users#update"
+
+  get "profile/edit" => "users#edit"
+
+  resource :user, only: [:show, :edit, :update]
 end
