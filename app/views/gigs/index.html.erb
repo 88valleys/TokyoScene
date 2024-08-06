@@ -1,8 +1,30 @@
 <h1> All Gigs </h1>
 
 <% @gigs.each do |gig| %>
-<%= gig.name %>
-<%= gig.time %>
-<%= gig.location %>
+<div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="card-product-infos">
+  <div>
+    <strong>Name:</strong> <%= gig.name %>
+  </div>
+  <div>
+    <strong>Description:</strong> <%= gig.description %>
+  </div>
+  <div>
+    <strong>Time:</strong> <%= gig.time %>
+  </div>
+  <div>
+    <strong>Location:</strong> <%= gig.location %>
+  </div>
+  </div>
+  
+ <div>
+    <a href="registration-page.html" class="card-registration-button">Register</a>
+    <a href="details-page.html" class="card-details-button">Info</a>
+</div>
+
+</div>
 <% end %>
 
+
+<%#= link_to "Back to Search", root_path class: "btn btn-flat"%>
