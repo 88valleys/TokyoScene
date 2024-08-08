@@ -14,3 +14,12 @@
   </div>
   <%= link_to "Back to Search", root_path, class: "btn btn-flat"%>
 </div>
+  </div>
+  
+ <div class="col-3">
+    <%= link_to "Register", new_gig_registration_path(gig), class: "card-registration-button" %>
+    <%= link_to "Info", gig_path(gig), class: "card-registration-button" %>
+</div>
+
+</div>
+<% end %>
