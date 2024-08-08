@@ -1,12 +1,16 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar li {
+  color: #f7f7f7;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-tokyoscene {
+  justify-content: space-between;
+  background: #100303;
+}
+
+.navbar-tokyoscene .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-tokyoscene .navbar-brand img {
+  width: 200px;
 }

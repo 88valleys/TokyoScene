@@ -16,5 +16,13 @@ Rails.application.routes.draw do
 
   get "profile/edit" => "users#edit"
 
+  # ROUTES: WIP
   resource :user, only: [:show, :edit, :update]
+
+  # GIG ROUTES
+  resources :gigs
+
+  # MESSAGE ROUTES
+  get 'gigs/:gig_id/messages/:id', to: 'messages#show', as: 'gig_message'
+
 end
