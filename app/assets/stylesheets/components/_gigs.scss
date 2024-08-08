@@ -1,0 +1,23 @@
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.map-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.mapbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.gig-cards-container {
+    margin-top: auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Optional: Add a background color */
+}
