@@ -1,0 +1,67 @@
+<!--Search bar -->
+<div class="row">
+  <div class="col-sm-12 my-3 pb-3">
+    <%= form_with url: gigs_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+      <%= button_tag(type: 'submit', class: 'btn btn-primary ml-2') do %>
+        <i class='fa-solid fa-magnifying-glass'></i>Search
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<!--Dropdown location-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Location
+  </button>
+  <ul class="dropdown-menu">
+    <div class="form-check">
+      <% @locations.each do |location| %>
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+          <li><%= location %></li>
+        <%end %>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </ul>
+</div>
+<!--Dropdown recommended-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Date
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="#"><%= location %></a></li>
+    <%end %>
+  </ul>
+</div>
+<!--Dropdown genre-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Genre
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="#"><%= location %></a></li>
+    <%end %>
+  </ul>
+</div>
+<!--Dropdown 3 genre-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Date
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="#"><%= location %></a></li>
+    <%end %>
+  </ul>
+</div>
+<!--All gigs-->
+<% @gigs.each do |gig| %>
+  <h3> <%= gig.name %> </h3>
+  <li> <%= gig.description %> </li>
+  <li> <%= gig.location %> </li>
+<% end %>
