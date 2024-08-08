@@ -1,6 +1,17 @@
 <h1> All Gigs </h1>
 
 <% @gigs.each do |gig| %>
+<%= gig.name %>
+<% end %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+
+<% @gigs.each do |gig| %>
 <div class="card-product row">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="col-2"/>
 <div class="card-product-infos col-5">

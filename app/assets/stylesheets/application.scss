@@ -10,3 +10,28 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import "components/footer";
+@import "components/navbar";
+
+// Mapbox
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .gig-cards-container {
+    margin-top: auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Optional: Add a background color */
+  }
+  
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
