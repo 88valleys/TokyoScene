@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   get "profile/edit" => "users#edit"
 
+  get "dashboard" => "users#dashboard"
+
   resource :user, only: [:show, :edit, :update]
 end

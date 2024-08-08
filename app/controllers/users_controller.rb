@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])  # Assuming you have a User model and want to show a specific user profile
+  end
+
   def edit
     @current_user = current_user
   end
@@ -10,5 +14,16 @@ class UsersController < ApplicationController
     @current_user.genre_list.add(genres)
     @current_user.save
     # to do: redirect to profile page
+
+    redirect_to profile_path(@current_user)
   end
+
+  def dashboard
+    @current_user = current_user
+  end
+    # genres
+    # events
+    # artists
+    # recommendations
+
 end
