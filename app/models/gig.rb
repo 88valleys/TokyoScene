@@ -1,6 +1,6 @@
 class Gig < ApplicationRecord
   belongs_to :user
-<<<<<<< HEAD
+  acts_as_taggable_on :genre
 
   # search form
   include PgSearch::Model
@@ -9,13 +9,11 @@ class Gig < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-=======
   has_many :registrations
   has_many :messages
 
   validates :name, :time, :user, :location, presence: true
-  
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
->>>>>>> 21dde632db1d1424fd440839c5a3bfa1f4942db4
 end

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--Search bar -->
 <div class="row">
   <div class="col-sm-12 my-3 pb-3">
@@ -44,68 +43,25 @@
     Genre
   </button>
   <ul class="dropdown-menu">
-    <% @locations.each do |location| %>
-      <li><a class="dropdown-item" href="#"><%= location %></a></li>
-    <%end %>
-  </ul>
-</div>
-<!--Dropdown 3 genre-->
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Date
-  </button>
-  <ul class="dropdown-menu">
-    <% @locations.each do |location| %>
-      <li><a class="dropdown-item" href="#"><%= location %></a></li>
-    <%end %>
-  </ul>
-</div>
-<!--All gigs-->
-<% @gigs.each do |gig| %>
-  <h3> <%= gig.name %> </h3>
-  <li> <%= gig.description %> </li>
-  <li> <%= gig.location %> </li>
-<% end %>
-=======
-<h1> All Gigs </h1>
-
-<% @gigs.each do |gig| %>
-<%= gig.name %>
-<% end %>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-
-<% @gigs.each do |gig| %>
-<div class="card-product row">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="col-2"/>
-<div class="card-product-infos col-5">
-  <div>
-    <strong>Name:</strong> <%= gig.name %>
+    <% @genres.each do |genre| %>
+      <li><a class="dropdown-item" href=<%="?genre=#{genre.name}"%>><%= genre %></a></li>
+      <%end %>
+    </ul>
   </div>
-  <div>
-    <strong>Description:</strong> <%= gig.description %>
+  <!--Dropdown 3 genre-->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Date
+    </button>
+    <ul class="dropdown-menu">
+      <% @locations.each do |location| %>
+        <li><a class="dropdown-item" href="#"><%= location %></a></li>
+      <%end %>
+    </ul>
   </div>
-  <div>
-    <strong>Date:</strong> <%= gig.time %>
-  </div>
-  <div>
-    <strong>Location:</strong> <%= gig.location %>
-  </div>
-  </div>
-  
- <div class="col-3">
-    <a href="registration-page.html" class="card-registration-button">Register</a>
-    <a href="details-page.html" class="card-details-button">Info</a>
-</div>
-
-</div>
-<% end %>
-
-
-<%= link_to "Back to Search", root_path, class: "btn btn-flat"%>
->>>>>>> 21dde632db1d1424fd440839c5a3bfa1f4942db4
+  <!--All gigs-->
+  <% @gigs.each do |gig| %>
+    <h3> <%= gig.name %> </h3>
+    <li> <%= gig.description %> </li>
+    <li> <%= gig.location %> </li>
+  <% end %>
