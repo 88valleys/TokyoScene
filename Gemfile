@@ -55,12 +55,9 @@ gem "sassc-rails"
 gem 'acts-as-taggable-on'
 gem "faker"
 gem "pg_search"
-<<<<<<< HEAD
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
-=======
 gem "geocoder"
->>>>>>> 21dde632db1d1424fd440839c5a3bfa1f4942db4
 
 group :development, :test do
   gem "dotenv-rails"
