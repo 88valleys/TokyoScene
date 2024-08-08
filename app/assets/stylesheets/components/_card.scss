@@ -16,8 +16,8 @@
 
 .card-product {
     overflow: hidden;
-    height: 120px;
-    width: 700px;
+    min-height: 120px;
+    max-width: 700px;
     margin-top: 30px;
     margin-bottom: 30px;
     background: white;

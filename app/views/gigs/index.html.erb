@@ -30,8 +30,8 @@
   </div>
   
  <div class="col-3">
-    <a href="registration-page.html" class="card-registration-button">Register</a>
-    <a href="details-page.html" class="card-details-button">Info</a>
+    <%= link_to "Register", new_gig_registration_path(gig), class: "card-registration-button" %>
+    <%= link_to "Info", gig_path(gig), class: "card-registration-button" %>
 </div>
 
 </div>

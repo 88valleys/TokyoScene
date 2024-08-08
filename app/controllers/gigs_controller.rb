@@ -1,4 +1,9 @@
 class GigsController < ApplicationController
+
+    def show
+        @gig = Gig.find(params[:id])
+    end
+
   def index
     @gigs = Gig.all
     @markers = @gigs.geocoded.map do |gig|
