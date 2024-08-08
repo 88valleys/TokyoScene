@@ -2,8 +2,8 @@
 <% @gigs.each do |gig| %>
   <%= gig.name %>
 <% end %>
-<%# PSEUDOCODE %>
-<%# 1. Clicking on a marker updates the info on the bottom of th emap %>
+
+
 <%# MAPBOX %>
 <div data-controller="map" class="map-container" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <div class="mapbox" style="width: 100%; height: 600px;"
@@ -14,12 +14,3 @@
   </div>
   <%= link_to "Back to Search", root_path, class: "btn btn-flat"%>
 </div>
-  </div>
-  
- <div class="col-3">
-    <%= link_to "Register", new_gig_registration_path(gig), class: "card-registration-button" %>
-    <%= link_to "Info", gig_path(gig), class: "card-registration-button" %>
-</div>
-
-</div>
-<% end %>
