@@ -1,0 +1,26 @@
+<h1>You Are Registered!</h1>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gig.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @gig.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @gig.time %>
+</p>
+
+
+<%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
+
+<%= link_to "See All My Registered Gigs (TODO check path, change to dashboard)", gigs_path, class: "btn btn-secondary" %> 
