@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get "profile/edit" => "users#edit"
 
+  get "dashboard" => "users#dashboard"
+
   # ROUTES: WIP
   resource :user, only: [:show, :edit, :update]
 

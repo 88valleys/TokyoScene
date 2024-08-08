@@ -8,4 +8,7 @@ class User < ApplicationRecord
   # has_many :registrations
   # has_many :messages
   acts_as_taggable_on :genres
+
+  has_many :registrations
+  has_many :gigs, through: :registrations
 end
