@@ -1,0 +1,28 @@
+<h3> Your Coming Events </h3>
+<% @current_user.registrations.each do |registration| %>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= registration.gig.name %>
+    <%= registration.gig.time %>
+    <%= registration.gig.location %>
+    <%= registration.status %>
+  </div>
+
+<% end %>
+
+<h3> My Favorite Genres </h3>
+<% @current_user.genre_list.each do |genre| %>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= genre %>
+  </div>
+<% end %>
+
+<%# <h3> My Favorite Artists </h3>
+<% @current_user.artist_list.each do |genre| %>
+<%#
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= artist %>
+  <%# </div>
+
+<%# <% end %>
