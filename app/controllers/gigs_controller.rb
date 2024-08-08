@@ -10,3 +10,4 @@ class GigsController < ApplicationController
     end  
   end
 end
+
