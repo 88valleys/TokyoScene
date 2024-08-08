@@ -1,4 +1,5 @@
-<h1>All gigs</h1>
+<h1> All Gigs </h1>
+
 <% @gigs.each do |gig| %>
 <%= gig.name %>
 <% end %>
@@ -7,3 +8,34 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+
+<% @gigs.each do |gig| %>
+<div class="card-product row">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="col-2"/>
+<div class="card-product-infos col-5">
+  <div>
+    <strong>Name:</strong> <%= gig.name %>
+  </div>
+  <div>
+    <strong>Description:</strong> <%= gig.description %>
+  </div>
+  <div>
+    <strong>Date:</strong> <%= gig.time %>
+  </div>
+  <div>
+    <strong>Location:</strong> <%= gig.location %>
+  </div>
+  </div>
+  
+ <div class="col-3">
+    <a href="registration-page.html" class="card-registration-button">Register</a>
+    <a href="details-page.html" class="card-details-button">Info</a>
+</div>
+
+</div>
+<% end %>
+
+
+<%= link_to "Back to Search", root_path, class: "btn btn-flat"%>
