@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TokyoScene</title>
+    <title>TokyoScene: Find your next favourite band in Tokyo.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,8 +10,28 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<<<<<<< HEAD
   <body><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+=======
+
+  <body>
+    <!-- LEWAGON'S DEFAULT FOOTER -->
+    <%# <%= render "shared/navbar" %> 
+
+    <!-- CUSTOM FOOTER FOR TOKYOSCENE-->
+    <%= render "layouts/navbar" %>
+
+
+    <%= render "shared/flashes" %>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <%= render "layouts/footer" %>
+
+>>>>>>> 21dde632db1d1424fd440839c5a3bfa1f4942db4
   </body>
 </html>

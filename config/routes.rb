@@ -7,6 +7,22 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  resources :gigs, only: [:index]
+
   # Defines the root path route ("/")
   # root "posts#index"
+
+  patch "profile" => "users#update"
+
+  get "profile/edit" => "users#edit"
+
+  # ROUTES: WIP
+  resource :user, only: [:show, :edit, :update]
+
+  # GIG ROUTES
+  resources :gigs
+
+  # MESSAGE ROUTES
+  get 'gigs/:gig_id/messages/:id', to: 'messages#show', as: 'gig_message'
+
 end
