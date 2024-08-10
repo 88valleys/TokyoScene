@@ -1,25 +1,24 @@
 <h2>Gig Info</h2
 
-<p>
-  <strong>Artist:</strong>
-  <%= @gig.name %>
-</p>
+  <p>
+    <strong>Artist:</strong>
+    <%= @gig.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @gig.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @gig.description %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @gig.location %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @gig.location %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @gig.time %>
-</p>
-
+  <p>
+    <strong>Date:</strong>
+    <%= @gig.time %>
+  </p>
 
 
 <%= simple_form_for [@gig, @registration] do |f| %>
