@@ -1,4 +1,4 @@
-// All CSS for card goes here - small card that appears on the home page 
+// All CSS for card goes here - small card that appears on the home page
 
 .card-category {
   background-size: cover;
@@ -72,3 +72,39 @@
     background-color: black;
   }
 
+  .upcoming-events-card {
+    overflow: hidden;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    width: 320px;
+    margin-bottom: 16px;
+
+  }
+
+  .upcoming-events-card img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  .upcoming-events-card h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .upcoming-events-card p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .upcoming-events-card .upcoming-events-card-infos {
+    padding: 16px;
+  }
