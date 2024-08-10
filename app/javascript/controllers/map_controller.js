@@ -16,16 +16,34 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.mapElementTarget,
       style: "mapbox://styles/mapbox/streets-v10",
+      center: [139.7670, 35.6814], // Central Tokyo coordinates      
+      zoom: 10 // starting zoom
+
     });
+
+    // adds Zoom control in the map
+    this.map.addControl(new mapboxgl.NavigationControl());
+
+    // adds km to the map
+    this.map.addControl(new mapboxgl.ScaleControl());
+
+    // loads the map
+    this.map.on('load', this.onMapLoaded.bind(this));
 
     this.#addMarkersToMap();
     this.#fitMapToBounds(); // Add this line to fit the map to the Tokyo bounds
+  }
+
+  onMapLoaded(event) {
+    this.map.resize();
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       // Popup loads up _info_window.html.erb partial
       // const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const contentWrapper = document.querySelector('.content-wrapper');
+
       const markerObject = new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
         // .setPopup(popup)
@@ -39,8 +57,8 @@ export default class extends Controller {
 
   #fitMapToBounds() {
     const bounds = new mapboxgl.LngLatBounds(
-      [138.9414, 35.5233], // Southwest coordinates of Tokyo
-      [140.1544, 35.8175] // Northeast coordinates of Tokyo
+      [139.7000, 35.6500], // Southwest coordinates of central Tokyo
+      [139.8000, 35.7100] // Northeast coordinates of central Tokyo
     );
     this.map.fitBounds(bounds, { padding: 20 });
   }

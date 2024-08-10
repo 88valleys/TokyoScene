@@ -93,7 +93,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
@@ -298,8 +298,8 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
-  arm64-darwin-23
-  x86_64-darwin-22
+  arm64-darwin
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
