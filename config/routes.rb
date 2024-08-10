@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :gigs, only: [:index, :show] do
-    resources :registrations, only: [:new]
+    resources :registrations, only: [:new, :create] do
+      get "confirm", on: :collection
+    end
   end
 
   # Defines the root path route ("/")
@@ -27,6 +29,9 @@ Rails.application.routes.draw do
   resources :gigs
 
   # MESSAGE ROUTES
-  get 'gigs/:gig_id/messages/:id', to: 'messages#show', as: 'gig_message'
+  get "gigs/:gig_id/messages/:id", to: "messages#show", as: "gig_message"
 
+  resources :users do
+    get "registered_gigs", on: :member
+  end
 end

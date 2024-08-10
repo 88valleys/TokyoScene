@@ -1,7 +1,4 @@
 class GigsController < ApplicationController
-  # def search
-  #   @gigs = Gig.search_by_name_and_description_and_location(params[:query])
-  # end
 
   def index
     @gigs = Gig.all
@@ -22,7 +19,7 @@ class GigsController < ApplicationController
       {
         lat: gig.latitude,
         lng: gig.longitude,
-        info_window_html: render_to_string(partial: "gigs/gigs", locals: {gig: gig})
+        info_window_html: render_to_string(partial: "gigs/gigs", locals: { gig: gig }),
       }
     end
   end

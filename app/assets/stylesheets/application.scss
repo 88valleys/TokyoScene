@@ -20,25 +20,22 @@
 // Mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
-// LEAVE GIG-CARDS-CONTAINER HERE TO LOAD THE GIGS
-
-.gig-cards-container {
-  position: absolute;
-  margin-top: auto;
-  // padding: 20px;
-  background-color: #f8f9fa; /* Optional: Add a background color */
-
-  h4 {
-    padding: 0;
-  }
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-// Content wrapper for the small-card that shows the gig
-.content-wrapper {
-  position: absolute; /* Make the content-wrapper overlap with the map */
-  top: 675px;
-  // TODO: Fix the width of the card
-  width: 100%;
-  z-index: 10; /* Ensure the card appears above the map */
-  background: rgba(255, 255, 255, 0.95);
+.gig-cards-container {
+  margin-top: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Optional: Add a background color */
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }

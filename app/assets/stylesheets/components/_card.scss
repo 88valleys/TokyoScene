@@ -13,7 +13,8 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 
   .card-product {
     overflow: hidden;
@@ -22,15 +23,15 @@
     margin-top: 30px;
     margin-bottom: 30px;
     background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    display: absolute;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
     align-items: center;
   }
 
-  .card-proßduct img {
-    height: 100%;
-    width: 120px;
-    // object-fit: cover;
+  .card-product img {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: absolute;
+    align-items: center;
   }
 
   .card-product h2 {
@@ -70,4 +71,4 @@
   .card-details-button:hover {
     background-color: black;
   }
-}
+
