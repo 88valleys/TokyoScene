@@ -1,7 +1,7 @@
 class GigsController < ApplicationController
 
     def show
-        @gig = Gig.find(params[:id])
+      @gig = Gig.find(params[:id])
     end
 
   def index
