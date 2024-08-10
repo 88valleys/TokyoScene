@@ -9,27 +9,21 @@
     <% end %>
   </div>
 </div>
-<!--Dropdown location-->
+<!--Dropdown-1 location-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Location
   </button>
   <ul class="dropdown-menu">
-    <div class="form-check">
-      <% @locations.each do |location| %>
-        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-        <label class="form-check-label" for="dropdownCheck2">
-          <li><%= location %></li>
-        <%end %>
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="?location=<%= location %>"><%= location %></a></li>
+    <% end %>
   </ul>
 </div>
-<!--Dropdown recommended-->
+<!--Dropdown-2 recommended-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Date
+    recommended
   </button>
   <ul class="dropdown-menu">
     <% @locations.each do |location| %>
@@ -37,7 +31,7 @@
     <%end %>
   </ul>
 </div>
-<!--Dropdown genre-->
+<!--Dropdown-3 genre-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Genre
@@ -48,7 +42,7 @@
       <%end %>
     </ul>
   </div>
-  <!--Dropdown 3 genre-->
+  <!--Dropdown-4  date-->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Date
@@ -59,7 +53,7 @@
       <%end %>
     </ul>
   </div>
-  <!--All gigs-->
+  <!--All gigs this part below can be rewrited-->
   <% @gigs.each do |gig| %>
     <h3> <%= gig.name %> </h3>
     <li> <%= gig.description %> </li>

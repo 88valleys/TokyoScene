@@ -10,9 +10,11 @@ class GigsController < ApplicationController
     else
       @gigs = Gig.all
     end
-    @locations = @gigs.map(&:location).uniq
-    @genres = ActsAsTaggableOn::Tag.all
-    @gigs = @locations.where(title: params[:query]) if params[:query].present?
-    @gigs = @gigs.tagged_with(params[:genre])
+
+    # @locations = @gigs.map(&:location).uniq
+    # @genres = ActsAsTaggableOn::Tag.all
+    # # @gigs = @locations.where(title: params[:query]) if params[:query].present?
+    # @gigs = Gig.where(location: params[:location]) if params[:location].present?
+    # @gigs = @gigs.tagged_with(params[:genre])
   end
 end
