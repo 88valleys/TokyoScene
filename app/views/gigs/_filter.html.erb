@@ -1,0 +1,56 @@
+<!--Dropdown-1 location-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Location
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="?location=<%= location %>"><%= location %></a></li>
+    <% end %>
+  </ul>
+</div>
+<!--Dropdown-2 recommended-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    recommended
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="#"><%= location %></a></li>
+    <%end %>
+  </ul>
+</div>
+<!--Dropdown-3 genre-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Genre
+  </button>
+  <ul class="dropdown-menu">
+    <% @genres.each do |genre| %>
+      <li><a class="dropdown-item" href=<%="?genre=#{genre.name}"%>><%= genre %></a></li>
+      <%end %>
+    </ul>
+  </div>
+  <!--Dropdown-4  date-->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Date
+    </button>
+    <ul class="dropdown-menu">
+      <% @locations.each do |location| %>
+        <li><a class="dropdown-item" href="#"><%= location %></a></li>
+      <%end %>
+    </ul>
+  </div>
+  <!--All gigs this part below can be rewrited-->
+  <div class="no-display">
+    <% @gigs.each do |gig| %>
+      <h3> <%= gig.name %> </h3>
+      <li> <%= gig.description %> </li>
+      <li> <%= gig.location %> </li>
+    <% end %>
+    <h1> All Gigs </h1>
+    <% @gigs.each do |gig| %>
+      <%= gig.name %>
+    <% end %>
+  </div>
