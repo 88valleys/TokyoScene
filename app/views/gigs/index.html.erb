@@ -1,16 +1,75 @@
-<h1> All Gigs </h1>
-<% @gigs.each do |gig| %>
-  <%= gig.name %>
-<% end %>
-
-
-<%# MAPBOX %>
-<div data-controller="map" class="map-container" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  <div class="mapbox" style="width: 100%; height: 600px;"
+<!--Search bar -->
+<div class="row">
+  <div class="col-sm-12 my-3 pb-3">
+    <%= form_with url: gigs_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+      <%= button_tag(type: 'submit', class: 'btn btn-primary ml-2') do %>
+        <i class='fa-solid fa-magnifying-glass'></i>Search
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<!--Dropdown-1 location-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Location
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="?location=<%= location %>"><%= location %></a></li>
+    <% end %>
+  </ul>
+</div>
+<!--Dropdown-2 recommended-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    recommended
+  </button>
+  <ul class="dropdown-menu">
+    <% @locations.each do |location| %>
+      <li><a class="dropdown-item" href="#"><%= location %></a></li>
+    <%end %>
+  </ul>
+</div>
+<!--Dropdown-3 genre-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Genre
+  </button>
+  <ul class="dropdown-menu">
+    <% @genres.each do |genre| %>
+      <li><a class="dropdown-item" href=<%="?genre=#{genre.name}"%>><%= genre %></a></li>
+      <%end %>
+    </ul>
+  </div>
+  <!--Dropdown-4  date-->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Date
+    </button>
+    <ul class="dropdown-menu">
+      <% @locations.each do |location| %>
+        <li><a class="dropdown-item" href="#"><%= location %></a></li>
+      <%end %>
+    </ul>
+  </div>
+  <!--All gigs this part below can be rewrited-->
+  <% @gigs.each do |gig| %>
+    <h3> <%= gig.name %> </h3>
+    <li> <%= gig.description %> </li>
+    <li> <%= gig.location %> </li>
+  <% end %>
+  <h1> All Gigs </h1>
+  <% @gigs.each do |gig| %>
+    <%= gig.name %>
+  <% end %>
+  <%# MAPBOX %>
+  <div data-controller="map" class="map-container" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="mapbox" style="width: 100%; height: 600px;"
   data-map-target="mapElement"
   >
+    </div>
+    <div class="content-wrapper" data-map-target="gig">
+    </div>
+    <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
   </div>
-  <div class="content-wrapper" data-map-target="gig">
-  </div>
-  <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
-</div>

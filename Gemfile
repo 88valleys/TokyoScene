@@ -55,6 +55,8 @@ gem "sassc-rails"
 gem 'acts-as-taggable-on'
 gem "faker"
 gem "pg_search"
+gem 'jquery-rails'
+gem 'acts-as-taggable-on'
 gem "geocoder"
 
 group :development, :test do
