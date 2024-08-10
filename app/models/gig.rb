@@ -20,7 +20,7 @@ class Gig < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_location?
 
   def set_geocode
-    self.longitude = 35.5776
-    self.latitude = 139.7192
+    self.longitude = 139.76430559879972
+    self.latitude = 35.66951555
   end
 end
