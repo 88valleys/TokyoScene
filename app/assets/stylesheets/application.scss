@@ -21,9 +21,9 @@
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  position: absolute;
+  top: 75%;
+  left: 11%;
 }
 
 .gig-cards-container {

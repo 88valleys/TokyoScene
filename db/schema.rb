@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_10_030424) do
     t.float "longitude"
     t.string "location_name"
     t.string "event_name"
+
     t.string "genre"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end

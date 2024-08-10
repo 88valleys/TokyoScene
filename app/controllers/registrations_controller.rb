@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
   def confirm
-    @gig = Gig.find(params[:gig_id])
+    #@gig = Gig.find(params[:gig_id])
+    @registrations = current_user.registrations.includes(:gig)
   end
 
   def create

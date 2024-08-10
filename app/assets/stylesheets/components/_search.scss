@@ -1,27 +1,33 @@
 // Search bar CSS goes here!
 
 .search-bar {
-    position: absolute;
-    top: 80px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.8); 
-    width: 400px;
-    border-radius: 10px;
+    display: flex;
+    height: 4rem;
+    width: 360px;
     // Displays above the map
-    z-index: 10;
+  }
+
+  .search-bar-container {
+    position: absolute;
+    z-index: 1;
+    gap: 1rem;
+    padding: 0.5rem 0 0 0.5rem;
   }
 
 
-.search-form-control {
-  position: relative;
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  // Displays above the map
 }
 
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+.form-control {
+  background: #E0C4E2;
+}
+
+.search-bar .btn {
+  background: #E0C4E2;
 }
 
 .search-form-control .form-control {

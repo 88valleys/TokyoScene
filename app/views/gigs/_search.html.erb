@@ -1,22 +1,7 @@
-<!--<div class="search-bar">
-
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
-</div>-->
 <!--Search bar -->
-<div class="row">
-  <div class="col-sm-12 my-3 pb-3">
-    <%= form_with url: gigs_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
-      <%= button_tag(type: 'submit', class: 'btn btn-primary ml-2') do %>
-        <i class='fa-solid fa-magnifying-glass'></i>Search
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= form_with url: gigs_path, method: :get, class: "search-bar" do %>
+  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+  <%= button_tag(type: 'submit', class: 'btn') do %>
+    <i class='fa-solid fa-magnifying-glass'></i>Search
+  <% end %>
+<% end %>
