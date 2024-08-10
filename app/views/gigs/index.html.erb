@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--Search bar -->
 <div class="row">
   <div class="col-sm-12 my-3 pb-3">
@@ -60,21 +59,17 @@
     <li> <%= gig.description %> </li>
     <li> <%= gig.location %> </li>
   <% end %>
-=======
-<h1> All Gigs </h1>
-<% @gigs.each do |gig| %>
-  <%= gig.name %>
-<% end %>
-
-
-<%# MAPBOX %>
-<div data-controller="map" class="map-container" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  <div class="mapbox" style="width: 100%; height: 600px;"
+  <h1> All Gigs </h1>
+  <% @gigs.each do |gig| %>
+    <%= gig.name %>
+  <% end %>
+  <%# MAPBOX %>
+  <div data-controller="map" class="map-container" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="mapbox" style="width: 100%; height: 600px;"
   data-map-target="mapElement"
   >
+    </div>
+    <div class="content-wrapper" data-map-target="gig">
+    </div>
+    <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
   </div>
-  <div class="content-wrapper" data-map-target="gig">
-  </div>
-  <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
-</div>
->>>>>>> a5c11068814556050b00db249a691cc31afe1ec2

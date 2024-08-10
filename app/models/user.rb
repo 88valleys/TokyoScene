@@ -7,11 +7,8 @@ class User < ApplicationRecord
          # has_many :gigs
   # has_many :registrations
   # has_many :messages
-<<<<<<< HEAD
-=======
   acts_as_taggable_on :genres
 
   has_many :registrations
   has_many :gigs, through: :registrations
->>>>>>> a5c11068814556050b00db249a691cc31afe1ec2
 end
