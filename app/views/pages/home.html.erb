@@ -1,10 +1,7 @@
-<h1>All gigs</h1>
-<% @gigs.each do |gig| %>
-<%= gig.name %>
-<% end %>
+<div class="map-container">
 
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%# PLACEHOLDER FOR SEARCHBAR - Erika you can add your html for your searchbar in _search.html.erb!! %>
+  <%= render 'gigs/search' %>
+  <%# Added the map as a partial here %>
+  <%= render 'gigs/map' %>
+</div>
