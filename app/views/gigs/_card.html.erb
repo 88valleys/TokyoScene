@@ -1,7 +1,32 @@
+
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  
   <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+
+    <p>
+    <strong>Artist:</strong>
+    <%= gig.name %>
+    </p>
+
+    <p>
+    <strong>Description:</strong>
+    <%= gig.description %>
+    </p>
+
+    <p>
+    <strong>Location:</strong>
+    <%= gig.location %>
+    </p>
+
+    <p>
+    <strong>Date:</strong>
+    <%= gig.time %>
+    </p>
+
+<%= link_to "test", confirm_gig_registrations_path(gig), class: "btn btn-secondary" %> 
+
   </div>
+
 </div>
+
+
