@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     @gigs = @gigs.where(location: params[:location]) if params[:location].present?
     @gigs = @gigs.tagged_with(params[:genre]) if params[:genre].present?
 
-    @markers = @gigs.geocoded.map do |gig|
+    @markers = @gigs.map do |gig|
       {
         lat: gig.latitude,
         lng: gig.longitude,
