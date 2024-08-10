@@ -14,6 +14,13 @@ class Gig < ApplicationRecord
 
   validates :name, :time, :user, :location, presence: true
 
-  geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_location?
+  # geocoded_by :location
+
+  before_create :set_geocode
+  # after_validation :geocode, if: :will_save_change_to_location?
+
+  def set_geocode
+    self.longitude = 35.5776
+    self.latitude = 139.7192
+  end
 end
