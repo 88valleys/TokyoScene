@@ -15,8 +15,8 @@
         <i class="fa-solid fa-comments"></i>
         <span class="nav-text">chats</span>
     </a>
-    <a href="#" class="nav-item">
-        <i class="fa-solid fa-circle-user"></i>
-        <span class="nav-text">dashboard</span>
-    </a>
+  <%= link_to dashboard_path, class: "nav-item" do %>
+    <i class="fa-solid fa-circle-user"></i>
+    <span class="nav-text">dashboard</span>
+  <% end %>
 </div>
