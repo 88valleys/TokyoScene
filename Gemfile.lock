@@ -93,7 +93,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
@@ -132,7 +132,6 @@ GEM
     execjs (2.9.1)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.0)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
     font-awesome-sass (6.5.2)
@@ -183,8 +182,6 @@ GEM
     nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.7)
@@ -298,9 +295,8 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
-  arm64-darwin-23
-  x86_64-darwin-22
-  x86_64-linux
+  arm64-darwin
+  x86_64-darwin
 
 DEPENDENCIES
   acts-as-taggable-on
