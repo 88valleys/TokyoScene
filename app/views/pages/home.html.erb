@@ -1,8 +1,12 @@
-<div class="map-container">
-  <%# PLACEHOLDER FOR SEARCHBAR - Erika you can add your html for your searchbar in _search.html.erb!! %>
+<div class="d-flex flex-column align-items-center search-bar-container">
   <%= render 'gigs/search' %>
   <%# Added filter as a partial here %>
-  <%= render 'gigs/filter' %>
+  <div class="filter-bar">
+    <%= render 'gigs/filter' %>
+  </div>
   <%# Added the map as a partial here %>
+</div>
+<div class="map-container">
+  <%# PLACEHOLDER FOR SEARCHBAR - Erika you can add your html for your searchbar in _search.html.erb!! %>
   <%= render 'gigs/map' %>
 </div>
