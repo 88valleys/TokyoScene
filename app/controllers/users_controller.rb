@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update
     @current_user = current_user
 
-    genres = params['user']['genres']
+    genres = params["user"]["genres"]
     @current_user.genre_list.add(genres)
     @current_user.save
     # to do: redirect to profile page
@@ -21,9 +21,13 @@ class UsersController < ApplicationController
   def dashboard
     @current_user = current_user
   end
-    # genres
-    # events
-    # artists
-    # recommendations
 
+  # genres
+  # events
+  # artists
+  # recommendations
+
+  def registered_gigs
+    @registered_gigs = current_user.registered_gigs
+  end
 end
