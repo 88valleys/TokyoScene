@@ -16,14 +16,16 @@
 @import "components/card";
 @import "components/search";
 @import "components/button";
+@import "components/filter";
 
 // Mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
+// Holds the positioning for the pop-up card on home page
 .content-wrapper {
   position: absolute;
-  top: 75%;
-  left: 11%;
+  top: 70%;
+  left: 1.5%;
 }
 
 .gig-cards-container {

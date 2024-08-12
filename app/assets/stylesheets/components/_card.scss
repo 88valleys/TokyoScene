@@ -16,7 +16,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-  .card-product {
+  .card-gig {
     overflow: hidden;
     min-height: 320px;
     max-width: 700px;
@@ -26,21 +26,24 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
+    margin: 20px;
+      padding: 20px; /* Add padding around the card contents */
+
   }
 
-  .card-product img {
+  .card-gig img {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: absolute;
     align-items: center;
   }
 
-  .card-product h2 {
+  .card-gig h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
 
-  .card-product p {
+  .card-gig p {
     font-size: 12px;
     line-height: 1.4;
     opacity: 0.7;
@@ -48,7 +51,7 @@
     margin-top: 8px;
   }
 
-  .card-product .card-product-infos {
+  .card-gig .card-gig-infos {
     padding: 16px;
   }
 
@@ -74,25 +77,35 @@
 
   .upcoming-events-card {
     overflow: hidden;
-    height: 120px;
+    height: 170px;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     border-radius: 16px;
-    width: 320px;
-    margin-bottom: 16px;
-
+    width: 400px;
+    margin-bottom: 13px;
   }
 
   .upcoming-events-card img {
     height: 100%;
-    width: 120px;
+    // width: 35%;
     object-fit: cover;
   }
 
   .upcoming-events-card h2 {
     font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .upcoming-events-card h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .upcoming-events-card h4 {
+    font-size: 18px;
     font-weight: bold;
     margin: 0;
   }
@@ -106,5 +119,42 @@
   }
 
   .upcoming-events-card .upcoming-events-card-infos {
-    padding: 16px;
+    padding: 10px;
+  }
+
+  .upcoming-events-card-infos {
+  flex: 1;
+  padding: 0 10px;
+}
+
+  .upcoming-events-card .col-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around; /* Ensure buttons are at top and bottom */
+    height:100%; /* Ensure the column takes full height */
+    width: 10%;
+    margin-right: 10px;
+  }
+  
+  .upcoming-events-card .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 20px; 
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 100px;
+  }
+
+  .upcoming-events-card .btn:first-child {
+    
+    margin-top: 10px;
+    padding-top: 10px; /* Match the padding-top of the column to the left */
+
+  }
+  
+  .upcoming-events-card .btn:last-child {
+    margin-bottom: 10px; /* Push the last button to the bottom */
+    padding-bottom: 10px;
   }
