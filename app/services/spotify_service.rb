@@ -27,3 +27,4 @@ class SpotifyService
     JSON.parse(response.body)
   end
 end
+

@@ -18,9 +18,10 @@ class Gig < ApplicationRecord
   # Gets the band's image from Spotify's API and places it in the Gig model
 
   def fetch_band_image
-    band_info = RSpotify::Artist.search(self.band).first
-    if band_info && band_info.images.any?
-      self.band_image_url = band_info.images.first['url']
+    # IMPORTANT: calls spotify_service.rb class which authenticates user and allows for image to be pulled from spotify's API
+    band_info = SpotifyService.search_artist(self.band)
+    if band_info && band_info['artists'] && band_info['artists']['items'].any?
+      self.band_image_url = band_info['artists']['items'].first['images'].first['url']
     else
       self.band_image_url = 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg'
     end
