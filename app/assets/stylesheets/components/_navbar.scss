@@ -14,3 +14,16 @@
 .navbar-tokyoscene .navbar-brand img {
   width: 200px;
 }
+
+
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-icon-container li a {
+    align-self: flex-end;
+    color:black;
+  }
+}
