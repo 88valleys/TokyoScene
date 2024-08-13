@@ -1,34 +1,35 @@
-<h3> Your Coming Events </h3>
-
 <div class="d-flex flex-column justify-content-center align-items-center">
-<% @current_user.registrations.each do |registration| %>
+  <h3> Your Upcoming Events </h3>
+    <% @current_user.registrations.each do |registration| %>
 
-<div class="upcoming-events-card">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="upcoming-events-card-infos">
-    <h2> <%= registration.gig.name %></h2>
-    <p><%= registration.gig.time %></p>
-    <p><%= registration.gig.location %></p>
-    <p><%= registration.status %></p>
+  <div class="upcoming-events-card">
+    <img src="https://static.martin-audio.com/pressrelease/medium/55000-seat-tokyo-dome-without-delays.jpg" />
+    <div class="upcoming-events-card-infos">
+      <h2> <%= registration.gig.name %></h2>
+      <p><%= registration.gig.time %></p>
+      <p><%= registration.gig.location %></p>
+      <p><%= registration.status %></p>
+    </div>
   </div>
-</div>
 <% end %>
 </div>
 
 
-<h3> My Favorite Genres </h3>
-<% @current_user.genre_list.each do |genre| %>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h3> My Favourite Genres </h3>
+</div>
+  <% @current_user.genre_list.each do |genre| %>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://t3.ftcdn.net/jpg/03/01/43/92/240_F_301439209_vpF837oCGM1lp0cnC7stzCBn3th0dQ6O.jpg)">
     <%= genre %>
   </div>
 <% end %>
 
-<%# <h3> My Favorite Artists </h3>
-<% @current_user.artist_list.each do |genre| %>
-<%#
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<%# <div class="d-flex flex-column justify-content-center align-items-center">
+  <h3> My Favourite Artists </h3>
+</div>
+<% @current_user.artist_list.each do |artist| %>
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= artist %>
   <%# </div>
-
-<%# <% end %>
+<% end %>

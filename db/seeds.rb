@@ -9,6 +9,7 @@
 #   end
 
 require 'faker'
+Registration.destroy_all
 Gig.destroy_all
 User.destroy_all
 
