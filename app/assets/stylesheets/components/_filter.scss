@@ -24,3 +24,8 @@
     background-color: #6F2B75;
     color: #f7f7f7;
   }
+
+  .scrollable-dropdown {
+    max-height: 200px; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
