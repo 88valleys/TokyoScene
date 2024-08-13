@@ -19,10 +19,10 @@
   <div class="col-3">
     <%#  %>
     <div>
-    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, new_gig_registration_path(gig), class: 'btn btn-flat' %>
+    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
     <div>
       <%# TODO: Get the gigs/show page %>
-    <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, new_gig_registration_path(gig), class: 'btn btn-flat' %>
+    <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat' %>
 </div>
   </div>
 </div>
