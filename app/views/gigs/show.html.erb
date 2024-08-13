@@ -1,27 +1,20 @@
-<h2>Gig Info</h2
-
+<h2>Gig Info</h2>
 <p>
   <strong>Artist:</strong>
   <%= @gig.name %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @gig.description %>
 </p>
-
 <p>
   <strong>Location:</strong>
   <%= @gig.location %>
 </p>
-
 <p>
   <strong>Date:</strong>
   <%= @gig.time %>
 </p>
-
-
-
 <%= simple_form_for [@gig, @registration] do |f| %>
   <%= f.submit "Register", style: 'background-color: purple; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 4px;' %>
 <% end %>

@@ -16,7 +16,7 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.mapElementTarget,
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [139.7670, 35.6814], // Central Tokyo coordinates      
+      center: [139.7670, 35.6814], // Central Tokyo coordinates
       zoom: 10 // starting zoom
 
     });

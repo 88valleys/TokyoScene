@@ -15,7 +15,15 @@ User.destroy_all
 puts "Destroying all gigs..."
 puts "Destroying all users..."
 
-address = ["Asakusa", "Shibuya", "Odaiba", "Shinjuku", "Ginza", "Meguro"]
+# TODO: change the content of the array to that contains "shibuya" something like that
+address = [
+  "150-0042 Udagawacho, Shibuya ku, Tokyo to",
+  "160-0021 Kabukichou, Shinjuku ku, Tokyo to",
+  "166-0003, Koenji, Suginami ku, Tokyo to",
+  "155-0031, Shimokitazawa, Setagaya ku, Tokyo to",
+  "166-0001, Asagaya, Suginami ku, Tokyo to",
+  "153-0064, Meguro, Meguro ku, Tokyo to"
+  ]
 genre = ["Rock", "Indie", "Emo", "Grunge", "Electronic"]
 
 10.times do |i|
@@ -23,7 +31,7 @@ genre = ["Rock", "Indie", "Emo", "Grunge", "Electronic"]
   gig = Gig.create!(
     user: user,
     name: Faker::Music::RockBand.name,
-    time: Faker::Date.between(from: Date.today, to: '2025-12-31'),
+    time: Faker::Time.forward(days: 23, period: :evening),
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     location: address.sample
   )
