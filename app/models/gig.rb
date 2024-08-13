@@ -2,6 +2,7 @@
 class Gig < ApplicationRecord
   belongs_to :user
   acts_as_taggable_on :genre
+  has_one :chatroom, dependent: :destroy
 
   # search form
   include PgSearch::Model

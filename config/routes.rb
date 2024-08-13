@@ -26,12 +26,23 @@ Rails.application.routes.draw do
   resource :user, only: [:show, :edit, :update]
 
   # GIG ROUTES
-  resources :gigs
+  # http://127.0.0.1:3000/gigs/276/chatroom
+  resources :gigs do
+    resource :chatroom, only: [:create, :show, :new]
+  end
 
   # MESSAGE ROUTES
   get "gigs/:gig_id/messages/:id", to: "messages#show", as: "gig_message"
 
+  # CHATROOM ROUTES
+  resources :chatrooms, only: :show do
+    resources :messages, only: [:create]
+  end
+
   resources :users do
     get "registered_gigs", on: :member
   end
+
+
+
 end

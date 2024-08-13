@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_152311) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_13_131027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_152311) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gig_id"
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -39,13 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_152311) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "gig_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text"
     t.integer "chatroom_id"
-    t.index ["gig_id"], name: "index_messages_on_gig_id"
+    t.string "content"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -108,7 +108,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_152311) do
   end
 
   add_foreign_key "gigs", "users"
-  add_foreign_key "messages", "gigs"
   add_foreign_key "messages", "users"
   add_foreign_key "registrations", "gigs"
   add_foreign_key "registrations", "users"
