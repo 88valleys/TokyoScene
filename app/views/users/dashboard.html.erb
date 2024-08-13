@@ -26,13 +26,10 @@
 <% end %>
 
 <h3> My Favorite Artists </h3>
-
-<%# <h3> My Favorite Artists </h3>
-<% @current_user.artist_list.each do |genre| %>
-<%#
+<% @current_user.artist_list.each do |artist| %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= artist %>
-  <%# </div>
+  </div>
+<% end %>
 
-<%# <% end %>
 </div>

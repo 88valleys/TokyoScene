@@ -32,8 +32,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_131027) do
     t.float "latitude"
     t.float "longitude"
     t.string "location_name"
-    t.string "event_name"
     t.string "genre"
+    t.string "event_name"
     t.string "band"
     t.string "band_image_url"
     t.index ["user_id"], name: "index_gigs_on_user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_131027) do
     t.datetime "updated_at", null: false
     t.text "text"
     t.integer "chatroom_id"
-    t.string "content"
+    t.index ["gig_id"], name: "index_messages_on_gig_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -102,7 +102,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_131027) do
     t.string "band_name"
     t.string "band_genre"
     t.string "fav_genres"
-    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,8 +1,9 @@
-
 class Gig < ApplicationRecord
   belongs_to :user
   acts_as_taggable_on :genre
   has_one :chatroom, dependent: :destroy
+  geocoded_by :location
+  after_validation :geocode
 
   # search form
   include PgSearch::Model
@@ -30,11 +31,4 @@ class Gig < ApplicationRecord
 
   # geocoded_by :location
 
-  before_create :set_geocode
-  # after_validation :geocode, if: :will_save_change_to_location?
-
-  def set_geocode
-    self.longitude = 139.76430559879972
-    self.latitude = 35.66951555
-  end
 end
