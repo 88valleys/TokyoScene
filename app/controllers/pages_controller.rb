@@ -5,11 +5,22 @@ class PagesController < ApplicationController
     @gigs = Gig.all
 
     @locations = @gigs.map(&:location).uniq
-    @genres = ActsAsTaggableOn::Tag.all
+    
+    # WUP
+    Rails.logger.debug "Genre parameter: #{params[:genre]}"
 
+    genre = params[:genre]
+    if genre
+      decoded_genre = CGI.unescape(genre)
+      Rails.logger.debug "Decoded genre: #{decoded_genre}"
+      @genres = ActsAsTaggableOn::Tag.where("name LIKE ?", "%#{decoded_genre}%")
+    else
+      @genres = ActsAsTaggableOn::Tag.all
+    end
+
+    # Updated so that the search query looks for band
     if params[:query].present?
-      @gigs = @gigs.search_by_name_and_description_and_location(params[:query])
-      flash[:notice] = "There are no results for the search" if @gigs.empty?
+      @gigs = @gigs.where("band LIKE ?", "%#{params[:query]}%")
     end
 
     # @gigs = @locations.where(title: params[:query]) if params[:query].present?

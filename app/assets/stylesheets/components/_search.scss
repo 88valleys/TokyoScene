@@ -4,6 +4,9 @@
     display: flex;
     height: 4rem;
     width: 360px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    border-radius: 100px;
+
     // Displays above the map
   }
 
@@ -24,20 +27,26 @@
 
 .form-control {
   background: #E0C4E2;
+  border: none;  // Remove border
+  outline: none; // Remove outline
+  // search bar left side round
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
 }
 
 .search-bar .btn {
   background: #E0C4E2;
+  //  search bar right side round
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 
 .search-form-control .form-control {
   height: 3.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e7e7e7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .search-form-control .form-control:focus {
-  border: 1px solid #1edd88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
