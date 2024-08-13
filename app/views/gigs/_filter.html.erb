@@ -31,17 +31,18 @@
       <%end %>
     </ul>
   </div>
-  <!--Dropdown-4  date
+  <!--Dropdown-4  date-->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Date
     </button>
     <ul class="dropdown-menu">
-      <% @locations.each do |location| %>
-        <li><a class="dropdown-item" href="#"><%= location %></a></li>
-      <%end %>
+      <li><a class="dropdown-item" href="?date_range=tonight">Tonight</a></li>
+      <li><a class="dropdown-item" href="?date_range=weekend">This Weekend</a></li>
+      <li><a class="dropdown-item" href="?date_range=month">This Month</a></li>
+      <li><a class="dropdown-item" href="?date_range=next_month">Next Month</a></li>
     </ul>
-  </div>-->
+  </div>
   <!--All gigs this part below can be rewrited-->
   <div class="no-display">
     <% @gigs.each do |gig| %>
