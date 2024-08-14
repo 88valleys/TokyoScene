@@ -11,15 +11,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <!-- LEWAGON'S DEFAULT FOOTER -->
-    <%# <%= render "shared/navbar" %>
+    <div class="wrapper">
+      <!-- LEWAGON'S DEFAULT FOOTER -->
+      <%# <%= render "shared/navbar" %>
 
-    <!-- CUSTOM FOOTER FOR TOKYOSCENE-->
-    <%= render "layouts/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="content">
-      <%= yield %>
+      <!-- CUSTOM FOOTER FOR TOKYOSCENE-->
+      <%= render "layouts/navbar" %>
+      <%= render "shared/flashes" %>
+      <main class="content">
+        <%= yield %>
+      </main>
+
+      <footer>
+      <%= render "layouts/footer" %>
+      </footer>
+      
     </div>
-    <%= render "layouts/footer" %>
   </body>
 </html>
