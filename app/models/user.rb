@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :gigs, through: :registrations
   has_many :artist_favourites
   has_many :artists, through: :artist_favourites
+  has_many :chatrooms, through: :gigs
 end
