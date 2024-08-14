@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   get "dashboard" => "users#dashboard"
 
   # ROUTES: WIP
-  resource :user, only: [:show, :edit, :update]
+  resource :user, only: [:show, :edit, :update] do
+  # Route for chatrooms that a user is registered to
+    resources :chatrooms, only: [:index]
+  end
 
   # GIG ROUTES
   # http://127.0.0.1:3000/gigs/276/chatroom
