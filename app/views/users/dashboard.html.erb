@@ -27,32 +27,18 @@
   </div>
 <% end %>
 
-<h1>Edit Your Genres</h1>
-
-<%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
-  <div class="form-group">
-    <%= f.input :genres, as: :text, label: 'Favorite Genres', input_html: { value: @user.genre_list.join(', ') } %>
-  </div>
-
-  <%= f.submit 'Update Genres', class: 'btn btn-primary' %>
-<% end %>
-
-<h1>Add New Genre</h1>
-<%= simple_form_for :genre, url: add_genre_user_path(@user), method: :patch do |f| %>
-  <%= f.input :name, as: :string, label: 'New Genre' %>
-  <%= f.submit 'Add Genre', class: 'btn btn-success' %>
-<% end %>
-
+<h3> My Favorite Artists </h3>
 
 <%# <h3> My Favorite Artists </h3>
-<% @user.artist_list.each do |genre| %>
+<% @current_user.artist_list.each do |genre| %>
 <%#
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     <%= artist %>
-  <%# </div>
+  </div>
+<% end %>
 
-<%# <% end %>
 </div>
+
 
 
 <!-- app/views/users/edit.html.erb -->

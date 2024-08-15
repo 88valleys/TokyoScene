@@ -17,6 +17,8 @@
 @import "components/search";
 @import "components/button";
 @import "components/filter";
+@import "components/chatroom";
+@import "components/chats";
 
 // Mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
@@ -25,7 +27,7 @@
 .content-wrapper {
   position: absolute;
   top: 70%;
-  left: 1.5%;
+  left: 1.53%;
 }
 
 .gig-cards-container {
@@ -38,10 +40,28 @@
 footer {
   background-color: #343a40;
   color: white;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
+  flex-shrink: 0; 
 }
 
 .no-display {
   display: none;
+}
+
+/* Sticky footer styles */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.content {
+  flex: 1; /* Take up remaining space */
+  padding-bottom: 60px;
 }

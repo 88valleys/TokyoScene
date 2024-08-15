@@ -3,6 +3,9 @@
 }
 
 .navbar-tokyoscene {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   justify-content: space-between;
   background: #100303;
 }
