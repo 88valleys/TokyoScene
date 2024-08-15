@@ -1,0 +1,50 @@
+.confirm-card {
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: white;
+}
+.confirm-card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.confirm-card-content {
+    padding: 16px;
+    position: relative;
+    background-color: white;
+}
+.confirm-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.confirm-card-title h2 {
+    font-size: 18px;
+    margin: 0;
+}
+.confirm-card-title span {
+    font-size: 14px;
+    color: #666;
+}
+.confirm-card-location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #666;
+}
+.confirm-card-location i {
+    margin-right: 6px;
+}
+.confirm-card-date {
+    display: inline-block;
+    background-color: #8A68CE;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}

@@ -1,29 +1,18 @@
-
-<div class="card-gig">
-  
-  <div class="card-gig-infos">
-
-    <p>
-    <strong>Artist:</strong>
-    <%= registration.gig.name %>
-    </p>
-
-    <p>
-    <strong>Description:</strong>
-    <%= registration.gig.description %>
-    </p>
-
-    <p>
-    <strong>Location:</strong>
-    <%= registration.gig.location %>
-    </p>
-
-    <p>
-    <strong>Date:</strong>
-    <%= registration.gig.time %>
-    </p>
-
+<div class="confirm-card">
+  <img src="<%= registration.gig.band_image_url %>" alt="Event Image">
+  <div class="confirm-card-content">
+    <div class="confirm-card-title">
+      <h1><%= registration.gig.event_name %></h1>
+      <span><%= registration.gig.band %><br>
+        nowheres</span>
+    </div>
+    <div class="confirm-card-location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span><%= registration.gig.location %></span>
+    </div>
+    <div class="confirm-card-date">
+      <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
+      <%= registration.gig.time.strftime("%I:%M %P") %>
+    </div>
   </div>
-
-
 </div>

@@ -1,12 +1,13 @@
-<h1>You Are Registered!</h1>
+<div class="container p-3">
+<h1> 🎉 Yay! You're now going to... </h1>
 
 
 
 <div class="cards pb-4">
-        <%= render partial: 'card', collection: @registrations, as: :registration %>
-</div>
+<%= render partial: 'card', locals: { registration: @registrations.order(created_at: :desc).first } %></div>
 
 
 <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>
 
 <%= link_to "See All My Registered Gigs", dashboard_path, class: "btn btn-secondary" %> 
+</div>
