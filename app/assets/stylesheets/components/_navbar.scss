@@ -1,8 +1,11 @@
-.navbar li {
+.navbar li a {
   color: #f7f7f7;
 }
 
 .navbar-tokyoscene {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   justify-content: space-between;
   background: #100303;
 }
@@ -13,4 +16,17 @@
 
 .navbar-tokyoscene .navbar-brand img {
   width: 200px;
+}
+
+
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-icon-container li a {
+    align-self: flex-end;
+    color:black;
+  }
 }

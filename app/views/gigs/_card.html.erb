@@ -1,7 +1,59 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<!-- 
+<div class="card-gig">
+  <div class="card-gig-infos">
+
+    <p>
+    <strong>Artist:</strong>
+    <%= gig.band %>
+    </p>
+
+    <p>
+    <strong>Description:</strong>
+    <%= gig.description %>
+    </p>
+
+    <p>
+    <strong>Location:</strong>
+    <%= gig.location %>
+    </p>
+
+    <p>
+    <strong>Date:</strong>
+    <%= gig.time %>
+    </p>
+
+<%= link_to "Register", confirm_gig_registrations_path(gig), class: "btn btn-secondary" %> 
+
+  </div>
+
+</div>
+
+
+-->
+<div class="event-card">
+  <div class="event-image">
+    <img src="<%= gig.band_image_url %>" alt="Concert Image">
+    <div class="event-date-time">
+      <%= gig.time.strftime("%a, %b %e %Y") %>
+      <br>
+      <%= gig.time.strftime("%I:%M %P") %>
+    </div>
+  </div>
+  <div class="event-details">
+    <div class="event-info">
+      <h2 class="event-title"><%= gig.event_name %></h2>
+      <p class="event-venue"><span class="venue-icon">📍</span><%= gig.location %></p>
+      <p class="event-description">
+        <%= gig.description %>
+      </p>
+    </div>
+    <div class="event-band-ticket">
+      <div class="event-bands">
+        <%= gig.band %>
+      </div>
+      <div class="event-ticket-icon">
+        <img src="<%= asset_path('ticket-icon.png') %>" alt="Ticket Icon" style="width: 40px; height: 40px; border-radius: 50%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">
+      </div>
+    </div>
   </div>
 </div>

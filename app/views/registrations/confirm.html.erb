@@ -1,24 +1,10 @@
 <h1>You Are Registered!</h1>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @gig.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @gig.description %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @gig.location %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @gig.time %>
-</p>
+<div class="cards pb-4">
+        <%= render partial: 'card', collection: @registrations, as: :registration %>
+</div>
 
 
 <%= link_to "Back to Search", root_path, class: "btn btn-flat" %>

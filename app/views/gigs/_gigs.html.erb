@@ -1,12 +1,16 @@
 <div class="upcoming-events-card">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="col-2"/>
-  <div class="cupcoming-events-card-infos col-5">
+  <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" class="col-4"/>
+  <div class="upcoming-events-card-infos col-4">
+
     <div class="pb-2">
       <%#  Turns the time into a Day, Date, Month, Year format %>
-      <%= gig.time.strftime("%A, %d %B %Y") %>
+      <h3 class="top-heading"><%= gig.time.strftime("%a, %b %e %Y") %>
+      <br><%= gig.time.strftime("%I:%M %P") %>
+      </h3>
     </div>
     <div class="pb-2">
-      <h4><%= gig.name %></h4>
+      <h4 class="middle-heading"><%= gig.event_name %>:</h4>
+      <h4><%= gig.band %> (<%= gig.genre_list %>)</h4>
     </div>
     <div>
       <strong><i class="fa-solid fa-location-dot"></i></strong> <%= gig.location %>
@@ -14,9 +18,11 @@
   </div>
   <div class="col-3">
     <%#  %>
-    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, new_gig_registration_path(gig), class: 'btn btn-flat' %>
+    <div>
+    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
     <div>
       <%# TODO: Get the gigs/show page %>
-      <a href="details-page.html" class="btn btn-flat"><i class="fa-solid fa-circle-info"></i> </a></div>
+    <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat' %>
+</div>
   </div>
 </div>

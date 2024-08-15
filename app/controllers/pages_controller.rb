@@ -4,7 +4,18 @@ class PagesController < ApplicationController
   def home
     @gigs = Gig.all
     @locations = ["Shibuya", "Shinjuku", "Koenji", "Shimokitazawa", "Asagaya", "Meguro"]
-    @genres = ActsAsTaggableOn::Tag.all
+
+    # WUP
+    Rails.logger.debug "Genre parameter: #{params[:genre]}"
+
+    genre = params[:genre]
+    if genre
+      decoded_genre = CGI.unescape(genre)
+      Rails.logger.debug "Decoded genre: #{decoded_genre}"
+      @genres = ActsAsTaggableOn::Tag.where("name LIKE ?", "%#{decoded_genre}%")
+    else
+      @genres = ActsAsTaggableOn::Tag.all
+    end
 
     p params
     # search by name, location
