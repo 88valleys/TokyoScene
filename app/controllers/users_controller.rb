@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   # end
 
   def dashboard
+    @genres = ActsAsTaggableOn::Tag.all
   end
 
   # genres
@@ -33,13 +34,13 @@ class UsersController < ApplicationController
 
   def remove_genre
     p @user
-    @user.genre_list.remove(user_params.genre)
+    @user.genre_list.remove(user_params[:genre])
     @user.save
     redirect_to dashboard_path(@user), notice: 'Genre removed successfully.'
   end
 
   def add_genre
-    @user.genre_list.add(user_params.genre)
+    @user.genre_list.add(user_params[:genre])
     @user.save
     redirect_to dashboard_path(@user), notice: 'Genre added successfully.'
   end
