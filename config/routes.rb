@@ -23,18 +23,28 @@ Rails.application.routes.draw do
   get "dashboard" => "users#dashboard"
 
   # ROUTES: WIP
-  resource :user, only: [:show, :edit, :update]
+  resource :user, only: [:show, :edit, :update] do
+  # Route for chatrooms that a user is registered to
+    resources :chatrooms, only: [:index]
+  end
 
   # GIG ROUTES
-  resources :gigs
+  # http://127.0.0.1:3000/gigs/276/chatroom
+  resources :gigs do
+    resource :chatroom, only: [:create, :show, :new]
+  end
 
   # MESSAGE ROUTES
   get "gigs/:gig_id/messages/:id", to: "messages#show", as: "gig_message"
+
+  # CHATROOM ROUTES
+  resources :chatrooms, only: :show do
+    resources :messages, only: [:create]
+  end
 
   resources :users do
     get "registered_gigs", on: :member
     patch 'add_genre', on: :member
     patch 'remove_genre', on: :member
   end
-
 end

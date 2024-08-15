@@ -1,7 +1,15 @@
 require 'faker'
+require 'open-uri'
+
+Message.destroy_all
+Chatroom.destroy_all
+Registration.destroy_all
 Gig.destroy_all
 User.destroy_all
 
+puts "Destroying all messages..."
+puts "Destroying all chatrooms..."
+puts "Destroying all registrations..."
 puts "Destroying all gigs..."
 puts "Destroying all users..."
 
@@ -18,10 +26,7 @@ bands = [
   { band: 'Trombone Shorty & Orleans Avenue', description: 'Funk and soul band', genre: 'Funk Soul' },
   { band: 'BTS', description: 'Boy band', genre: 'K-pop' },
   { band: 'Supergrass', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'Allen Stone', description: 'Soul singer', genre: 'Soul' },
   { band: 'Coldplay', description: 'Pop rock band', genre: 'Pop Rock' },
-  { band: 'Snarky Puppy', description: 'Jazz fusion band', genre: 'Jazz Fusion' },
-  { band: 'Mayer Hawthorne', description: 'Soul singer', genre: 'Soul' },
   { band: 'Free Nationals', description: 'Soul and funk band', genre: 'Soul' },
   { band: 'NewJeans', description: 'Girl group', genre: 'K-pop' },
   { band: 'Franz Ferdinand', description: 'Indie rock band', genre: 'Indie Rock' },
@@ -47,7 +52,6 @@ bands = [
   { band: 'NCT 127', description: 'Boy band', genre: 'K-pop' },
   { band: 'Hiatus Kaiyote', description: 'Future soul band', genre: 'Future Soul' },
   { band: 'Radiohead', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'St. Paul and The Broken Bones', description: 'Soul band', genre: 'Soul' },
   { band: 'Elbow', description: 'Alternative rock band', genre: 'Alternative Rock' },
   { band: 'TWICE', description: 'Girl group', genre: 'K-pop' },
   { band: 'Lianne La Havas', description: 'Soul singer-songwriter', genre: 'Soul' },
@@ -55,28 +59,36 @@ bands = [
   { band: 'The 1975', description: 'Pop rock band', genre: 'Pop Rock' },
   { band: 'Black Pumas', description: 'Psychedelic soul duo', genre: 'Psychedelic Soul' },
   { band: 'D’Angelo and The Vanguard', description: 'Neo-soul band', genre: 'Neo-Soul' },
-  { band: 'Snow Patrol', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'Stereophonics', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'Nathaniel Rateliff & The Night Sweats', description: 'Soul and R&B band', genre: 'Soul' },
   { band: 'ITZY', description: 'Girl group', genre: 'K-pop' },
   { band: 'Keane', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'Travis', description: 'Post-Britpop band', genre: 'Post-Britpop' },
   { band: 'The Internet', description: 'Soul and funk band', genre: 'Soul' },
   { band: 'Red Velvet', description: 'Girl group', genre: 'K-pop' },
   { band: 'The Verve', description: 'Alternative rock band', genre: 'Alternative Rock' },
   { band: 'Stray Kids', description: 'Boy band', genre: 'K-pop' },
   { band: 'Supergrass', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'Manic Street Preachers', description: 'Alternative rock band', genre: 'Alternative Rock' },
-  { band: 'PinkPantheress', description: 'Bedroom pop singer', genre: 'Pop' }
+  { band: 'PinkPantheress', description: 'Bedroom pop singer', genre: 'Pop' },
+  { band: 'His & Her Circumstances', description: 'Heart on your sleeve emo rock', genre: 'Emo Rock'}
 ]
 
-40.times do |i|
-  user = User.create!(email: "user-#{i + 1}@example.com", password: "123456")
+# Method to generate a nickname based on the band name
+def generate_nickname(band_name)
+  band_name.split.map(&:first).join.upcase
+end
+
+# Create users for each band and store them in the bands array
+bands.each do |band_info|
+  email = Faker::Internet.unique.email
+  user = User.create!(email: email, password: '123456', nickname: generate_nickname(band_info[:band]))
+  band_info[:user] = user
+  user.save!
+end
+
+10.times do |i|
   band_info = bands[i % bands.size]
   gig = Gig.create!(
-    user: user,
+    user: band_info[:user], # Associate the user with the gig
     band: band_info[:band],
-    time: Faker::Date.between(from: Date.today, to: '2025-12-31'),
+    time: Faker::Date.between(from: Date.today, to: '2024-12-31'),
     description: band_info[:description],
     location: address.sample,
     event_name: event_names.sample
@@ -85,19 +97,49 @@ bands = [
   gig.save!
 end
 
-user = User.create!(email: "senie@senie.com", password: "123456")
+# Fetch all gigs
+gigs = Gig.all
 
-# Sample gig for H&HC
-Gig.create!(
-  user: user,
-  band: "His & Her Circumstances",
-  time: Faker::Date.between(from: Date.today, to: '2025-12-31'),
-  description: "Heart on your sleeve emo rock",
-  location: "Budoukan",
-  event_name: event_names.sample,
-  genre_list: "Emo Rock"
-)
+# Iterate over each gig and create a chatroom
+gigs.each do |gig|
+  chatroom = gig.build_chatroom(
+    name: "#{gig.event_name} - #{gig.band}",
+  )
+  if chatroom.save
+    puts "Chatroom created for gig: #{gig.event_name} - #{gig.band}"
+  else
+    puts "Failed to create chatroom for gig: #{gig.event_name} - #{gig.band}"
+  end
+end
+
+# Create users and store them in an array
+users = [
+  { email: 'senie@senie.com', password: '123456', nickname: 'Senie' },
+  { email: 'dianna@dianna.com', password: '123456', nickname: 'Dianna' },
+  { email: 'yoosun@yoosun.com', password: '123456', nickname: 'Yoosun' },
+  { email: 'erika@erika.com', password: '123456', nickname: 'Erika' }
+]
+
+# Create users, attaches profile photo and adds to the user
+created_users = users.map do |user_data|
+  user = User.create!(user_data)
+  user_profile_pic = "https://picsum.photos/200/200?random=#{rand(1..1000)}"
+  user.profile_pic.attach(io: URI.open(user_profile_pic), filename: "#{user_data[:nickname].downcase}.jpg")
+  user
+end
+
+# Fetch the first and second gigs
+first_gig = gigs.first
+second_gig = gigs.second
+third_gig = gigs.third
+
+# Loop through each user and create registrations for both gigs
+created_users.each do |user|
+  Registration.create!(user_id: user.id, gig_id: first_gig.id)
+  Registration.create!(user_id: user.id, gig_id: second_gig.id)
+  Registration.create!(user_id: user.id, gig_id: third_gig.id)
+end
 
 puts "Created #{User.count} users!"
 puts "Created #{Gig.count} gigs!"
-
+puts "Created #{Registration.count} registrations!"
