@@ -44,8 +44,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get "registered_gigs", on: :member
+    patch 'add_genre', on: :member
+    patch 'remove_genre', on: :member
   end
-
-
-
 end
