@@ -1,20 +1,47 @@
-<h2>Gig Info</h2>
+<!--<h2>Gig Info</h2>
+
 <p>
   <strong>Artist:</strong>
   <%= @gig.name %>
 </p>
+
 <p>
   <strong>Description:</strong>
   <%= @gig.description %>
 </p>
+
 <p>
   <strong>Location:</strong>
   <%= @gig.location %>
 </p>
+
 <p>
   <strong>Date:</strong>
   <%= @gig.time %>
 </p>
+-->
+<div class="container p-3">
+<div class="confirm-card">
+  <img src="<%= @gig.band_image_url %>" alt="Event Image">
+  <div class="confirm-card-content">
+    <div class="confirm-card-title">
+      <h1><%= @gig.event_name %></h1>
+      <span><%= @gig.band %><br>
+        nowheres</span>
+    </div>
+    <div class="confirm-card-location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span><%= @gig.location %></span>
+    </div>
+    <div class="confirm-card-date">
+      <%= @gig.time.strftime("%a, %b %e %Y") %><br>
+      <%= @gig.time.strftime("%I:%M %P") %>
+    </div>
+  </div>
+</div>
+
 <%= simple_form_for [@gig, @registration] do |f| %>
   <%= f.submit "Register", style: 'background-color: purple; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 4px;' %>
 <% end %>
+
+</div>
