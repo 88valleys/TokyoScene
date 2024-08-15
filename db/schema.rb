@@ -52,16 +52,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
 
   create_table "gigs", force: :cascade do |t|
     t.string "name"
-    t.date "time"
+    t.datetime "time"
     t.text "description"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
     t.float "latitude"
     t.float "longitude"
     t.string "location_name"
-    t.string "genre"
     t.string "event_name"
     t.string "band"
     t.string "band_image_url"

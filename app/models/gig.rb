@@ -7,11 +7,13 @@ class Gig < ApplicationRecord
 
   # search form
   include PgSearch::Model
-  pg_search_scope :search_by_band_and_description_and_location,
-  against: [ :band, :description, :location  ],
+
+  pg_search_scope :search_by_name_and_location,
+  against: [ :name, :location ],
   using: {
-    tsearch: { prefix: true }
+    tsearch: { prefix: true } # Allows partial matching (e.g., "search" will match "search", "searched", "searching")
   }
+
   has_many :registrations
   has_many :messages
 
