@@ -1,0 +1,101 @@
+.chat-event-card-container {
+  margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+.chat-event-card {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  height: 160px; /* Set a fixed height for the entire card */
+}
+
+.image-section {
+  flex: 0 0 160px; /* Make this section a fixed width */
+  height: 100%; /* Ensure the height of this section matches the card */
+}
+
+.chat-image-section img {
+  width: 150px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-info-section {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.chat-date-time {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.chat-event-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin: 5px 0;
+}
+
+.chat-location {
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.location-icon {
+  width: 12px;
+  height: 12px;
+  // background-image: url('location-icon.png');
+  background-size: cover;
+  margin-right: 5px;
+}
+
+.chat-buttons-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+.scrollable-container {
+  max-height: calc(4 * 200px); /* Adjust 200px to the approximate height of one card */
+  overflow-y: auto;
+}
+
+.icon-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #7f5fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button.ticket {
+  // background-image: url('ticket-icon.png');
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.icon-button.info {
+  // background-image: url('info-icon.png');
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.no-underline-link {
+  text-decoration: none;
+}
+
+.white-icon {
+  color: white;
+}

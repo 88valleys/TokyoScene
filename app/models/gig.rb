@@ -1,6 +1,7 @@
 class Gig < ApplicationRecord
   belongs_to :user
   acts_as_taggable_on :genre
+  has_one :chatroom, dependent: :destroy
   geocoded_by :location
   after_validation :geocode
 
