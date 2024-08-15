@@ -1,4 +1,12 @@
 class RegistrationsController < ApplicationController
+  
+  def index
+    @registrations = current_user.registrations.includes(gig: :chatroom)
+  end
+  def registrations
+    @registrations = current_user.registrations.includes(:gig)
+  end
+  
   def confirm
     #@gig = Gig.find(params[:gig_id])
     @registrations = current_user.registrations.includes(:gig)

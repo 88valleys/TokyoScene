@@ -1,53 +1,54 @@
 <div class="container p-3">
-<h3> Your Upcoming Events </h3>
-
-<div class="d-flex flex-column justify-content-center align-items-center">
-<% @user.registrations.each do |registration| %>
-
-<div class="upcoming-events-card">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="upcoming-events-card-infos">
-    <h2> <%= registration.gig.event_name %></h2>
-    <p><%= registration.gig.time %></p>
-    <p><%= registration.gig.location %></p>
-    <p><%= registration.status %></p>
-    <%= button_to "Unregister", gig_registration_path(registration.gig_id, registration.id), :method => :delete %>
+  <h1 class="mb-3">🎉 Upcoming Gigs</h1>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <% @user.registrations.each do |registration| %>
+      <div class="dashboard-gig-card-container">
+        <div class="dashboard-gig-card">
+          <div class="dashboard-gig-image-section">
+            <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>"/>
+          </div>
+          <div class="dashboard-gig-info-section">
+            <p class="dashboard-gig-date-time">
+              <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
+              <%= registration.gig.time.strftime("%I:%M %P") %>
+            </p>
+            <h1 class="dashboard-gig-title"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
+            <p class="dashboard-gig-location"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location %></p>
+          </div>
+          <div class="dashboard-gig-buttons-section">
+            <%= link_to chatroom_path(registration.chatroom), class: 'no-underline-link' do %>
+              <div class="icon-button ticket">
+                <i class="fa-solid fa-comment white-icon"></i>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+  <h3> My Favorite Genres </h3>
+  <% @user.genre_list.each do |genre| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= genre %>
+      <%= button_to 'Remove', remove_genre_user_path(@user, user: @user, genre: genre), method: :patch, class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+  <h1>Edit Your Genres</h1>
+  <%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
+    <div class="form-group">
+      <%= f.input :genres, as: :text, label: 'Favorite Genres', input_html: { value: @user.genre_list.join(', ') } %>
+    </div>
+    <%= f.submit 'Update Genres', class: 'btn btn-primary' %>
+  <% end %>
+  <h1>Add New Genre</h1>
+  <%= simple_form_for :genre, url: add_genre_user_path(@user), method: :patch do |f| %>
+    <%= f.input :name, as: :string, label: 'New Genre' %>
+    <%= f.submit 'Add Genre', class: 'btn btn-success' %>
+  <% end %>
+  <h3> My Favorite Artists </h3>
+  <% @user.artist_list.each do |artist| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= artist %>
+    </div>
+  <% end %>
 </div>
-<% end %>
-</div>
-
-<h3> My Favorite Genres </h3>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Add Genre
-  </button>
-  <ul class="dropdown-menu scrollable-dropdown">
-    <% @genres.each do |genre| %>
-      <li><%= button_to genre, add_genre_user_path(@user, user: {genre: genre.name}), method: :patch %></li>
-      <%end %>
-    </ul>
-  </div>
-
-<div class="d-flex flex-row justify-content-space-around align-items-center">
-<% @user.genre_list.each do |genre| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    <%= genre %>
-    <%= button_to 'Remove', remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger' %>
-  </div>
-<% end %>
-</div>
-
-<%# <h3> My Favorite Artists </h3>
-<% @current_user.artist_list.each do |genre| %>
-<%#
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    <%= artist %>
-  <%# </div>
-<% end %>
-
-</div>
-
-
-
-<!-- app/views/users/edit.html.erb -->

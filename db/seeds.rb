@@ -13,7 +13,7 @@ puts "Destroying all registrations..."
 puts "Destroying all gigs..."
 puts "Destroying all users..."
 
-address = ["Asakusa", "Shibuya", "Odaiba", "Shinjuku", "Ginza", "Meguro", "Akihabara", "Roppongi", "Harajuku", "Ikebukuro", "Ueno", "Yanaka", "Kichijoji", "Shimokitazawa", "Nakameguro", "Ebisu", "Koenji", "Ogikubo", "Setagaya", "Roppongi Hills", "Kagurazaka", "Jimbocho", "Yoyogi", "Nihonbashi", "Aoyama", "Shimo-Kitazawa", "Daikanyama", "Tokyo Station", "Ochanomizu", "Hongo", "Tsukiji", "Kappabashi", "Sangenjaya", "Tama"] 
+address = ["Asakusa", "Shibuya", "Odaiba", "Shinjuku", "Ginza", "Meguro", "Akihabara", "Roppongi", "Harajuku", "Ikebukuro", "Ueno", "Yanaka", "Kichijoji", "Shimokitazawa", "Nakameguro", "Ebisu", "Koenji", "Ogikubo", "Setagaya", "Roppongi Hills", "Kagurazaka", "Jimbocho", "Yoyogi", "Nihonbashi", "Aoyama", "Shimo-Kitazawa", "Daikanyama", "Tokyo Station", "Ochanomizu", "Hongo", "Tsukiji", "Kappabashi", "Sangenjaya", "Tama"]
 
 event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"]
 

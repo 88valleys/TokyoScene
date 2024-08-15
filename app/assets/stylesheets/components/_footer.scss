@@ -21,8 +21,8 @@
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 
     // keep footer at the bottom
-    position: sticky;
-    // position: fixed;
+    // position: sticky;
+    position: fixed;
     bottom: 0;
     z-index: 5; /* Lower than gigs-partial */
 }
