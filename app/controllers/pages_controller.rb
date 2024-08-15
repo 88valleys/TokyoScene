@@ -6,14 +6,41 @@ class PagesController < ApplicationController
     @locations = ["Shibuya", "Shinjuku", "Koenji", "Shimokitazawa", "Asagaya", "Meguro"]
     @genres = ActsAsTaggableOn::Tag.all
 
-    # search by name, description, location
+    p params
+    # search by name, location
     if params[:query].present?
-      @gigs = Gig.search_by_name_and_description_and_location(params[:query])
+      @gigs = Gig.search_by_name_and_location(params[:query])
+      p @gigs
       flash[:notice] = "There are no results for the search" if @gigs.empty?
     end
 
     # filter by location
     @gigs = @gigs.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
+
+    # filter by recommended
+    if current_user
+      @gigs = Gig.all
+      if current_user.fav_genres.present?
+        @gigs = @gigs.tagged_with(current_user.fav_genres)
+      end
+      # if current_user.fav_artists.present?
+      #   @gigs = @gigs.where('artist ILIKE ?', "%#{current_user.fav_artists}%")
+      # end
+      if @gigs.any?
+        @markers = @gigs.geocoded.map do |gig|
+          {
+            lat: gig.latitude,
+            lng: gig.longitude,
+            info_window_html: render_to_string(partial: "gigs/gigs", locals: { gig: gig })
+          }
+        end
+      end
+
+      @markers ||= []
+    else
+      flash[:alert] = "You need to be logged in to get recommendations."
+      redirect_to new_user_session_path
+    end
 
     # filter by genre
     @gigs = @gigs.tagged_with(params[:genre]) if params[:genre].present?

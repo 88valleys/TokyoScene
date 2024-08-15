@@ -9,17 +9,21 @@
     <% end %>
   </ul>
 </div>
-<!--Dropdown-2 recommended
+<!--Dropdown-2 recommended-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    recommended
+    Recommended
   </button>
   <ul class="dropdown-menu">
-    <% @locations.each do |location| %>
-      <li><a class="dropdown-item" href="#"><%= location %></a></li>
-    <%end %>
+    <% if current_user %>
+      <% @gigs.each do |gig| %>
+        <li><a class="dropdown-item" href="<%= gig_path(gig) %>"><%= gig.name %></a></li>
+      <% end %>
+    <% else %>
+      <li><span class="dropdown-item">No recommendations available</span></li>
+    <% end %>
   </ul>
-</div>-->
+</div>
 <!--Dropdown-3 genre-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
