@@ -1,6 +1,8 @@
 <div class="container chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <h1>#<%= @chatroom.name %></h1>
+  <h1><i class="fa-solid fa-comment"></i> <%= @chatroom.name %></h1>
+    <p> <%= @chatroom.gig.time.strftime("%a, %b %e %Y")  %>
+
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
