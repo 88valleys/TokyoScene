@@ -9,20 +9,9 @@
     <% end %>
   </ul>
 </div>
-<!--Dropdown-2 recommended-->
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Recommended
-  </button>
-  <ul class="dropdown-menu">
-    <% if current_user %>
-      <% @gigs.each do |gig| %>
-        <li><a class="dropdown-item" href="<%= gig_path(gig) %>"><%= gig.name %></a></li>
-      <% end %>
-    <% else %>
-      <li><span class="dropdown-item">No recommendations available</span></li>
-    <% end %>
-  </ul>
+<!--Button-2 recommended-->
+<div class="dropdown custom-dropdown">
+  <%= button_to 'Recommended', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button' %>
 </div>
 <!--Dropdown-3 genre-->
 <div class="dropdown">
@@ -37,10 +26,10 @@
   </div>
   <!--Dropdown-4  date-->
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Date
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu scrollable-dropdown">
       <li><a class="dropdown-item" href="?date_range=tonight">Tonight</a></li>
       <li><a class="dropdown-item" href="?date_range=weekend">This Weekend</a></li>
       <li><a class="dropdown-item" href="?date_range=month">This Month</a></li>

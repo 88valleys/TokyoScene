@@ -1,6 +1,6 @@
 <!-- Search bar -->
-<%= form_with url: gigs_path, method: :get, class: "search-bar" do %>
-  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by band, genre, date..." %>
+<%= form_with url: root_path, method: :get, class: "search-bar" do %>
+  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by event name, location..." %>
   <%= button_tag(type: 'submit', class: 'btn') do %>
     <i class='fa-solid fa-magnifying-glass'></i>
   <% end %>
