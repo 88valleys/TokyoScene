@@ -9,8 +9,6 @@ export default class extends Controller {
   }
 
 get_modal(event) {
-  console.log(this.idValue)
-  console.log(event.target)
   const parser = new DOMParser()
   fetch(`http://127.0.0.1:3000/gigs/${this.idValue}`)
    .then(response => response.text())
