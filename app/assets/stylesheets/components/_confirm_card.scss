@@ -1,5 +1,5 @@
 .confirm-card {
-    width: 350px;
+    width: 80%;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -7,9 +7,10 @@
 }
 .confirm-card img {
     width: 100%;
-    height: auto;
+    height: 500px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    object-fit: cover;
 }
 .confirm-card-content {
     padding: 16px;
@@ -40,6 +41,15 @@
     margin-right: 6px;
 }
 .confirm-card-date {
+    display: inline-block;
+    background-color: #8A68CE;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.register-button {
     display: inline-block;
     background-color: #8A68CE;
     color: white;
