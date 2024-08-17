@@ -14,8 +14,12 @@
     height: 90vh; // Full height of the viewport
     overflow: hidden; // Prevent scrolling
   }
-  
+
   .mapbox {
     width: 100%;
     height: 100%;
+  }
+
+  svg {
+    color: #95389E
   }
