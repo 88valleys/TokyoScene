@@ -27,7 +27,6 @@ address = [
 ]
 
 event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"].shuffle
-
 bands = [
   { band: 'Red Velvet', description: 'Girl group', genre: 'K-pop' },
   { band: 'Arctic Monkeys', description: 'Indie rock band', genre: 'Indie Rock' },
@@ -99,7 +98,7 @@ end
   gig = Gig.create!(
     user: band_info[:user], # Associate the user with the gig
     band: band_info[:band],
-    time: Faker::Date.between(from: Date.today, to: '2024-12-31'),
+    time: Faker::Date.between(from: Date.today, to: 30.days.from_now),
     description: band_info[:description],
     location: address.pop,
     event_name: event_names.sample

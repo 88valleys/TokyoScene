@@ -6,12 +6,11 @@ class PagesController < ApplicationController
     @gigs = Gig.all
 
     # Initialize @genres
-    @genres = ActsAsTaggableOn::Tag.all
+    unique_genres = ["K-pop", "Indie Rock", "Soul", "Funk", "Funk Soul", "Alternative Rock", "Pop Rock", "Britpop", "Rock", "Soul Pop", "R&B", "Modern Soul", "Future Soul", "Psychedelic Soul", "Neo-Soul", "Pop", "Emo Rock"]
+    @genres = unique_genres.map { |genre| ActsAsTaggableOn::Tag.find_or_create_by(name: genre) }
 
-    # search by name, location
-    if params[:query].present?
-      @gigs = @gigs.search_by_name_and_location(params[:query])
-    end
+    # Search by gig's location and name(event_name)
+    @gigs = @gigs.search_by_name_and_location(params[:query]) if params[:query].present?
 
     # recommend gigs
     if current_user
@@ -23,20 +22,15 @@ class PagesController < ApplicationController
       redirect_to new_user_session_path and return
     end
 
-    # filter by genre
-    if params[:genre].present?
-      @gigs = @gigs.tagged_with(params[:genre])
-    end
+    # Filter by genre
+    @gigs = @gigs.tagged_with(params[:genre]) if params[:genre].present?
 
-    # filter by date
-    if params[:time].present?
-      @gigs = filter_by_date(@gigs, params[:time])
-    end
+    # Filter by date
+    @gigs = filter_by_date(@gigs, params[:date_range]) if params[:date_range].present?
 
-    # set map markers
+    # Set map markers
     @markers = @gigs.geocoded.map do |gig|
-      {
-        lat: gig.latitude,
+      { lat: gig.latitude,
         lng: gig.longitude,
         info_window_html: render_to_string(partial: "gigs/gigs", locals: { gig: gig })
       }
@@ -52,8 +46,8 @@ class PagesController < ApplicationController
     when 'tonight'
       gigs.where('time >= ? AND time < ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day)
     when 'this_weekend'
-      start_of_weekend = Time.zone.now.end_of_week(:mondey)
-      end_of_weekend = start_of_weekend + 2.days
+      end_of_weekend = Time.zone.now.end_of_week(:monday)
+      start_of_weekend = (end_of_weekend - 1.day).beginning_of_day
       gigs.where('time >= ? AND time < ?', start_of_weekend, end_of_weekend)
     when 'this_month'
       gigs.where('time >= ? AND time < ?', Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
@@ -65,5 +59,4 @@ class PagesController < ApplicationController
       gigs
     end
   end
-
 end
