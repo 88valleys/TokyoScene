@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <h3> My Favorite Genres </h3>
-  <div class="dropdown">
+  <div class="dropdown" style="margin-bottom: 15px;">
   <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Add Genre
   </button>
@@ -39,12 +39,17 @@
       <%end %>
     </ul>
   </div>
-  <% @user.genre_list.each do |genre| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= genre %>
-      <%= button_to 'Remove', remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger' %>
+
+ <div class= "d-flex justify-content-around overflow-auto">
+ <% @user.genre_list.each do |genre| %>
+    <div class="d-inline" style="margin-right:  10px;">
+      <div class="card-category d-flex flex-column justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= genre %>
+       <%= button_to 'X', remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger' %>
+      </div>
     </div>
   <% end %>
+</div>
 
 
   <h3> My Favorite Artists </h3>
