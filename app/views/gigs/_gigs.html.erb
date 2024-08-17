@@ -1,4 +1,4 @@
-<div class="upcoming-events-card">
+<div class="upcoming-events-card" data-controller="modal" data-modal-id-value=<%= gig.id %>>
   <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" class="col-4"/>
   <div class="upcoming-events-card-infos col-4">
     <div class="pb-2">
@@ -20,10 +20,29 @@
   <div class="col-3">
     <%#  %>
     <div>
-      <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
-      <div>
-        <%# TODO: Get the gigs/show page %>
-        <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat' %>
+    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
+    <div>
+      <%# TODO: Get the gigs/show page %>
+   <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat', data: { bs_toggle: "modal", bs_target: "#myModal", action: "click->modal#get_modal" } %>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" data-modal-target="modalBody">
+        <!-- Modal content goes here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>
+
+</div>
+  </div>
+</div>
