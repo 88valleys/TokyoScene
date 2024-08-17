@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- Water drop shape -->
+  <path
+    d="M12 2C8.2 2 5 5.2 5 9c0 3.8 7 11 7 11s7-7.2 7-11c0-3.8-3.2-7-7-7z"
+    fill="#db6de3"
+    stroke="black"
+    stroke-width="1.5"
+  />
+
+  <!-- Inner circle -->
+  <circle
+    cx="12"
+    cy="10"
+    r="3"
+    fill="white"
+    stroke="black"
+    stroke-width="2"
+  />
+</svg>
