@@ -5,7 +5,9 @@
       <div class="dashboard-gig-card-container">
         <div class="dashboard-gig-card">
           <div class="dashboard-gig-image-section">
+          <%= link_to gig_path(registration.gig) do %>
             <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>"/>
+          <% end %>
           </div>
           <div class="dashboard-gig-info-section">
             <p class="dashboard-gig-date-time">
