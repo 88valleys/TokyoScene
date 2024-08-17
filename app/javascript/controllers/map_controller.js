@@ -8,17 +8,16 @@ export default class extends Controller {
     markers: Array,
   };
 
-  static targets = ["mapElement", "gig"]
+  static targets = ["mapElement", "gig"];
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
 
     this.map = new mapboxgl.Map({
       container: this.mapElementTarget,
-      style: "mapbox://styles/mapbox/streets-v10",
+      style: "mapbox://styles/erikasmile/clzxtyhiz004301oedck405kp",
       center: [139.7670, 35.6814], // Central Tokyo coordinates
       zoom: 10 // starting zoom
-
     });
 
     // adds Zoom control in the map
@@ -40,18 +39,14 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      // Popup loads up _info_window.html.erb partial
-      // const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      const contentWrapper = document.querySelector('.content-wrapper');
+      // Create a custom marker element with the SVG
+      const el = document.createElement('div');
+      el.innerHTML = `<img src="${this.imagePath('marker.svg')}" width="60" height="60"/>`;
 
-      const markerObject = new mapboxgl.Marker()
+      // Create the marker
+      new mapboxgl.Marker(el)
         .setLngLat([marker.lng, marker.lat])
-        // .setPopup(popup)
-        .addTo(this.map); // use GetElement to get HTML Element from marker and add event
-        markerObject.getElement().addEventListener("click", () => {
-        // alert("Clicked");
-        this.gigTarget.innerHTML = marker.info_window_html;
-      });
+        .addTo(this.map);
     });
   }
 
@@ -61,5 +56,10 @@ export default class extends Controller {
       [139.8000, 35.7100] // Northeast coordinates of central Tokyo
     );
     this.map.fitBounds(bounds, { padding: 20 });
+  }
+
+  // Helper function to get the asset path
+  imagePath(filename) {
+    return `/assets/${filename}`;
   }
 }
