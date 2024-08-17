@@ -13,9 +13,20 @@ puts "Destroying all registrations..."
 puts "Destroying all gigs..."
 puts "Destroying all users..."
 
-address = ["Asakusa", "Shibuya", "Odaiba", "Shinjuku", "Ginza", "Meguro", "Akihabara", "Roppongi", "Harajuku", "Ikebukuro", "Ueno", "Yanaka", "Kichijoji", "Shimokitazawa", "Nakameguro", "Ebisu", "Koenji", "Ogikubo", "Setagaya", "Roppongi Hills", "Kagurazaka", "Jimbocho", "Yoyogi", "Nihonbashi", "Aoyama", "Shimo-Kitazawa", "Daikanyama", "Tokyo Station", "Ochanomizu", "Hongo", "Tsukiji", "Kappabashi", "Sangenjaya", "Tama"]
+address = [
+  "Asakusa, Edo-dori Avenue, Kaminarimon 2-chome, Taito, Tokyo, 111-0034, Japan S",
+  "Odaiba, ウエストプロムナード, Daiba 1-chome, Daiba, Minato, Tokyo, 135-8625, Japan",
+  "Toho Cinemas, 1, Kabukicho 1, Kabukicho, Shinjuku, Tokyo, 160-0021, Japan ",
+  "Ginza Six, 1, Ginza 6-chome, Chuo, Tokyo, 104-0061, Japan",
+  "Asagaya, Star Road, Asagaya kita 2, Asagaya kita, Kōenji, Suginami, Tokyo, 166-0004, Japan Station ",
+  "Akihabara Station, 6, Soto-Kanda 1-chome, 外神田, Chiyoda, Tokyo, 101-0021, Japan",
+  "Roppongi Hills, Mafu Tunnel, Roppongi 6-chome, Roppongi, Azabu, Minato, Tokyo, 106-6122, Japan ",
+  "Meiji Jingu Shrine, 1, Yoyogi Kamizono-chō, Shibuya, Tokyo, 151-8557, Japan",
+  "Ikebukuro, 池袋駅 西武南口, Minami-Ikebukuro 1-chome, South Ikebukuro, Toshima, Tokyo, 171-8569, Japan",
+  "Sangenjaya, Setagaya, Tokyo, 154-0024, Japan Quarter"
+]
 
-event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"]
+event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"].shuffle
 
 bands = [
   { band: 'Red Velvet', description: 'Girl group', genre: 'K-pop' },
@@ -90,7 +101,7 @@ end
     band: band_info[:band],
     time: Faker::Date.between(from: Date.today, to: '2024-12-31'),
     description: band_info[:description],
-    location: address.sample,
+    location: address.pop,
     event_name: event_names.sample
   )
   gig.genre_list.add(band_info[:genre])

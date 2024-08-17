@@ -8,11 +8,9 @@ class PagesController < ApplicationController
     # Initialize @genres
     @genres = ActsAsTaggableOn::Tag.all
 
-    p params
     # search by name, location
     if params[:query].present?
       @gigs = @gigs.search_by_name_and_location(params[:query])
-      p @gigs
     end
 
     # filter by location
