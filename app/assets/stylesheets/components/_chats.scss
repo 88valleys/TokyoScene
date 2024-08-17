@@ -1,5 +1,6 @@
 .chat-event-card-container {
-  margin-bottom: 20px; /* Adjust the value as needed */
+  margin-bottom: 15px; /* Adjust the value as needed */
+  color: white;
 }
 
 .chat-event-card {
@@ -9,12 +10,12 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 380px;
-  height: 160px; /* Set a fixed height for the entire card */
+  height: 120px; 
 }
 
 .image-section {
-  flex: 0 0 160px; /* Make this section a fixed width */
-  height: 100%; /* Ensure the height of this section matches the card */
+  flex: 0 0 160px; 
+  height: 100%; 
 }
 
 .chat-image-section img {
@@ -26,6 +27,7 @@
 .chat-info-section {
   padding: 15px;
   flex-grow: 1;
+  margin: 0 auto;
 }
 
 .chat-date-time {
@@ -99,3 +101,4 @@
 .white-icon {
   color: white;
 }
+
