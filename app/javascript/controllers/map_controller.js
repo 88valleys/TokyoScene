@@ -15,7 +15,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.mapElementTarget,
-      style: "mapbox://styles/erikasmile/clzxtyhiz004301oedck405kp",
+      style: "mapbox://styles/erikasmile/clzxtyhiz004301oedck405kp", // Use your custom style
       center: [139.7670, 35.6814], // Central Tokyo coordinates
       zoom: 10 // starting zoom
     });
@@ -44,9 +44,14 @@ export default class extends Controller {
       el.innerHTML = `<img src="${this.imagePath('marker.svg')}" width="60" height="60"/>`;
 
       // Create the marker
-      new mapboxgl.Marker(el)
+      const markerObject = new mapboxgl.Marker(el)
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
+
+      // Add click event to show info window
+      markerObject.getElement().addEventListener("click", () => {
+        this.gigTarget.innerHTML = marker.info_window_html;
+      });
     });
   }
 
