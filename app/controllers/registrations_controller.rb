@@ -24,6 +24,11 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def destroy
+    @registration = Registration.find(params[:id])
+    @registration.destroy
+    redirect_to dashboard_path, notice: "Unregistered from event"
+  end
   private
 
   def registration_params

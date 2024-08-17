@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
     t.float "latitude"
     t.float "longitude"
     t.string "location_name"
+    t.string "genre"
     t.string "event_name"
     t.string "band"
     t.string "band_image_url"
