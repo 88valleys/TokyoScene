@@ -1,11 +1,11 @@
 <div class="upcoming-events-card">
   <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" class="col-4"/>
   <div class="upcoming-events-card-infos col-4">
-
     <div class="pb-2">
       <%#  Turns the time into a Day, Date, Month, Year format %>
       <h3 class="top-heading"><%= gig.time.strftime("%a, %b %e %Y") %>
-      <br><%= gig.time.strftime("%I:%M %P") %>
+        <br>
+        <%= gig.time.strftime("%I:%M %P") %>
       </h3>
     </div>
     <div class="pb-2">
@@ -13,16 +13,17 @@
       <h4><%= gig.band %> (<%= gig.genre_list %>)</h4>
     </div>
     <div>
-      <strong><i class="fa-solid fa-location-dot"></i></strong> <%= gig.location %>
+      <strong><i class="fa-solid fa-location-dot"></i></strong>
+      <%= gig.location.split(',').map(&:strip).find { |part| part.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/) }&.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/)[0] %>
     </div>
   </div>
   <div class="col-3">
     <%#  %>
     <div>
-    <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
-    <div>
-      <%# TODO: Get the gigs/show page %>
-    <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat' %>
-</div>
+      <%= link_to "<i class='fa-solid fa-ticket'></i>".html_safe, confirm_gig_registrations_path(gig), class: 'btn btn-flat' %>
+      <div>
+        <%# TODO: Get the gigs/show page %>
+        <%= link_to "<i class='fa-solid fa-circle-info'></i>".html_safe, gig_path(gig), class: 'btn btn-flat' %>
+      </div>
+    </div>
   </div>
-</div>
