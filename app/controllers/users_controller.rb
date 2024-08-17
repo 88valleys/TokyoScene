@@ -1,52 +1,69 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:dashboard, :add_genre, :remove_genre]
+  before_action :set_user, only: [:dashboard, :add_genre, :remove_genre, :add_artist, :remove_artist]
+
   def show
-    @user = User.find(params[:id])  # Assuming you have a User model and want to show a specific user profile
+    @user = User.find(params[:id])
   end
-
-  # def edit
-  #   @current_user = current_user
-  # end
-
-  # def update
-  #   @current_user = current_user
-
-  #   genres = params["user"]["genres"]
-  #   @current_user.genre_list.add(genres)
-  #   @current_user.save
-  #   # to do: redirect to profile page
-
-  #   redirect_to profile_path(@current_user)
-  # end
 
   def dashboard
     @genres = ActsAsTaggableOn::Tag.all
+    # Fetching all genres and artists for use in the dashboard
   end
-
-  # genres
-  # events
-  # artists
-  # recommendations
 
   def registered_gigs
     @registered_gigs = current_user.registered_gigs
   end
 
-  def remove_genre
-    p @user
-    @user.genre_list.remove(user_params[:genre])
-    @user.save
-    redirect_to dashboard_path(@user), notice: 'Genre removed successfully.'
-  end
-
   def add_genre
-    @user.genre_list.add(user_params[:genre])
-    @user.save
-    redirect_to dashboard_path(@user), notice: 'Genre added successfully.'
+    genre = params[:user][:genre].strip
+    if genre.present?
+      @user.genre_list.add(genre)
+      @user.save
+      redirect_to dashboard_path, notice: 'Genre added successfully.'
+    else
+      redirect_to dashboard_path, alert: 'Genre cannot be empty.'
+    end
   end
 
-  def user_params
-    params.require(:user).permit(:genre)
+  def remove_genre
+    genre = params[:user][:genre].strip
+    if genre.present?
+      @user.genre_list.remove(genre)
+      @user.save
+      redirect_to dashboard_path, notice: 'Genre removed successfully.'
+    else
+      redirect_to dashboard_path, alert: 'Genre cannot be empty.'
+    end
+  end
+
+  def add_artist
+    artist = params[:artist].to_s.strip  # Ensure this matches the form input name
+
+    if artist.present?
+      @user.artist_list.add(artist)
+      if @user.save
+        redirect_to dashboard_path, notice: 'Artist added successfully.'
+      else
+        redirect_to dashboard_path, alert: 'Failed to save user.'
+      end
+    else
+      redirect_to dashboard_path, alert: 'Artist cannot be blank.'
+    end
+  end
+
+  def remove_artist
+    artist = params[:artist].to_s.strip  # Ensure this matches the form input name
+
+    if artist.present?
+      @user.artist_list.remove(artist)
+      if @user.save
+        redirect_to dashboard_path, notice: 'Artist removed successfully.'
+      else
+        redirect_to dashboard_path, alert: 'Failed to save user.'
+      end
+    else
+      redirect_to dashboard_path, alert: 'Artist cannot be blank.'
+    end
   end
 
   private
@@ -55,12 +72,7 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def user_params
+    params.require(:user).permit(:genre, :artist)
+  end
 end
-
-# #genre management
-#   def add_genre
-#     genre = params[:genre]
-#     @current_user.genre_list.add(genre)
-#     @current_user.save
-#     redirect_to profile_path(@current_user), notice: 'Genre added successfully.'
-#   end
