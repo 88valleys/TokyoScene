@@ -13,11 +13,6 @@ class PagesController < ApplicationController
       @gigs = @gigs.search_by_name_and_location(params[:query])
     end
 
-    # filter by location
-    if params[:location].present?
-      @gigs = @gigs.where("location ILIKE ?", "%#{params[:location]}%")
-    end
-
     # recommend gigs
     if current_user
       if current_user.fav_genres.present?
