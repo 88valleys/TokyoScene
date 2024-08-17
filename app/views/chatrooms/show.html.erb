@@ -3,7 +3,7 @@
   <h1><i class="fa-solid fa-comment"></i> <%= @chatroom.name %></h1>
     <p> <%= @chatroom.gig.time.strftime("%a, %b %e %Y")  %>
 
-  <div class="messages">
+  <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
