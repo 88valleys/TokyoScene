@@ -1,19 +1,8 @@
-<!--Dropdown-1 location-->
-<div class="dropdown custom-dropdown">
-  <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Location
-  </button>
-  <ul class="dropdown-menu scrollable-dropdown">
-    <% @locations.each do |location| %>
-      <li><a class="dropdown-item" href="?location=<%= location %>"><%= location %></a></li>
-    <% end %>
-  </ul>
-</div>
-<!--Button-2 recommended-->
+<!--Button-1 recommended-->
 <div class="dropdown custom-dropdown">
   <%= button_to 'Recommended', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button' %>
 </div>
-<!--Dropdown-3 genre-->
+<!--Filter-2 genre-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Genre
@@ -24,7 +13,7 @@
       <%end %>
     </ul>
   </div>
-  <!--Dropdown-4  date-->
+  <!--Filter-3 date-->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Date
