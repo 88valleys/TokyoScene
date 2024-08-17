@@ -5,14 +5,13 @@ class Gig < ApplicationRecord
   geocoded_by :location
   after_validation :geocode
 
-  # search form
+  # Search form
   include PgSearch::Model
-
   pg_search_scope :search_by_name_and_location,
-  against: [ :name, :location ],
-  using: {
-    tsearch: { prefix: true } # Allows partial matching (e.g., "search" will match "search", "searched", "searching")
-  }
+    against: [:event_name, :location],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   has_many :registrations
   has_many :messages
@@ -20,7 +19,6 @@ class Gig < ApplicationRecord
   validates :band, :time, :user, :location, presence: true
 
   # Gets the band's image from Spotify's API and places it in the Gig model
-
   def fetch_band_image
     # IMPORTANT: calls spotify_service.rb class which authenticates user and allows for image to be pulled from spotify's API
     band_info = SpotifyService.search_artist(self.band)
@@ -32,5 +30,4 @@ class Gig < ApplicationRecord
   end
 
   # geocoded_by :location
-
 end
