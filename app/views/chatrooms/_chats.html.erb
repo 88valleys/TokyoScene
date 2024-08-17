@@ -6,9 +6,7 @@
 <div class="chat-info-section">
     <p class="chat-date-time">
     <%= chat.gig.time.strftime("%a, %b %e %Y") %><br>
-    <%= chat.gig.time.strftime("%I:%M %P") %>
     <h1 class="chat-event-title"><%= chat.gig.event_name %>: <%= chat.gig.band%></h1>
-    <p class="chat-location"><%= chat.gig.location %>
     </div>
     <div class="chat-buttons-section">
         <%= link_to chatroom_path(chat), class: 'no-underline-link' do %>
