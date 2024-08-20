@@ -1,13 +1,24 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="message <%= 'current-user' if message.user == current_user %>">
+  <!--  
   <small>
     <% if message.user.profile_pic.attached? %>
       <%= image_tag message.user.profile_pic.variant(resize_to_fill: [50, 50]), class: "profile-pic" %>
     <% end %>
     <div class="message-info">
-      <strong><%= message.user.nickname %></strong>
+      <%= message.user.nickname %></strong>
       <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
     </div>
   </small>
   <p><%= message.content %></p>
   </small>
-</div>
+  -->
+  <div class="message-info">
+    <%= message.created_at.strftime("%d %b %y") %>
+    <br>
+    <%= message.created_at.strftime("%l:%M %p") %>
+  </div>
+  <div class="text-message">      <strong><%= message.user.nickname %></strong>
+    <br>
+    <%= message.content %>
+      </div>
+    </div>
