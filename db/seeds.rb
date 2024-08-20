@@ -113,7 +113,7 @@ gigs = Gig.all
 # Iterate over each gig and create a chatroom
 gigs.each do |gig|
   chatroom = gig.build_chatroom(
-    name: "#{gig.event_name} - #{gig.band}",
+    name: "#{gig.event_name}: #{gig.band}",
   )
   if chatroom.save
     puts "Chatroom created for gig: #{gig.event_name} - #{gig.band}"

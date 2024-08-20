@@ -14,18 +14,13 @@
     <div class="wrapper">
       <!-- LEWAGON'S DEFAULT FOOTER -->
       <%# <%= render "shared/navbar" %>
-
       <!-- CUSTOM FOOTER FOR TOKYOSCENE-->
-      <%= render "layouts/navbar" %>
       <%= render "shared/flashes" %>
       <main class="content">
+        <%= render "layouts/navbar" %>
         <%= yield %>
+        <%= render "layouts/footer" %>
       </main>
-
-      <footer>
-      <%= render "layouts/footer" %>
-      </footer>
-      
     </div>
   </body>
 </html>
