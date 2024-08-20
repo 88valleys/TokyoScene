@@ -16,8 +16,8 @@
       <%= @gig.time.strftime("%a, %b %e %Y") %><br>
       <%= @gig.time.strftime("%I:%M %P") %>
     </div>
-    <div class="register-button">
-        <%= simple_form_for [@gig, @registration] do |f| %>
+    <div class="register-button" data-controller="sweetalert">
+        <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#fire"},  turbo: false } do |f| %> 
           <%= f.submit "Register", style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 4px;' %>
         <% end %>
     </div>

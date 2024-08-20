@@ -4,3 +4,5 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "@rails/actioncable"
+//= require sweetalert2
+//= require sweet-alert2-rails
