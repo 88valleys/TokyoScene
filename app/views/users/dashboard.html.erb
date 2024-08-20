@@ -1,4 +1,8 @@
 <div class="container p-3">
+  <% if @devise_mapping.omniauthable? %>
+    <%- @resource_class.omniauth_providers.each do |provider| -%>
+<%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(@resource_name, provider), data: { turbo: false } %><br />    <%- end -%>
+  <% end %>
   <h1 class="mb-3">🎉 Upcoming Gigs</h1>
 
   <!-- Horizontal scroll container for gigs -->
