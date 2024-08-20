@@ -1,6 +1,5 @@
 <div class="container p-3">
   <h1 class="mb-3">🎉 Upcoming Gigs</h1>
-
   <!-- Horizontal scroll container for gigs -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
     <div style="display: flex; flex-wrap: nowrap; gap: 15px; padding: 0 15px;">
@@ -18,7 +17,7 @@
                 <%= registration.gig.time.strftime("%I:%M %P") %>
               </p>
               <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0;"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
-              <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location %></p>
+              <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location.split(',').map(&:strip).find { |part| part.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/) }&.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/)[0] %></p>
             </div>
             <div class="dashboard-gig-buttons-section" style="position: absolute; bottom: 15px; right: 15px; display: flex; gap: 10px;">
               <%= link_to gig_path(registration.gig) do %>
@@ -33,7 +32,6 @@
       <% end %>
     </div>
   </div>
-
   <h3> My Favorite Genres </h3>
   <div class="dropdown" style="margin-bottom: 15px;">
     <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,7 +43,6 @@
       <% end %>
     </ul>
   </div>
-
   <!-- Horizontal scroll container for genres -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0;">
     <div style="display: flex; gap: 10px; padding: 0 15px;">
@@ -57,7 +54,6 @@
       <% end %>
     </div>
   </div>
-
   <h3> My Favorite Artists </h3>
   <div class="dropdown" style="margin-bottom: 15px;">
     <%= form_with url: add_artist_user_path(@user), method: :patch, local: true do |form| %>
@@ -68,7 +64,6 @@
       <%= form.submit "Add Artist", class: "btn btn-primary" %>
     <% end %>
   </div>
-
   <!-- Horizontal scroll container for artists -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0;">
     <div style="display: flex; gap: 10px; padding: 0 15px;">
