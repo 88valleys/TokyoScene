@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @genres = ActsAsTaggableOn::Tag.all
+    @genres = ActsAsTaggableOn::Tag.for_context("genre")
+    # @genres = ActsAsTaggableOn::Tag.all
     # Fetching all genres and artists for use in the dashboard
   end
 
@@ -55,8 +56,7 @@ class UsersController < ApplicationController
   end
 
   def remove_artist
-    artist = params[:artist].to_s.strip  # Ensure this matches the form input name
-
+    artist = params[:user][:artist].to_s.strip  # Ensure this matches the form input name
     if artist.present?
       @user.artist_list.remove(artist)
       if @user.save
