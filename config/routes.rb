@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   # SPOTIFY: Route to handle the callback from Spotify
-  get "/auth/spotify/callback", to: "users#spotify"
+  get "/spotify/callback", to: "spotify#callback"
 
   resources :users, only: [:show, :edit, :update] do
     member do
