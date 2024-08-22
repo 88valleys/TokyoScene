@@ -49,12 +49,16 @@
     font-size: 14px;
     font-weight: bold;
 }
-.register-button {
-    display: inline-block;
-    background-color: #8A68CE;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
+// .register-button {
+//     // display: inline-block;
+//     // //background-color: #8A68CE;
+//     // color: white;
+//     // padding: 6px 12px;
+//     // border-radius: 20px;
+//     // font-size: 14px;
+//     // font-weight: bold;
+//     width: 50px; 
+// }
+.upcoming-events-card .col-2 .register-button {
+    width: 50px; 
 }

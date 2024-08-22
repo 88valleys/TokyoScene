@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @locations = ["Shibuya", "Shinjuku", "Koenji", "Shimokitazawa", "Asagaya", "Meguro"]
     @gigs = Gig.all
+    @registration = Registration.new
 
     # Initialize @genres
     unique_genres = ["K-pop", "Indie Rock", "Soul", "Funk", "Funk Soul", "Alternative Rock", "Pop Rock", "Britpop", "Rock", "Soul Pop", "R&B", "Modern Soul", "Future Soul", "Psychedelic Soul", "Neo-Soul", "Pop", "Emo Rock"]
