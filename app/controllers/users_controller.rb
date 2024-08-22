@@ -12,10 +12,15 @@ class UsersController < ApplicationController
     @genres = ActsAsTaggableOn::Tag.for_context("genre")
     # @genres = ActsAsTaggableOn::Tag.all
     # Fetching all genres and artists for use in the dashboard
+    registered_gigs
   end
 
   def registered_gigs
-    @registered_gigs = current_user.registered_gigs
+    @registered_gigs = current_user.registrations
+    @registered_gigs = Registration.joins(:gig, :user).where(user: current_user).order('gigs.time ASC') if params[:sort] == 'asc'
+
+    # filter by date
+    # @registered_gigs = filter_by_date(@registered_gigs, params[:date_range]) if params[:date_range].present?
   end
 
   def add_genre
@@ -89,6 +94,26 @@ class UsersController < ApplicationController
     params.require(:user).permit(:genre, :artist)
   end
 
+
+  # def filter_by_date(registered_gigs, time)
+  #   case time
+  #   when 'tonight'
+  #     registered_gigs.where('time >= ? AND time < ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day)
+  #   when 'this_weekend'
+  #     end_of_weekend = Time.zone.now.end_of_week(:monday)
+  #     start_of_weekend = (end_of_weekend - 1.day).beginning_of_day
+  #     registered_gigs.where('time >= ? AND time < ?', start_of_weekend, end_of_weekend)
+  #   when 'this_month'
+  #     registered_gigs.where('time >= ? AND time < ?', Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
+  #   when 'next_month'
+  #     start_of_next_month = Time.zone.now.next_month.beginning_of_month
+  #     end_of_next_month = start_of_next_month.end_of_month
+  #     registered_gigs.where('time >= ? AND time < ?', start_of_next_month, end_of_next_month)
+  #   else
+  #     registered_gigs
+  #   end
+  # end
+
   def set_devise_mapping
     @devise_mapping = Devise.mappings[:user]
   end
@@ -97,4 +122,5 @@ class UsersController < ApplicationController
     @resource_class = User
     @resource_name = :user
   end
+
 end
