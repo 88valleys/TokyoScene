@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
     @registration.gig = @gig
     @registration.user = current_user
     if @registration.save
-      redirect_to confirm_gig_registrations_path(@gig), notice: "Registration was successfully created."
+      redirect_to chatroom_path(@gig.chatroom), notice: "Registration was successfully created."
     else
       render :new
     end
