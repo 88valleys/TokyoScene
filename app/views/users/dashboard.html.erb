@@ -1,5 +1,5 @@
 <div class="container p-3">
-  
+
   <!-- Displays user's nickname -->
   <div class="welcome-section">
     <h1>Welcome, <%= current_user.nickname %>!</h1>
@@ -7,12 +7,12 @@
   </div>
   
   <h2 class="mb-3">🎉 Upcoming Gigs 🎉</h2>
-  
+
   <!-- Filter buttons -->
   <div class="filter">
     <%= render partial: 'filter'%>
   </div>
-  
+
   <!-- Horizontal scroll container for gigs -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0; width: 100%;">
     <div style="display: flex; flex-wrap: nowrap; gap: 15px; padding: 0 15px;">

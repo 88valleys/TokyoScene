@@ -1,7 +1,9 @@
-<!--Button-1 recommended-->
-<div class="dropdown custom-dropdown" style="border-radius: 20px">
-  <%= button_to 'Recommended', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button'%>
+
+<!--Recommended button-->
+<div class="dropdown">
+  <%= button_to 'Recommended', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button' %>
 </div>
+
 <!--Filter-2 genre-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -13,6 +15,7 @@
       <%end %>
     </ul>
   </div>
+
   <!--Filter-3 date-->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,15 +28,5 @@
       <li><a class="dropdown-item" href="?date_range=next_month">Next Month</a></li>
     </ul>
   </div>
-  <!--All gigs this part below can be rewrited-->
-  <div class="no-display">
-    <% @gigs.each do |gig| %>
-      <h3> <%= gig.name %> </h3>
-      <li> <%= gig.description %> </li>
-      <li> <%= gig.location %> </li>
-    <% end %>
-    <h1> All Gigs </h1>
-    <% @gigs.each do |gig| %>
-      <%= gig.name %>
-    <% end %>
-  </div>
+
+
