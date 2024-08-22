@@ -1,40 +1,60 @@
 <div class="container p-3">
-  <h1 class="mb-3">🎉 Upcoming Gigs</h1>
+
+  <!-- Displays user's nickname -->
+  <div class="welcome-section">
+    <h1>Welcome, <%= current_user.nickname %>!</h1>
+    <hr>
+  </div>
+  <h2 class="mb-3">🎉 Upcoming Gigs 🎉</h2>
   <!-- Filter buttons -->
   <div class="filter">
     <%= render partial: 'filter'%>
   </div>
+
   <!-- Horizontal scroll container for gigs -->
-  <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+  <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0; width: 100%;">
     <div style="display: flex; flex-wrap: nowrap; gap: 15px; padding: 0 15px;">
       <% @registered_gigs.each do |registration| %>
         <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
           <div class="dashboard-gig-card" style="border: 1px solid #ddd; padding: 15px; background-color: #fff; position: relative;">
+
             <div class="dashboard-gig-image-section" style="margin-bottom: 10px;">
               <%= link_to gig_path(registration.gig) do %>
                 <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>" style="width: 100%; height: auto;"/>
               <% end %>
             </div>
-            <div class="dashboard-gig-info-section" style="margin-bottom: 60px;">
-              <p class="dashboard-gig-date-time" style="margin: 0;">
-                <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
-                <%= registration.gig.time.strftime("%I:%M %P") %>
-              </p>
-              <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0;"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
-              <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location.split(',').map(&:strip).find { |part| part.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/) }&.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/)[0] %></p>
-            </div>
-            <div class="dashboard-gig-buttons-section" style="position: absolute; bottom: 15px; right: 15px; display: flex; gap: 10px;">
-              <%= link_to gig_path(registration.gig) do %>
-                <div class="icon-button ticket" style="background-color: #6f42c1; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; text-align: center;">
-                  <i class="fa-solid fa-circle-info" style="margin: 0;"></i>
-                </div>
-              <% end %>
-              <%= button_to 'X', gig_registration_path(registration.gig_id, registration.id), method: :delete, data: { confirm: 'Are you sure you want to cancel this registration?' }, class: 'btn btn-danger', style: 'color: white; background-color: #6f42c1; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; text-align: center;' %>
+            <div class="dashboard-gig-info-section" style="display: flex; justify-content: space-between;">
+              <div>
+                <p class="dashboard-gig-date-time" style="margin: 0;">
+                  <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
+                  <%= registration.gig.time.strftime("%I:%M %P") %>
+                </p>
+                <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
+                <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location %></p>
+              </div>
+              <div class="dashboard-gig-buttons-section" style="flex-direction: column; bottom: 15px; right: 15px; display: flex; gap: 10px;">
+                <%= link_to gig_path(registration.gig) do %>
+                  <div class="icon-button ticket" style="background-color: #6f42c1; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; text-align: center;">
+                    <i class="fa-solid fa-circle-info" style="margin: 0;"></i>
+                  </div>
+                <% end %>
+                <%= button_to 'X', gig_registration_path(registration.gig_id, registration.id), method: :delete, data: { confirm: 'Are you sure you want to cancel this registration?' }, class: 'btn btn-danger', style: 'color: white; background-color: #6f42c1; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; text-align: center;' %>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+  <!-- When logged in, this section fetches gigs by genre and matches it -->
+  <div class="recommended-spotify">
+    <h2 class="mb-3">Recommended for you</h2>
+    <% if @devise_mapping.omniauthable? %>
+      <%- @resource_class.omniauth_providers.each do |provider| -%>
+        <%= button_to "Sign in with Spotify", user_spotify_omniauth_authorize_path, data: { turbo: false } %>
+      <%- end -%>
+    <% end %>
+    <br>
   </div>
   <h3> My Favorite Genres </h3>
   <div class="dropdown" style="margin-bottom: 15px;">
@@ -48,11 +68,11 @@
     </ul>
   </div>
   <!-- Horizontal scroll container for genres -->
-  <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0;">
+  <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0; width: 100%;">
     <div style="display: flex; gap: 10px; padding: 0 15px;">
       <% @user.genre_list.each do |genre| %>
-        <div class="card-category d-inline" style="flex: 0 0 auto; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
-          <span style="position: relative; z-index: 1; color: white; font-weight: bold;"><%= genre %></span>
+        <div class="card-category d-inline" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
+          <span style="position: relative; z-index: 1; color: white; font-weight: bold; text-wrap: wrap; font-size: 18px;"><%= genre %></span>
           <%= button_to 'X', remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 10px; right: 10px; color: white; background-color: transparent; border: 2px solid white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
         </div>
       <% end %>
@@ -69,11 +89,11 @@
     <% end %>
   </div>
   <!-- Horizontal scroll container for artists -->
-  <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0;">
+  <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0; width: 100%;">
     <div style="display: flex; gap: 10px; padding: 0 15px;">
       <% @user.artist_list.each do |artist| %>
-        <div class="card-category d-inline" style="flex: 0 0 auto; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
-          <span style="position: relative; z-index: 1; color: white; font-weight: bold;"><%= artist %></span>
+        <div class="card-category d-inline" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
+          <span style="position: relative; z-index: 1; color: white; font-weight: bold; text-wrap: wrap; font-size: 18px;"><%= artist %></span>
           <%= button_to 'X', remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 10px; right: 10px; color: white; background-color: transparent; border: 2px solid white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
         </div>
       <% end %>
