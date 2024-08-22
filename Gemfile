@@ -53,14 +53,15 @@ gem "sassc-rails"
 
 
 # Custom gems added to TokyoScene
-gem 'acts-as-taggable-on'
 gem "faker"
 gem "pg_search"
 gem 'jquery-rails'
+gem "acts-as-taggable-on"
 gem "geocoder"
 
 # add Spotify's API
-gem 'rspotify'
+gem "rspotify"
+gem "omniauth-spotify"
 
 group :development, :test do
   gem "dotenv-rails"
