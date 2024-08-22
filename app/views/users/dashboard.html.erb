@@ -1,6 +1,10 @@
 <div class="container p-3">
-
-  <h1 class="mb-3">🎉 Upcoming Gigs 🎉</h1>
+  <!-- Displays user's nickname -->
+  <div class="welcome-section">
+    <h1>Welcome, <%= current_user.nickname %>!</h1>
+    <hr>
+  </div>
+  <h2 class="mb-3">🎉 Upcoming Gigs 🎉</h2>
   <!-- Horizontal scroll container for gigs -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0; width: 100%;">
     <div style="display: flex; flex-wrap: nowrap; gap: 15px; padding: 0 15px;">
@@ -13,14 +17,14 @@
               <% end %>
             </div>
             <div class="dashboard-gig-info-section" style="display: flex; justify-content: space-between;">
-            <div>
-              <p class="dashboard-gig-date-time" style="margin: 0;">
-                <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
-                <%= registration.gig.time.strftime("%I:%M %P") %>
-              </p>
-              <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
-              <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location %></p>
-            </div>
+              <div>
+                <p class="dashboard-gig-date-time" style="margin: 0;">
+                  <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
+                  <%= registration.gig.time.strftime("%I:%M %P") %>
+                </p>
+                <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
+                <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location %></p>
+              </div>
               <div class="dashboard-gig-buttons-section" style="flex-direction: column; bottom: 15px; right: 15px; display: flex; gap: 10px;">
                 <%= link_to gig_path(registration.gig) do %>
                   <div class="icon-button ticket" style="background-color: #6f42c1; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; text-align: center;">
@@ -34,6 +38,16 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <!-- When logged in, this section fetches gigs by genre and matches it -->
+  <div class="recommended-spotify">
+    <h2 class="mb-3">Recommended for you</h2>
+    <% if @devise_mapping.omniauthable? %>
+      <%- @resource_class.omniauth_providers.each do |provider| -%>
+        <%= button_to "Sign in with Spotify", user_spotify_omniauth_authorize_path, data: { turbo: false } %>
+      <%- end -%>
+    <% end %>
+    <br>
   </div>
   <h3> My Favorite Genres </h3>
   <div class="dropdown" style="margin-bottom: 15px;">
