@@ -1,9 +1,13 @@
 <div class="container p-3">
   <h1 class="mb-3">🎉 Upcoming Gigs</h1>
+  <!-- Filter buttons -->
+  <div class="filter">
+    <%= render partial: 'filter'%>
+  </div>
   <!-- Horizontal scroll container for gigs -->
   <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
     <div style="display: flex; flex-wrap: nowrap; gap: 15px; padding: 0 15px;">
-      <% @user.registrations.each do |registration| %>
+      <% @registered_gigs.each do |registration| %>
         <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
           <div class="dashboard-gig-card" style="border: 1px solid #ddd; padding: 15px; background-color: #fff; position: relative;">
             <div class="dashboard-gig-image-section" style="margin-bottom: 10px;">
