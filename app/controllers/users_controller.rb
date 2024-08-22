@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # Handles Spotify authentication callback
+  # WIP: Handles Spotify authentication callback
   def spotify
     spotify_user = RSpotify::User.new(request.env["omniauth.auth"])
 
