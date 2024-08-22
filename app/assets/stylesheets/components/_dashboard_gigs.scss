@@ -1,3 +1,71 @@
+.welcome-section {
+  // background-color: #030e27;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  // color: #E0E0E0;
+  font-weight: bold;
+}
+
+.filter-buttons {
+  font-size: 13px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 20px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #ccc;
+  background: white;
+}
+
+.filter-buttons:last-child {
+  margin-bottom: 0; // Remove margin from the last button
+  border-bottom: none; // Remove the bottom border from the last button
+}
+
+.upcoming-gigs {
+  padding-left: 20px;
+  padding-right: 20px;
+  // padding-top: 20px;  background-color: #1c2639;
+
+  h2 {
+    // color: #E0E0E0;
+  }
+
+  .filter .dropdown .btn {
+    font-size: 5px;
+    border-radius: 20px;
+    margin: 5px;
+  }
+}
+
+.recommended-spotify {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+}
+
+.favorite-genres {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+}
+
+.favorite-artists {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+}
+
 .dashboard-gig-card-container {
     margin-bottom: 20px; /* Adjust the value as needed */
   }
@@ -13,8 +81,7 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 400px;
-    height: 220px;
-    align-items: center;/* Set a fixed height for the entire card */
+    height: 151px;    align-items: center;/* Set a fixed height for the entire card */
   }
 
   .dashboard-gig-image-section {
@@ -63,9 +130,9 @@
 
   .dashboard-gig-buttons-section {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px;
+    // flex-direction: column;
+    // justify-content: space-around;
+    // padding: 15px;
   }
 
   .scrollable-container {
@@ -77,7 +144,7 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: #7f5fff;
+    background-color: #B75AFF;
     display: flex;
     align-items: center;
     justify-content: center;
