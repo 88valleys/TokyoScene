@@ -1,53 +1,58 @@
 .dashboard-gig-card-container {
     margin-bottom: 20px; /* Adjust the value as needed */
   }
-  
+
+  a {
+    text-decoration: none;
+  }
+
   .dashboard-gig-card {
     display: flex;
     background-color: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 380px;
-    height: 160px; /* Set a fixed height for the entire card */
+    width: 400px;
+    height: 220px;
+    align-items: center;/* Set a fixed height for the entire card */
   }
-  
+
   .dashboard-gig-image-section {
     flex: 0 0 160px; /* Make this section a fixed width */
-    height: 100%; /* Ensure the height of this section matches the card */
+   /* Ensure the height of this section matches the card */
   }
-  
+
   .dashboard-gig-image-section img {
     width: 150px;
     height: 100%;
     object-fit: cover;
   }
-  
+
   .dashboard-gig-info-section {
-    padding: 15px;
+    padding: 0 15px;
     flex-grow: 1;
   }
-  
+
   .dashboard-gig-date-time {
     font-size: 14px;
     color: #666;
     margin: 0;
   }
-  
+
   .dashboard-gig-title {
     font-size: 18px;
     font-weight: bold;
     color: #000;
     margin: 5px 0;
   }
-  
+
   .dashboard-gig-location {
     font-size: 14px;
     color: #000;
     display: flex;
     align-items: center;
   }
-  
+
   .location-icon {
     width: 12px;
     height: 12px;
@@ -55,19 +60,19 @@
     background-size: cover;
     margin-right: 5px;
   }
-  
+
   .dashboard-gig-buttons-section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 15px;
   }
-  
+
   .scrollable-container {
     max-height: calc(4 * 200px); /* Adjust 200px to the approximate height of one card */
     overflow-y: auto;
   }
-  
+
   .icon-button {
     width: 45px;
     height: 45px;
@@ -77,26 +82,25 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .icon-button.ticket {
     // background-image: url('ticket-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
   }
-  
+
   .icon-button.info {
     // background-image: url('info-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
   }
-  
+
   .no-underline-link {
     text-decoration: none;
   }
-  
+
   .white-icon {
     color: white;
   }
-  
