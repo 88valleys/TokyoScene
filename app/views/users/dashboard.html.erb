@@ -5,7 +5,9 @@
     <h1>Welcome, <%= current_user.nickname %>!</h1>
     <hr>
   </div>
+  
   <h2 class="mb-3">🎉 Upcoming Gigs 🎉</h2>
+
   <!-- Filter buttons -->
   <div class="filter">
     <%= render partial: 'filter'%>
@@ -17,7 +19,6 @@
       <% @registered_gigs.each do |registration| %>
         <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
           <div class="dashboard-gig-card" style="border: 1px solid #ddd; padding: 15px; background-color: #fff; position: relative;">
-
             <div class="dashboard-gig-image-section" style="margin-bottom: 10px;">
               <%= link_to gig_path(registration.gig) do %>
                 <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>" style="width: 100%; height: auto;"/>

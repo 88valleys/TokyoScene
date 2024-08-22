@@ -94,7 +94,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:genre, :artist)
   end
 
-
   # def filter_by_date(registered_gigs, time)
   #   case time
   #   when 'tonight'
