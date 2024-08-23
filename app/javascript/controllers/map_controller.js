@@ -41,10 +41,10 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       // Create a custom marker element with the SVG
       const el = document.createElement('div');
-      el.innerHTML = `<img src="${this.imagePath('/images/marker.svg')}" width="60" height="60"/>`;
+      el.innerHTML = `<img src="${this.imagePath('marker.svg')}" width="60" height="60"/>`;
 
       // Create the marker
-      const markerObject = new mapboxgl.Marker(el)
+      const markerObject = new mapboxgl.Marker(el) 
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
 
