@@ -4,7 +4,7 @@ module ApplicationHelper
       "Alternative Rock" => asset_path("genres/alternative-rock.jpg"),
       "Funk" => asset_path("genres/funk.jpeg"),
       "Indie Rock" => asset_path("genres/indie-rock.jpg"),
-      "K-Pop" => asset_path("genres/kpop.jpg"),
+      "K-pop" => asset_path("genres/kpop.jpg"),
       "Pop Rock" => asset_path("genres/pop-rock.jpg"),
       "Funk Soul" => asset_path("genres/soul-funk.jpg"),
       "Soul" => asset_path("genres/soul.jpg"),
