@@ -40,17 +40,23 @@
 .confirm-card-location i {
     margin-right: 6px;
 }
-.confirm-card-date {
-    display: inline-block;
-    background-color: #8A68CE;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-}
+// .confirm-card-date {
+//     display: inline-block;
+//     background-color: #8A68CE;
+//     color: white;
+//     padding: 6px 12px;
+//     margin-top: 5px;
+//     border-radius: 21px;
+//     font-size: 14px;
+//     font-weight: normal
+// }
+
+.confirm-card-description {
+    margin-bottom: 5px; 
+  }
+  
 // .register-button {
-//     // display: inline-block;
+//     display: inline-block;
 //     // //background-color: #8A68CE;
 //     // color: white;
 //     // padding: 6px 12px;
@@ -58,7 +64,8 @@
 //     // font-size: 14px;
 //     // font-weight: bold;
 //     width: 50px; 
-// }
+//}
+
 .upcoming-events-card .col-2 .register-button {
     width: 50px; 
 }
