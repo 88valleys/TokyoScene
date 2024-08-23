@@ -94,7 +94,8 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 400px;
-    height: 151px;    align-items: center;
+    height: 151px;
+        align-items: center;
   }
 
   .dashboard-gig-image-section {
@@ -102,8 +103,9 @@
   }
 
   .dashboard-gig-image-section img {
-    width: 150px;
-    height: 100%;
+    // margin-top: -22px;
+    // margin-left: -13px;
+    // margin-bottom: -19px;
     object-fit: cover;
   }
 
