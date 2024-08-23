@@ -19,14 +19,15 @@
 }
 
 .filter-buttons:last-child {
-  margin-bottom: 0; // Remove margin from the last button
-  border-bottom: none; // Remove the bottom border from the last button
+  margin-bottom: 0; 
+  border-bottom: none; 
 }
 
 .upcoming-gigs {
   padding-left: 20px;
   padding-right: 20px;
-  // padding-top: 20px;  background-color: #1c2639;
+  // padding-top: 20px;  
+  // background-color: #1c2639;
 
   h2 {
     // color: #E0E0E0;
@@ -60,14 +61,26 @@
 .favorite-artists {
   padding-left: 20px;
     padding-right: 20px;
-    padding-top: 19px;
     padding-bottom: 20px;
     // background-color: #1c2639;
     // color: #E0E0E0;
+
+  
+    .btn-add-artist {
+      background-color: #e1c5e2;
+      border: none;
+      color: #495057;
+      padding: 3px 11px;
+      font-size: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  
 }
 
+
 .dashboard-gig-card-container {
-    margin-bottom: 20px; /* Adjust the value as needed */
+    margin-bottom: 20px; 
   }
 
   a {
@@ -81,12 +94,11 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 400px;
-    height: 151px;    align-items: center;/* Set a fixed height for the entire card */
+    height: 151px;    align-items: center;
   }
 
   .dashboard-gig-image-section {
-    flex: 0 0 160px; /* Make this section a fixed width */
-   /* Ensure the height of this section matches the card */
+    flex: 0 0 160px; 
   }
 
   .dashboard-gig-image-section img {
@@ -151,14 +163,12 @@
   }
 
   .icon-button.ticket {
-    // background-image: url('ticket-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
   }
 
   .icon-button.info {
-    // background-image: url('info-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
