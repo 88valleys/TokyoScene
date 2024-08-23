@@ -63,17 +63,18 @@
       </button>
       <ul class="dropdown-menu scrollable-dropdown">
         <% @genres.each do |genre| %>
-          <li><%= button_to genre, add_genre_user_path(@user, user: {genre: genre.name}), method: :patch %></li>
+          <li><%= link_to genre, add_genre_user_path(@user, user: {genre: genre.name}), method: :patch, class: 'dropdown-item' %></li>
         <% end %>
       </ul>
     </div>
     <!-- Horizontal scroll container for genres -->
     <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0; width: 100%;">
-      <div style="display: flex; gap: 10px; padding: 0 15px;">
+      <div style="display: flex;gap: 10px;/* padding: 0 15px; */">
         <% @user.genre_list.each do |genre| %>
-          <div class="card-category d-inline" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
-            <span style="position: relative; z-index: 1; color: white; font-weight: bold; text-wrap: wrap; font-size: 18px;"><%= genre %></span>
-            <%= button_to 'X', remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 10px; right: 10px; color: white; background-color: transparent; border: 2px solid white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+          <div class="card-category d-inline" style="position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= genre_image_url(genre) %>); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; filter: brightness(0.7); border-radius: 5px;"></div>
+            <span style="position: relative;z-index: 1;color: white;font-weight: bold;text-wrap: wrap;font-size: 20px;top: 28px;/* left: 43px; */"><%= genre %></span>
+            <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
           </div>
         <% end %>
       </div>
@@ -83,21 +84,22 @@
     <h2>🧚 My Favorite Artists </h2>
     <div class="dropdown" style="margin-bottom: 15px;">
       <%= form_with url: add_artist_user_path(@user), method: :patch, local: true do |form| %>
-        <div class="form-group">
-          <%= form.label :artist, "Artist Name" %>
-          <%= form.text_field :artist, class: "form-control" %>
+        <div class="form-group d-flex align-items-center">
+          <%= form.text_field :artist, class: "form-control mr-2", placeholder: "Enter a singer/band name..." %>
+          <%= button_tag type: 'submit', class: 'btn-add-artist' do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
         </div>
-        <%= form.submit "Add Artist", class: "btn btn-primary" %>
       <% end %>
     </div>
     <!-- Horizontal scroll container for artists -->
     <div style="overflow-x: auto;white-space: nowrap;padding-top: 20px;width: 100%;">
-      <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
+      <div style="display: flex; flex-wrap: nowrap; gap: 10px;">
         <% @user.artist_list.each do |artist| %>
-          <div class="card-category d-inline" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); background-size: cover; background-position: center; padding: 20px; position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
-            <span style="position: relative; z-index: 1; color: white; font-weight: bold; text-wrap: wrap; font-size: 18px;"><%= artist %></span>
-            <%= button_to 'X', remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 10px; right: 10px; color: white; background-color: transparent; border: 2px solid white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
-          </div>
+          <%= artist_card_div(artist) do %>
+            <span style="position: relative; z-index: 1; color: white; font-weight: bold; font-size: 18px; line-height: 1.2; white-space: normal;"><%= artist %></span>
+            <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+          <% end %>
         <% end %>
       </div>
     </div>
