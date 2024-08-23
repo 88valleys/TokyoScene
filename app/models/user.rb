@@ -28,11 +28,10 @@ class User < ApplicationRecord
     end
   end
 
+  # WIP: Spotify API integration
   def spotify_client
     @spotify_client ||= RSpotify::User.new("credentials" => {
-                                             "token" => spotify_token,
-                                             "refresh_token" => spotify_refresh_token,
-                                             "expires_at" => spotify_expires_at.to_i,
+                                             "token" => spotify_token, "refresh_token" => spotify_refresh_token, "expires_at" => spotify_expires_at.to_i,
                                            })
   end
 end
