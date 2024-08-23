@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:dashboard, :add_genre, :remove_genre, :add_artist, :remove_artist, :show, :spotify]
+  before_action :set_user, only: [:dashboard, :add_genre, :remove_genre, :add_artist, :remove_artist, :show]
   before_action :set_devise_mapping, only: [:dashboard]
   before_action :set_resource_class_and_name, only: [:dashboard]
 
@@ -11,13 +11,27 @@ class UsersController < ApplicationController
     @user = current_user
     @genres = ActsAsTaggableOn::Tag.for_context("genre")
     # @genres = ActsAsTaggableOn::Tag.all
+
+    # Convert user's genre list to lowercase
+    user_genres = @user.genre_list.map(&:downcase)
+
+    # Fetch recommended gigs based on user's genre list
+    if user_genres.present?
+      @recommended_gigs = Gig.tagged_with(@user.genre_list, any: true, wild: true)
+    else
+      @recommended_gigs = []
+    end
+
+    # Set a message if there are no recommended gigs
+    @recommended_gigs_message = "Sorry, no recommended gigs yet." if @recommended_gigs.empty?
+
     # Fetching all genres and artists for use in the dashboard
     registered_gigs
   end
 
   def registered_gigs
     @registered_gigs = current_user.registrations
-    @registered_gigs = Registration.joins(:gig, :user).where(user: current_user).order('gigs.time ASC') if params[:sort] == 'asc'
+    @registered_gigs = Registration.joins(:gig, :user).where(user: current_user).order("gigs.time ASC") if params[:sort] == "asc"
 
     # filter by date
     # @registered_gigs = filter_by_date(@registered_gigs, params[:date_range]) if params[:date_range].present?
@@ -74,16 +88,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # WIP: Handles Spotify authentication callback
-  def spotify
-    spotify_user = RSpotify::User.new(request.env["omniauth.auth"])
-
-    # WIP: Fetching top artists and genres from Spotify
-    top_artists = spotify_user.top_artists(limit: 50)
-    genres = top_artists.flat_map(&:genres).uniq
-    puts genres
-  end
-
   private
 
   def set_user
@@ -121,5 +125,4 @@ class UsersController < ApplicationController
     @resource_class = User
     @resource_name = :user
   end
-
 end
