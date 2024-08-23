@@ -1,5 +1,86 @@
+.welcome-section {
+  // background-color: #030e27;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  // color: #E0E0E0;
+  font-weight: bold;
+}
+
+.filter-buttons {
+  font-size: 13px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 20px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #ccc;
+  background: white;
+}
+
+.filter-buttons:last-child {
+  margin-bottom: 0; 
+  border-bottom: none; 
+}
+
+.upcoming-gigs {
+  padding-left: 20px;
+  padding-right: 20px;
+  // padding-top: 20px;  
+  // background-color: #1c2639;
+
+  h2 {
+    // color: #E0E0E0;
+  }
+
+  .filter .dropdown .btn {
+    font-size: 5px;
+    border-radius: 20px;
+    margin: 5px;
+  }
+}
+
+.recommended-spotify {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+}
+
+.favorite-genres {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+}
+
+.favorite-artists {
+  padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    // background-color: #1c2639;
+    // color: #E0E0E0;
+
+  
+    .btn-add-artist {
+      background-color: #e1c5e2;
+      border: none;
+      color: #495057;
+      padding: 3px 11px;
+      font-size: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  
+}
+
+
 .dashboard-gig-card-container {
-    margin-bottom: 20px; /* Adjust the value as needed */
+    margin-bottom: 20px; 
   }
 
   a {
@@ -13,13 +94,11 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 400px;
-    height: 220px;
-    align-items: center;/* Set a fixed height for the entire card */
+    height: 151px;    align-items: center;
   }
 
   .dashboard-gig-image-section {
-    flex: 0 0 160px; /* Make this section a fixed width */
-   /* Ensure the height of this section matches the card */
+    flex: 0 0 160px; 
   }
 
   .dashboard-gig-image-section img {
@@ -63,9 +142,9 @@
 
   .dashboard-gig-buttons-section {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px;
+    // flex-direction: column;
+    // justify-content: space-around;
+    // padding: 15px;
   }
 
   .scrollable-container {
@@ -77,21 +156,19 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: #7f5fff;
+    background-color: #B75AFF;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .icon-button.ticket {
-    // background-image: url('ticket-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
   }
 
   .icon-button.info {
-    // background-image: url('info-icon.png');
     background-size: 24px;
     background-position: center;
     background-repeat: no-repeat;
