@@ -33,7 +33,8 @@ class PagesController < ApplicationController
     @markers = @gigs.geocoded.map do |gig|
       { lat: gig.latitude,
         lng: gig.longitude,
-        info_window_html: render_to_string(partial: "gigs/gigs", locals: { gig: gig })
+        info_window_html: render_to_string(partial: "gigs/gigs", locals: { gig: gig }),
+        marker_html: render_to_string(partial: "gigs/marker", locals: { gig: gig })
       }
     end
 

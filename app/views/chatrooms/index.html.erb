@@ -1,7 +1,12 @@
 <div class="container p-3">
   <h1><i class="fa-solid fa-comment"></i> Gig Chats</h1>
   <hr>
-    <div class="chat-event-card-container scrollable-container">
-  <%= render partial: 'chats', collection: @chatrooms, as: :chat %>
-</div>
+  <p class="lead">
+    <h3>Connect with fellow concert-goers!</h3>
+    Meet people who are attending your event!<br>
+    Start chatting now! <br>
+  </p>
+  <div class="chat-event-card-container scrollable-container">
+    <%= render partial: 'chats', collection: @chatrooms, as: :chat %>
+  </div>
 </div>

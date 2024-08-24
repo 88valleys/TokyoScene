@@ -12,21 +12,13 @@
           <i class="fas fa-map-marker-alt"></i>
           <span><%= @gig.location %></span>
         </div>
-        <br>
-        <div class="confirm-card-description">
-          <i class="fa-solid fa-circle-info"></i>
-          <%= @gig.description %><br>
-        </div>
-        <br>
         <div class="confirm-card-date">
-          <i class="fa-regular fa-calendar"></i>
           <%= @gig.time.strftime("%a, %b %e %Y") %><br>
           <%= @gig.time.strftime("%I:%M %P") %>
         </div>
-        <br>
         <div class="register-button" data-controller="sweetalert">
           <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"},  turbo: false } do |f| %>
-            <%= f.submit "Register", style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 21px;' %>
+            <%= f.submit "Register", style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 4px;' %>
           <% end %>
         </div>
       </div>
