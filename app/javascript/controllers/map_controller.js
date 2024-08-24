@@ -45,7 +45,7 @@ export default class extends Controller {
 
       // Create the marker
       const markerObject = new mapboxgl.Marker(el) 
-        .setLngLat([marker.lng, marker.lat]) 
+        .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
 
       // Add click event to show info window
