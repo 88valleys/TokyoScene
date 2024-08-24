@@ -29,7 +29,7 @@
                     <%= registration.gig.time.strftime("%I:%M %P") %>
                   </p>
                   <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
-                  <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location.split(',').first %></p>
+                  <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location_name%></p>
                 </div>
                 <div class="dashboard-gig-buttons-section" style="bottom: 15px; right: 15px; gap: 10px;">
                   <%= link_to gig_path(registration.gig) do %>
@@ -49,7 +49,7 @@
   <!-- When logged in, this section fetches gigs by genre and matches it -->
   <div class="recommended-spotify">
     <h2 class="mb-3">❤️ Recommended for you</h2>
-    <!-- 
+    <!--
     <% if @devise_mapping.omniauthable? %>
       <%- @resource_class.omniauth_providers.each do |provider| -%>
         <%= link_to 'Sign in with Spotify', 'https://accounts.spotify.com/authorize?response_type=token&client_id=bb923d05526e4dbb9df9abf081133d6f&scope=user-top-read&redirect_uri=http%253A%252F%252Flocalhost%253A3000%2Fspotify%2Fcallback' %>
