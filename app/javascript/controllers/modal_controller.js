@@ -9,8 +9,9 @@ export default class extends Controller {
   }
 
 get_modal(event) {
-  const parser = new DOMParser()
-  fetch(`http://127.0.0.1:3000/gigs/${this.idValue}`)
+  const parser = new DOMParser() 
+  // https://tokyo-scene-82203a92803b.herokuapp.com/ - change for producion / API?
+  fetch(`/gigs/${this.idValue}`)
    .then(response => response.text())
    .then((data) => {
       const gigData = parser.parseFromString(data, "text/html")
