@@ -25,7 +25,7 @@ export default class extends Controller {
     console.log(event);
     event.preventDefault();
     Swal.fire({
-      title: "You Are Registered!",
+      title: "You Are Going!",
       text: "Enjoy the gig!",
       icon: "success",
       confirmButtonText: "Start The Chat!", // route to chatrooms**
