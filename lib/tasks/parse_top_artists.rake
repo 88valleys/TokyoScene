@@ -30,10 +30,16 @@ namespace :parse do
       user.save!
     end
 
+    # Sort and output all genres and their counts
+    puts "Senie's Spotify Genre List:"
+    genre_count.sort_by { |genre, count| -count }.each do |genre, count|
+      puts "#{genre}: #{count}"
+    end
+
     # Output the top 10 genres
     puts "Top 10 genres:"
     top_genres.each do |genre|
-      puts genre
+      puts "#{genre}: #{genre_count[genre]}"
     end
   end
 end
