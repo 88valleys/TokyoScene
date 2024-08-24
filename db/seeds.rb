@@ -26,6 +26,8 @@ address = [
   "Sangenjaya, Setagaya, Tokyo, 154-0024, Japan Quarter",
 ]
 
+random_address = address.sample
+
 event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"].shuffle
 bands = [
   { band: "Red Velvet", description: 'A powerhouse K-pop girl group known for their unique dual concept of "Red" (bright, bubbly pop) and "Velvet" (smooth R&B). Hits like "Red Flavor" and "Psycho" have solidified their global popularity.', genre: "K-pop" },
@@ -94,15 +96,15 @@ end
 
 # Create gigs for 20 bands
 20.times do |i|
-  band_info = bands[i % bands.size]
+  band_info = bands.sample # Randomly select a band from the array
   gig = Gig.create!(
     user: band_info[:user], # Associate the user with the gig
     band: band_info[:band],
     time: Faker::Date.between(from: Date.today, to: 30.days.from_now),
     description: band_info[:description],
-    location: address.pop,
+    location: random_address, # Use the random address
     event_name: event_names.sample,
-    genre: band[:genre],
+    # genre: band[:genre],
   )
   gig.genre_list.add(band_info[:genre])
   gig.save!
