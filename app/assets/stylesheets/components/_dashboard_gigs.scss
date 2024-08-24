@@ -16,11 +16,14 @@
   margin-bottom: 0px;
   border-bottom: 1px solid #ccc;
   background: white;
+  margin-right: 10px; /* Adjust spacing between buttons */
+  display: inline-block; /* Ensure buttons stay on the same line */
 }
 
 .filter-buttons:last-child {
   margin-bottom: 0; 
   border-bottom: none; 
+  margin-right: 0; /* Remove margin for the last button in the row */
 }
 
 .upcoming-gigs {
