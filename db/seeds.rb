@@ -102,13 +102,26 @@ end
     band: band_info[:band],
     time: Faker::Date.between(from: Date.today, to: 30.days.from_now),
     description: band_info[:description],
-    location: random_address, # Use the random address
+    location: address.sample, # Use the random address
     event_name: event_names.sample,
     # genre: band[:genre],
   )
   gig.genre_list.add(band_info[:genre])
   gig.save!
 end
+
+# Add one more gig for tonight
+band_info = bands.last
+tonight_gig = Gig.create!(
+  user: band_info[:user],
+  band: band_info[:band],
+  time: Date.today, # Set the time to today
+  description: band_info[:description],
+  location: address.sample,
+  event_name: event_names.sample,
+)
+tonight_gig.genre_list.add(band_info[:genre])
+tonight_gig.save!
 
 # Fetch all gigs
 gigs = Gig.all
