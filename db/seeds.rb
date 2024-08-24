@@ -26,6 +26,8 @@ address = [
   "Sangenjaya, Setagaya, Tokyo, 154-0024, Japan Quarter",
 ]
 
+random_address = address.sample
+
 event_names = ["Sonic Splash", "Groove Blitz", "Echo Wave", "Riff Rampage", "Harmonic Pop", "Bass Boom", "Electro Surge", "Jam Buzz", "Rock Riot", "Folk Flick", "Melody Pop"].shuffle
 bands = [
   { band: "Red Velvet", description: 'A powerhouse K-pop girl group known for their unique dual concept of "Red" (bright, bubbly pop) and "Velvet" (smooth R&B). Hits like "Red Flavor" and "Psycho" have solidified their global popularity.', genre: "K-pop" },
