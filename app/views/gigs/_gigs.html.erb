@@ -14,7 +14,7 @@
     </div>
     <div>
       <strong><i class="fa-solid fa-location-dot"></i></strong>
-      <%= gig.location.split(',').map(&:strip).find { |part| part.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/) }&.match(/\b(Asakusa|Odaiba|Shinjuku|Ginza|Asagaya|Akihabara|Roppongi|Shibuya|Ikebukuro|Sangenjaya)\b/)[0] %>
+      <%= gig.location_name %>
     </div>
   </div>
   <div class="col-2">
