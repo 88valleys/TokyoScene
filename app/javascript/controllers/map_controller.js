@@ -65,6 +65,6 @@ export default class extends Controller {
 
   // Helper function to get the asset path
   imagePath(filename) {
-    return `assets/${filename}`;
+    return `assets/images/${filename}`;
   }
 }
