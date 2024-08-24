@@ -24,11 +24,23 @@
           <%= @gig.time.strftime("%I:%M %P") %>
         </div>
         <br>
+        <h4>Join the Chat Now!</h4>
+      </div>
+      <% if @gig.registrations.find_by(user_id: current_user.id) %>
+        <div class="chat-buttons-section">
+          <%= link_to chatroom_path(@gig.chatroom), class: 'no-underline-link' do %>
+            <div class="icon-button ticket">
+              <i class="fa-solid fa-comment white-icon"></i>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
         <div class="register-button" data-controller="sweetalert">
           <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"},  turbo: false } do |f| %>
             <%= f.submit "Register", style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 21px;' %>
           <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
