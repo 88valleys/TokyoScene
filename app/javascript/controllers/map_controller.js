@@ -30,7 +30,7 @@ export default class extends Controller {
     this.map.on('load', this.onMapLoaded.bind(this));
 
     this.#addMarkersToMap();
-    this.#fitMapToBounds(); // Add this line to fit the map to the Tokyo bounds
+    this.#fitMapToFilteredMarkers(); // Fit the map to show most markers
   }
 
   onMapLoaded(event) {
@@ -44,7 +44,7 @@ export default class extends Controller {
       el.innerHTML = marker.marker_html.trim();
 
       // Create the marker
-      const markerObject = new mapboxgl.Marker(el) 
+      const markerObject = new mapboxgl.Marker(el)
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
 
@@ -55,16 +55,52 @@ export default class extends Controller {
     });
   }
 
-  #fitMapToBounds() {
-    const bounds = new mapboxgl.LngLatBounds(
-      [139.7000, 35.6500], // Southwest coordinates of central Tokyo
-      [139.8000, 35.7100] // Northeast coordinates of central Tokyo
-    );
-    this.map.fitBounds(bounds, { padding: 20 });
+  #fitMapToFilteredMarkers() {
+    if (this.markersValue.length === 0) return;
+
+    // Step 1: Calculate the average center of all markers
+    let totalLat = 0;
+    let totalLng = 0;
+
+    this.markersValue.forEach((marker) => {
+      totalLat += marker.lat;
+      totalLng += marker.lng;
+    });
+
+    const centerLat = totalLat / this.markersValue.length;
+    const centerLng = totalLng / this.markersValue.length;
+
+    // Step 2: Filter out markers that are too far from the center
+    const filteredMarkers = this.markersValue.filter((marker) => {
+      const distance = this.#calculateDistance(centerLat, centerLng, marker.lat, marker.lng);
+      return distance <= 5; // Set a threshold (e.g., 5 kilometers) to filter out markers that are farther away.
+    });
+
+    // Step 3: Adjust the map bounds to include only the filtered markers
+    const bounds = new mapboxgl.LngLatBounds();
+
+    filteredMarkers.forEach((marker) => {
+      bounds.extend([marker.lng, marker.lat]);
+    });
+
+    this.map.fitBounds(bounds, { padding: 20, maxZoom: 15 });
   }
 
-  // Helper function to get the asset path
-  imagePath(filename) {
-    return `app/assets/images/${filename}`;
+  // Helper function to calculate the distance between two coordinates (in kilometers)
+  #calculateDistance(lat1, lng1, lat2, lng2) {
+    const R = 6371; // Earth's radius in kilometers
+    const dLat = this.#toRad(lat2 - lat1);
+    const dLng = this.#toRad(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.#toRad(lat1)) * Math.cos(this.#toRad(lat2)) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  // Helper function to convert degrees to radians
+  #toRad(deg) {
+    return deg * (Math.PI / 180);
   }
 }
