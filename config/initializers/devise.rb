@@ -310,7 +310,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-  # Spotify authentication configuration thru omniauth
-  config.omniauth :spotify, ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"], scope: "user-read-email playlist-modify-public user-library-read user-library-modify"
 end

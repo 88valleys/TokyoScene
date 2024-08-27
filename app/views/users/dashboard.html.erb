@@ -54,13 +54,8 @@
       <i class="fa-brands fa-spotify"></i> Recommended from Spotify
     </h2>
   </div>
-  <!-- 
+  <%= link_to 'Sign in to see your top artists', '/auth/spotify', method: :post %>
 
-    <% if @devise_mapping.omniauthable? %>
-      <%- @resource_class.omniauth_providers.each do |provider| -%>
-        <%= link_to 'Sign in with Spotify', 'https://accounts.spotify.com/authorize?response_type=token&client_id=bb923d05526e4dbb9df9abf081133d6f&scope=user-top-read&redirect_uri=http%253A%252F%252Flocalhost%253A3000%2Fspotify%2Fcallback' %>
-      <%- end -%>
-    <% end %> -->
   <% if @recommended_gigs.any? %>
     <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
       <div style="display: flex;flex-wrap: nowrap; gap: 100px;/* padding: 0 15px; */">
