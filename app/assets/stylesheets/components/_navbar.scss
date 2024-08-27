@@ -2,6 +2,13 @@
   color: #f7f7f7;
 }
 
+.nav-item:hover {
+  background-color: #6F2B75;
+  color: #100303;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
 .navbar-tokyoscene {
   position: sticky;
   top: 0;
