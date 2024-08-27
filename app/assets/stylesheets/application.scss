@@ -34,7 +34,8 @@
 .content-wrapper {
   position: absolute;
   top: 70%;
-  left: 1.53%;
+  min-width: 100%;
+  //left: 1.53%;
 }
 
 .gig-cards-container {
