@@ -221,11 +221,11 @@ bands = [
     description: "Otherside is a five-piece Japanese band influenced by shoegaze, grunge, and alternative rock.",
     genre: ["alternative rock", "indie rock", "shoegaze", "indie"],
   },
-  {
-    band: "Kikagaku Moyo",
-    description: "Kikagaku Moyo call their sound psychedelic because it encompasses a broad spectrum of influence. Their music incorporates elements of classical Indian music, Krautrock, Traditional Folk, and 70s Rock.",
-    genre: ["psychedelic", "krautrock", "instrumental stoner rock", "japanese psychedelic", "japanese psychedelic rock", "neo-psychedelic"],
-  },
+  # {
+  #   band: "Kikagaku Moyo",
+  #   description: "Kikagaku Moyo call their sound psychedelic because it encompasses a broad spectrum of influence. Their music incorporates elements of classical Indian music, Krautrock, Traditional Folk, and 70s Rock.",
+  #   genre: ["psychedelic", "krautrock", "instrumental stoner rock", "japanese psychedelic", "japanese psychedelic rock", "neo-psychedelic"],
+  # },
   {
     band: "Minami Deutsch",
     description: "Minami Deutsch is a Krautrock band from Tokyo. Formed by Kyotaro Miula in 2014, they got their start playing live music on the busy streets of Tokyo.",

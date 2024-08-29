@@ -48,104 +48,124 @@
     </div>
   </div>
   <!-- When logged in, this section fetches gigs by genre and matches it -->
-  <div class="recommended-spotify">
-    <h2 class="mb-3">
-      <i class="fa-brands fa-spotify"></i> Recommended from Spotify
-    </h2>
-  </div>
-  <h2 class="mb-3">
-    <i class="fa-brands fa-spotify"></i> Recommended from Spotify
-  </h2>
-</div>
-<% if current_user.spotify_accessible? %>
-  <%= current_user.top_genres.join(", ") %>
-<% else %>
-  <%= link_to 'Sign in to see your top artists', '/auth/spotify', method: :post %>
-<% end %>
-<% if @recommended_gigs.any? %>
-  <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
-    <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
-      <% @recommended_gigs.each do |gig| %>
-        <%= link_to gig_path(gig), class: 'dashboard-gig-card-container', style: 'text-decoration: none;' do %>
-          <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
-            <div class="dashboard-gig-info-section" style="justify-content: space-between;">
-              <div style="width: 200px;">
-                <p class="dashboard-gig-date-time" style="margin: 0;">
-                  <%= gig.date.strftime("%a, %b %e %Y") %><br>
-                  <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
-                </p>
-                <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
-                <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
-                  <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
-                </p>
-              </div>
-            </div>
-            <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
-              <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<% else %>
-  <p><%= @recommended_gigs_message %></p>
-<% end %>
-</div>
-<div class="favorite-genres">
-  <h2 class="mb-3">
-    <i class="fa-solid fa-music"></i> My Favorite Genres </h2>
-  <div class="dropdown" style="margin-bottom: 15px;">
-    <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Add Genre
-    </button>
-    <ul class="dropdown-menu scrollable-dropdown">
-      <% @genres.each do |genre| %>
-        <li>
-          <%= form_with url: add_genre_user_path(@user), method: :patch, local: true do %>
-            <%= hidden_field_tag 'user[genre]', genre.name %>
-            <%= submit_tag genre.name, class: 'dropdown-item' %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <!-- Horizontal scroll container for genres -->
-  <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0; width: 100%;">
-    <div style="display: flex;gap: 10px;/* padding: 0 15px; */">
-      <% @user.genre_list.each do |genre| %>
-        <div class="card-category d-inline" style="position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
-          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= genre_image_url(genre) %>); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; filter: brightness(0.7); border-radius: 5px;"></div>
-          <span style="position: relative;z-index: 1;color: white;font-weight: bold;text-wrap: wrap;font-size: 20px;top: 28px;/* left: 43px; */"><%= genre %></span>
-          <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="favorite-artists">
-  <h2 class="mb-3">
-    <i class="fa-solid fa-heart"></i> My Favorite Artists </h2>
-  <div class="dropdown" style="margin-bottom: 15px;">
-    <%= form_with url: add_artist_user_path(@user), method: :patch, local: true do |form| %>
-      <div class="form-group d-flex align-items-center">
-        <%= form.text_field :artist, class: "form-control mr-2", placeholder: "Enter a singer/band name..." %>
-        <%= button_tag type: 'submit', class: 'btn-add-artist' do %>
-          <i class="fa-solid fa-plus"></i>
-        <% end %>
+  <% unless current_user.spotify_accessible? %>
+    <%= link_to '/auth/spotify', class: "spotify-signin", method: :post do %>
+      <i class="spotify-logo fa-brands fa-spotify"></i>
+      <div class="user-info">
+        <p class="name">Sign in to Spotify</p>
       </div>
-      <!-- Horizontal scroll container for artists -->
-      <div style="overflow-x: auto;white-space: nowrap;padding-top: 20px;width: 100%;">
-        <div style="display: flex; flex-wrap: nowrap; gap: 10px;">
-          <% @user.artist_list.each do |artist| %>
-            <%= artist_card_div(artist) do %>
-              <span style="position: relative; z-index: 1; color: white; font-weight: bold; font-size: 18px; line-height: 1.2; white-space: normal;"><%= artist %></span>
-              <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+      <i class="avatar fa-solid fa-user"></i>
+    <% end %>
+  <% else %>
+    <div class="spotify-signin my-4">
+      <i class="spotify-logo green fa-brands fa-spotify"></i>
+      <div class="user-info">
+        <p class="name">Senie Calalang</p>
+        <p class="details"><%= @current_user.playlist_count %> Public Playlists・2 Followers・<%= @current_user.following_artists.count %> Following</p>
+      </div>
+      <%= image_tag "https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM25NQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--26134ea8b8b82496feacf22867cfbe9325068835/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/88valleys.jpg", alt: "avatar", class: "avatar" %>
+    </div>
+    <div class="recommended-spotify">
+      <h2 class="mb-3">
+        <i class="fa-brands fa-spotify"></i> Recommended from Spotify
+      </h2>
+    </div>
+    <% if [@recommended_gigs, current_user.recommended_spotify_gigs].flatten.any? %>
+      <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
+        <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
+          <% [@recommended_gigs, current_user.recommended_spotify_gigs].flatten.each do |gig| %>
+            <%= link_to gig_path(gig), class: 'dashboard-gig-card-container', style: 'text-decoration: none;' do %>
+              <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
+                <div class="dashboard-gig-info-section" style="justify-content: space-between;">
+                  <div style="width: 200px;">
+                    <p class="dashboard-gig-date-time" style="margin: 0;">
+                      <%= gig.date.strftime("%a, %b %e %Y") %><br>
+                      <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
+                    </p>
+                    <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
+                    <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
+                      <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
+                    </p>
+                    <% gig.genre_list.first(2).each do |genre| %>
+                      <span class="btn btn-secondary"
+        style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
+                  <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>
       </div>
+    <% else %>
+      <p><%= @recommended_gigs_message %></p>
+    <% end %>
+  </div>
+  <div class="favorite-genres">
+    <h2 class="mb-3">
+      <i class="fa-solid fa-music"></i> My Favorite Genres </h2>
+    <div class="dropdown" style="margin-bottom: 15px;">
+      <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Add Genre
+      </button>
+      <ul class="dropdown-menu scrollable-dropdown">
+        <% @genres.each do |genre| %>
+          <li>
+            <%= form_with url: add_genre_user_path(@user), method: :patch, local: true do %>
+              <%= hidden_field_tag 'user[genre]', genre.name %>
+              <%= submit_tag genre.name, class: 'dropdown-item' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
-</div>
+    <!-- Horizontal scroll container for genres -->
+    <div style="overflow-x: auto; white-space: nowrap; padding: 15px 0; width: 100%;">
+      <div style="display: flex;gap: 10px;/* padding: 0 15px; */">
+        <% @user.genre_list.each do |genre| %>
+          <div class="card-category d-inline" style="position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= genre_image_url(genre) %>); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; filter: brightness(0.7); border-radius: 5px;"></div>
+            <span style="position: relative;z-index: 1;color: white;font-weight: bold;text-wrap: wrap;font-size: 20px;top: 28px;/* left: 43px; */"><%= genre.titleize %></span>
+            <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+          </div>
+        <% end %>
+        <% current_user.top_genres.first(10).each do |genre| %>
+          <div class="card-category d-inline" style="position: relative; margin-right: 10px; display: flex; align-items: center; justify-content: center; text-align: center; height: 100px;">
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= genre_image_url(genre) %>); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; filter: brightness(0.7); border-radius: 5px;"></div>
+            <span style="position: relative;z-index: 1;color: white;font-weight: bold;text-wrap: wrap;font-size: 20px;top: 28px;/* left: 43px; */"><%= genre.titleize %></span>
+            <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_genre_user_path(@user, user: {genre: genre}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="favorite-artists">
+    <h2 class="mb-3">
+      <i class="fa-solid fa-heart"></i> My Favorite Artists </h2>
+    <div class="dropdown" style="margin-bottom: 15px;">
+      <%= form_with url: add_artist_user_path(@user), method: :patch, local: true do |form| %>
+        <div class="form-group d-flex align-items-center">
+          <%= form.text_field :artist, class: "form-control mr-2", placeholder: "Enter a singer/band name..." %>
+          <%= button_tag type: 'submit', class: 'btn-add-artist' do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        </div>
+        <!-- Horizontal scroll container for artists -->
+        <div style="overflow-x: auto;white-space: nowrap;padding-top: 20px;width: 100%;">
+          <div style="display: flex; flex-wrap: nowrap; gap: 10px;">
+            <% @user.artist_list.each do |artist| %>
+              <%= artist_card_div(artist) do %>
+                <span style="position: relative; z-index: 1; color: white; font-weight: bold; font-size: 18px; line-height: 1.2; white-space: normal;"><%= artist %></span>
+                <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 </div>

@@ -36,11 +36,8 @@ class Gig < ApplicationRecord
   # Search form
   include PgSearch::Model
   pg_search_scope :search_by_name_and_location,
-
     against: [:event_name, :location, :band],
-
-    against: [:event_name, :location,:band],
-
+    against: [:event_name, :location, :band],
     using: {
       tsearch: { prefix: true },
     }
@@ -54,7 +51,7 @@ class Gig < ApplicationRecord
   def fetch_band_image
     # IMPORTANT: calls spotify_service.rb class which authenticates user and allows for image to be pulled from spotify's API
     band_info = SpotifyService.search_artist(self.band)
-    if band_info && band_info["artists"] && band_info["artists"]["items"].any?
+    if band_info && band_info["artists"] && band_info["artists"]["items"].any? && band_info["artists"]["items"].first["images"].any?
       self.band_image_url = band_info["artists"]["items"].first["images"].first["url"]
     else
       self.band_image_url = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"

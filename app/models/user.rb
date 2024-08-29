@@ -92,6 +92,13 @@ class User < ApplicationRecord
     spotify_user.top_tracks
   end
 
+  def playlist_count
+    return 0 unless spotify_accessible?
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+    me = RSpotify::User.find("sssensss")
+    me.playlists.count
+  end
+
   # https://developer.spotify.com/documentation/web-api/reference/get-followed
   def following_artists
     return [] unless spotify_accessible?
@@ -104,5 +111,16 @@ class User < ApplicationRecord
 
     # top_artists.map(&:genres).flatten
     self.top_artists.map { |a| a.genres }.flatten.uniq
+  end
+
+  def recommended_spotify_gigs
+    return [] unless spotify_accessible?
+
+    # Fetch recommended gigs based on user's genre list
+    if self.top_genres.present?
+      Gig.tagged_with(self.top_genres, any: true, wild: true)
+    else
+      []
+    end
   end
 end

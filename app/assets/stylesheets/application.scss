@@ -21,6 +21,7 @@
 @import "components/chats";
 @import "components/confirm_card";
 @import "components/dashboard_gigs";
+@import "components/spotify_button";
 
 // Mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
@@ -61,6 +62,7 @@ footer {
 html, body {
   height: 100%;
   margin: 0;
+  
 }
 
 .wrapper {
