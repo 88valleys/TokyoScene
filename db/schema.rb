@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "genre"
     t.string "location_name"
     t.string "genre"
     t.string "event_name"
