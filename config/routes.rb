@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Added this route to allow users to sign in with Spotify
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   # SPOTIFY: Route to handle the callback from Spotify
-  get "/spotify/callback", to: "spotify#callback"
+  get "/auth/spotify/callback", to: "spotify#authenticate"
 
   resources :users, only: [:show, :edit, :update] do
     member do
