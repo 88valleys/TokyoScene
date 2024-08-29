@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def registered_gigs
     @registered_gigs = current_user.registrations
-    @registered_gigs = Registration.joins(:gig, :user).where(user: current_user).order("gigs.time ASC") if params[:sort] == "asc"
+    @registered_gigs = Registration.joins(:gig, :user).where(user: current_user).order("gigs.date ASC") if params[:sort] == "asc"
 
     # filter by date
     # @registered_gigs = filter_by_date(@registered_gigs, params[:date_range]) if params[:date_range].present?
