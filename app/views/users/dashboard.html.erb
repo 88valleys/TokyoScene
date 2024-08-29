@@ -48,46 +48,44 @@
     </div>
   </div>
   <!-- When logged in, this section fetches gigs by genre and matches it -->
-<div class="recommended-spotify">
-  <h2 class="mb-3">
-    <i class="fa-brands fa-spotify"></i> Recommended from Spotify
-  </h2>
-</div>
-
-<% if @devise_mapping.omniauthable? %>
-  <%- @resource_class.omniauth_providers.each do |provider| -%>
-    <%= link_to 'Sign in with Spotify', 'https://accounts.spotify.com/authorize?response_type=token&client_id=bb923d05526e4dbb9df9abf081133d6f&scope=user-top-read&redirect_uri=http%253A%252F%252Flocalhost%253A3000%2Fspotify%2Fcallback' %>
-  <%- end -%>
-<% end %>
-<% if @recommended_gigs.any? %>
-  <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
-    <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
-      <% @recommended_gigs.each do |gig| %>
-        <%= link_to gig_path(gig), class: 'dashboard-gig-card-container', style: 'text-decoration: none;' do %>
-          <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
-            <div class="dashboard-gig-info-section" style="justify-content: space-between;">
-              <div style="width: 200px;">
-                <p class="dashboard-gig-date-time" style="margin: 0;">
-                  <%= gig.date.strftime("%a, %b %e %Y") %><br>
-                  <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
-                </p>
-                <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
-                <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
-                  <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
-                </p>
+  <div class="recommended-spotify">
+    <h2 class="mb-3">
+      <i class="fa-brands fa-spotify"></i> Recommended from Spotify
+    </h2>
+    <% if @devise_mapping.omniauthable? %>
+      <%- @resource_class.omniauth_providers.each do |provider| -%>
+        <%= link_to 'Sign in with Spotify', 'https://accounts.spotify.com/authorize?response_type=token&client_id=bb923d05526e4dbb9df9abf081133d6f&scope=user-top-read&redirect_uri=http%253A%252F%252Flocalhost%253A3000%2Fspotify%2Fcallback' %>
+      <%- end -%>
+    <% end %>
+    <% if @recommended_gigs.any? %>
+      <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
+        <div style="display: flex;flex-wrap: nowrap; gap: 100px;/* padding: 0 15px; */">
+          <% @recommended_gigs.each do |gig| %>
+            <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
+              <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
+                <div class="dashboard-gig-info-section" style="justify-content: space-between;">
+                  <div style="width: 200px;">
+                    <p class="dashboard-gig-date-time" style="margin: 0;">
+                      <%= gig.date.strftime("%a, %b %e %Y") %><br>
+                      <%= gig.time_from.strftime("%I:%M %P") %> -                     <%= gig.time_to.strftime("%I:%M %P") %>
+                    </p>
+                    <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
+                    <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %></p>
+                  </div>
+                </div>
+                <div class="dashboard-gig-image-section" style="margin-bottom: -17px;margin-top: -22px;margin-left: 0px; display: contents;">
+                  <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
+                </div>
               </div>
             </div>
-            <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
-              <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <p><%= @recommended_gigs_message %></p>
+    <% end %>
   </div>
-<% else %>
-  <p><%= @recommended_gigs_message %></p>
-<% end %>
+
 
   </div>
   <div class="favorite-genres">
