@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "gig_id"
+    t.index ["gig_id"], name: "index_chatrooms_on_gig_id"
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -59,9 +60,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "genre"
     t.string "location_name"
     t.string "event_name"
-    t.string "genre"
     t.string "band"
     t.string "band_image_url"
     t.datetime "date"
@@ -134,9 +135,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.string "fav_genres"
     t.string "nickname"
     t.string "profile_pic"
-    t.string "spotify_uid"
-    t.string "spotify_token"
-    t.string "spotify_refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
