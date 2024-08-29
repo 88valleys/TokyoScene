@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,12 +47,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "gig_id"
-    t.index ["gig_id"], name: "index_chatrooms_on_gig_id"
   end
 
   create_table "gigs", force: :cascade do |t|
     t.string "name"
-    t.datetime "time"
+    t.datetime "time_from"
     t.text "description"
     t.string "location"
     t.bigint "user_id", null: false
@@ -61,10 +60,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
     t.float "latitude"
     t.float "longitude"
     t.string "location_name"
-    t.string "genre"
     t.string "event_name"
+    t.string "genre"
     t.string "band"
     t.string "band_image_url"
+    t.datetime "date"
+    t.datetime "time_to"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
@@ -133,6 +134,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_060712) do
     t.string "fav_genres"
     t.string "nickname"
     t.string "profile_pic"
+    t.string "spotify_uid"
+    t.string "spotify_token"
+    t.string "spotify_refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

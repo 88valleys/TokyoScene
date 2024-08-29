@@ -1,0 +1,855 @@
+[
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/14d5KCX9nprUcxnKIShrr1"
+      },
+      "followers": {
+        "href": null,
+        "total": 132044
+      },
+      "genres": [
+        "japanese emo",
+        "japanese post-rock",
+        "japanese shoegaze"
+      ],
+      "href": "https://api.spotify.com/v1/artists/14d5KCX9nprUcxnKIShrr1?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "14d5KCX9nprUcxnKIShrr1",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb53a61972ed2f11fb3e690dfe",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000517453a61972ed2f11fb3e690dfe",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f17853a61972ed2f11fb3e690dfe",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "MASS OF THE FERMENTING DREGS",
+      "popularity": 45,
+      "type": "artist",
+      "uri": "spotify:artist:14d5KCX9nprUcxnKIShrr1"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6qeEQr29vtXgfQSnYRBDAA"
+      },
+      "followers": {
+        "href": null,
+        "total": 94
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/6qeEQr29vtXgfQSnYRBDAA?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "6qeEQr29vtXgfQSnYRBDAA",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b2732d0f95aaaa48bf00df957ca9",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e022d0f95aaaa48bf00df957ca9",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d000048512d0f95aaaa48bf00df957ca9",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "Botolph Dissidents",
+      "popularity": 1,
+      "type": "artist",
+      "uri": "spotify:artist:6qeEQr29vtXgfQSnYRBDAA"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3txgyWNETJ8M2EupemkN5z"
+      },
+      "followers": {
+        "href": null,
+        "total": 51
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/3txgyWNETJ8M2EupemkN5z?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "3txgyWNETJ8M2EupemkN5z",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb5f266cdea4f246a2387e90aa",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051745f266cdea4f246a2387e90aa",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1785f266cdea4f246a2387e90aa",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Creep Down",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:3txgyWNETJ8M2EupemkN5z"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/22AZmKH5yFKP8y1Tq65OMb"
+      },
+      "followers": {
+        "href": null,
+        "total": 61
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/22AZmKH5yFKP8y1Tq65OMb?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "22AZmKH5yFKP8y1Tq65OMb",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5ebb8896e6c56930327464bde33",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174b8896e6c56930327464bde33",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178b8896e6c56930327464bde33",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Marina Yozora",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:22AZmKH5yFKP8y1Tq65OMb"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/05bLnicFOOWYmhoVx4FjMM"
+      },
+      "followers": {
+        "href": null,
+        "total": 673
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/05bLnicFOOWYmhoVx4FjMM?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "05bLnicFOOWYmhoVx4FjMM",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b273bc6b821f79518287e523a13a",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e02bc6b821f79518287e523a13a",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00004851bc6b821f79518287e523a13a",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "Eryyy",
+      "popularity": 14,
+      "type": "artist",
+      "uri": "spotify:artist:05bLnicFOOWYmhoVx4FjMM"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3GqrF9KOWyO5YinbJjXWHT"
+      },
+      "followers": {
+        "href": null,
+        "total": 68
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/3GqrF9KOWyO5YinbJjXWHT?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "3GqrF9KOWyO5YinbJjXWHT",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b273544d32684b44ab4deea4b44f",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e02544d32684b44ab4deea4b44f",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00004851544d32684b44ab4deea4b44f",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "Laidback CX",
+      "popularity": 2,
+      "type": "artist",
+      "uri": "spotify:artist:3GqrF9KOWyO5YinbJjXWHT"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4tmlHVQJHtZggnG7GTX4S0"
+      },
+      "followers": {
+        "href": null,
+        "total": 83
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/4tmlHVQJHtZggnG7GTX4S0?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "4tmlHVQJHtZggnG7GTX4S0",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5ebe77644c98fd66f78ecf8f6a4",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174e77644c98fd66f78ecf8f6a4",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178e77644c98fd66f78ecf8f6a4",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Tropical Death",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:4tmlHVQJHtZggnG7GTX4S0"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6NjfVcM1eR3th3WJhMi4BN"
+      },
+      "followers": {
+        "href": null,
+        "total": 39
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/6NjfVcM1eR3th3WJhMi4BN?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "6NjfVcM1eR3th3WJhMi4BN",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb0c500eb545adf05bafd5a1b2",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051740c500eb545adf05bafd5a1b2",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1780c500eb545adf05bafd5a1b2",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Konnichiwa Typhoon",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:6NjfVcM1eR3th3WJhMi4BN"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0gVrDTqTz47PEVXRyQVnu9"
+      },
+      "followers": {
+        "href": null,
+        "total": 79
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/0gVrDTqTz47PEVXRyQVnu9?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "0gVrDTqTz47PEVXRyQVnu9",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb8e8fa787418b648c2bea1f8f",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051748e8fa787418b648c2bea1f8f",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1788e8fa787418b648c2bea1f8f",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Nao Right Now",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:0gVrDTqTz47PEVXRyQVnu9"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2hBUmJodGKppwgqy6fXrnB"
+      },
+      "followers": {
+        "href": null,
+        "total": 65
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/2hBUmJodGKppwgqy6fXrnB?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "2hBUmJodGKppwgqy6fXrnB",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b273af041d2391dae9d161d029c9",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e02af041d2391dae9d161d029c9",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00004851af041d2391dae9d161d029c9",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "THE BLACK DOLPHINS",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:2hBUmJodGKppwgqy6fXrnB"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1dfZYLAKUGTuvnncnz1hDb"
+      },
+      "followers": {
+        "href": null,
+        "total": 13
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/1dfZYLAKUGTuvnncnz1hDb?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "1dfZYLAKUGTuvnncnz1hDb",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb346f8113752f38595f65ac50",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174346f8113752f38595f65ac50",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178346f8113752f38595f65ac50",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Hundora",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:1dfZYLAKUGTuvnncnz1hDb"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3M7SNUlU4s1qP1CowpMygw"
+      },
+      "followers": {
+        "href": null,
+        "total": 71
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/3M7SNUlU4s1qP1CowpMygw?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "3M7SNUlU4s1qP1CowpMygw",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb78af130f852677a6ef16baf6",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000517478af130f852677a6ef16baf6",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f17878af130f852677a6ef16baf6",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Santa Dharma",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:3M7SNUlU4s1qP1CowpMygw"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6eFBSkR0PSnUiYglGqPHA0"
+      },
+      "followers": {
+        "href": null,
+        "total": 55
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/6eFBSkR0PSnUiYglGqPHA0?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "6eFBSkR0PSnUiYglGqPHA0",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b2733d0af32a1e4078104901fe88",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e023d0af32a1e4078104901fe88",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d000048513d0af32a1e4078104901fe88",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "Yeti Valhalla",
+      "popularity": 1,
+      "type": "artist",
+      "uri": "spotify:artist:6eFBSkR0PSnUiYglGqPHA0"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/00gjbuYH4vuo4icNLweN9W"
+      },
+      "followers": {
+        "href": null,
+        "total": 13
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/00gjbuYH4vuo4icNLweN9W?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "00gjbuYH4vuo4icNLweN9W",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb6dda3137c62061a6b01a59fd",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051746dda3137c62061a6b01a59fd",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1786dda3137c62061a6b01a59fd",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "HANJŌ",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:00gjbuYH4vuo4icNLweN9W"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/43Uniop7jQBc0yyHer6oGR"
+      },
+      "followers": {
+        "href": null,
+        "total": 60
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/43Uniop7jQBc0yyHer6oGR?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "43Uniop7jQBc0yyHer6oGR",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b273844216dd5dac256010699f6f",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e02844216dd5dac256010699f6f",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00004851844216dd5dac256010699f6f",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "JiliJili Moksha",
+      "popularity": 0,
+      "type": "artist",
+      "uri": "spotify:artist:43Uniop7jQBc0yyHer6oGR"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3mWeBqMtDhKO66qel3iO2C"
+      },
+      "followers": {
+        "href": null,
+        "total": 23541
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/3mWeBqMtDhKO66qel3iO2C?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "3mWeBqMtDhKO66qel3iO2C",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb77860d4e71710f2c45739068",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000517477860d4e71710f2c45739068",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f17877860d4e71710f2c45739068",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "CHO CO PA CO CHO CO QUIN QUIN",
+      "popularity": 36,
+      "type": "artist",
+      "uri": "spotify:artist:3mWeBqMtDhKO66qel3iO2C"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/7B6BN3NuLRQHD9QMENwB8e"
+      },
+      "followers": {
+        "href": null,
+        "total": 4728
+      },
+      "genres": [],
+      "href": "https://api.spotify.com/v1/artists/7B6BN3NuLRQHD9QMENwB8e?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "7B6BN3NuLRQHD9QMENwB8e",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb777c3ccb2a8be4907c512242",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174777c3ccb2a8be4907c512242",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178777c3ccb2a8be4907c512242",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Half Mile Beach Club",
+      "popularity": 24,
+      "type": "artist",
+      "uri": "spotify:artist:7B6BN3NuLRQHD9QMENwB8e"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2vJObElaIZWYDLpiXiJMo9"
+      },
+      "followers": {
+        "href": null,
+        "total": 159262
+      },
+      "genres": [
+        "indietronica",
+        "j-ambient",
+        "japanese alternative pop",
+        "shibuya-kei"
+      ],
+      "href": "https://api.spotify.com/v1/artists/2vJObElaIZWYDLpiXiJMo9?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "2vJObElaIZWYDLpiXiJMo9",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5ebdd24386203ce97cd25e97496",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174dd24386203ce97cd25e97496",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178dd24386203ce97cd25e97496",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Cornelius",
+      "popularity": 43,
+      "type": "artist",
+      "uri": "spotify:artist:2vJObElaIZWYDLpiXiJMo9"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0rFHElzeddB9ymDjgpBENX"
+      },
+      "followers": {
+        "href": null,
+        "total": 1210039
+      },
+      "genres": [
+        "japanese alternative pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0rFHElzeddB9ymDjgpBENX?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "0rFHElzeddB9ymDjgpBENX",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb0200ae3b8094a3b795e51f59",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051740200ae3b8094a3b795e51f59",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1780200ae3b8094a3b795e51f59",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Lamp",
+      "popularity": 64,
+      "type": "artist",
+      "uri": "spotify:artist:0rFHElzeddB9ymDjgpBENX"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3Cp20KSVlMlFuOdqiqHFGR"
+      },
+      "followers": {
+        "href": null,
+        "total": 22565
+      },
+      "genres": [
+        "brooklyn indie"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3Cp20KSVlMlFuOdqiqHFGR?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "3Cp20KSVlMlFuOdqiqHFGR",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb01f1ce6909a7682bbfe2d3d1",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000517401f1ce6909a7682bbfe2d3d1",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f17801f1ce6909a7682bbfe2d3d1",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "Mei Semones",
+      "popularity": 39,
+      "type": "artist",
+      "uri": "spotify:artist:3Cp20KSVlMlFuOdqiqHFGR"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0O1UtbTe4ca7HabaiMhYZ7"
+      },
+      "followers": {
+        "href": null,
+        "total": 222281
+      },
+      "genres": [
+        "city pop",
+        "j-rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0O1UtbTe4ca7HabaiMhYZ7?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "0O1UtbTe4ca7HabaiMhYZ7",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb886007f39a1fded96bb4d288",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174886007f39a1fded96bb4d288",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178886007f39a1fded96bb4d288",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "KIRINJI",
+      "popularity": 49,
+      "type": "artist",
+      "uri": "spotify:artist:0O1UtbTe4ca7HabaiMhYZ7"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/57okaLdCtv3nVBSn5otJkp"
+      },
+      "followers": {
+        "href": null,
+        "total": 569147
+      },
+      "genres": [
+        "korean indie folk",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/57okaLdCtv3nVBSn5otJkp?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "57okaLdCtv3nVBSn5otJkp",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eba83b7860635940ed829ee09b",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616100005174a83b7860635940ed829ee09b",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f178a83b7860635940ed829ee09b",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "HYUKOH",
+      "popularity": 55,
+      "type": "artist",
+      "uri": "spotify:artist:57okaLdCtv3nVBSn5otJkp"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0NZsNnETGPWLKJj2Y0vpBx"
+      },
+      "followers": {
+        "href": null,
+        "total": 122362
+      },
+      "genres": [
+        "japanese alternative rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0NZsNnETGPWLKJj2Y0vpBx?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "0NZsNnETGPWLKJj2Y0vpBx",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb9dbbc836f53e4db22a62b934",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051749dbbc836f53e4db22a62b934",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1789dbbc836f53e4db22a62b934",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "CHAI",
+      "popularity": 35,
+      "type": "artist",
+      "uri": "spotify:artist:0NZsNnETGPWLKJj2Y0vpBx"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0X9vdekJ6sIKcUvwIgVsjW"
+      },
+      "followers": {
+        "href": null,
+        "total": 74013
+      },
+      "genres": [
+        "j-rock",
+        "japanese post-punk",
+        "japanese post-rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0X9vdekJ6sIKcUvwIgVsjW?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "0X9vdekJ6sIKcUvwIgVsjW",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb25c4b217be9f8be316eca79b",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000517425c4b217be9f8be316eca79b",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f17825c4b217be9f8be316eca79b",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "OGRE YOU ASSHOLE",
+      "popularity": 32,
+      "type": "artist",
+      "uri": "spotify:artist:0X9vdekJ6sIKcUvwIgVsjW"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/59tUUyuaTFMty5kJE9Ojrq"
+      },
+      "followers": {
+        "href": null,
+        "total": 108413
+      },
+      "genres": [
+        "japanese alternative rock",
+        "japanese indie pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/59tUUyuaTFMty5kJE9Ojrq?locale=en-GB%2Cen-US%3Bq%3D0.9%2Cen%3Bq%3D0.8",
+      "id": "59tUUyuaTFMty5kJE9Ojrq",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab6761610000e5eb5a24ac843c8d1c4114027975",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab676161000051745a24ac843c8d1c4114027975",
+          "height": 320,
+          "width": 320
+        },
+        {
+          "url": "https://i.scdn.co/image/ab6761610000f1785a24ac843c8d1c4114027975",
+          "height": 160,
+          "width": 160
+        }
+      ],
+      "name": "mitsume",
+      "popularity": 35,
+      "type": "artist",
+      "uri": "spotify:artist:59tUUyuaTFMty5kJE9Ojrq"
+    }
+  ]

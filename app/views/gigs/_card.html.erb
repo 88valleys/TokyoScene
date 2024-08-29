@@ -19,7 +19,7 @@
 
     <p>
     <strong>Date:</strong>
-    <%= gig.time %>
+    <%= gig.date %>
     </p>
 
 <%= link_to "Register", confirm_gig_registrations_path(gig), class: "btn btn-secondary" %>
@@ -34,9 +34,9 @@
   <div class="event-image">
     <img src="<%= gig.band_image_url %>" alt="Concert Image">
     <div class="event-date-time">
-      <%= gig.time.strftime("%a, %b %e %Y") %>
+      <%= gig.date.strftime("%a, %b %e %Y") %>
       <br>
-      <%= gig.time.strftime("%I:%M %P") %>
+      <%= gig.date.strftime("%I:%M %P") %>
     </div>
   </div>
   <div class="event-details">
