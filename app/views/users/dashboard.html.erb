@@ -26,8 +26,8 @@
               <div class="dashboard-gig-info-section" style="justify-content: space-between;">
                 <div>
                   <p class="dashboard-gig-date-time" style="margin: 0;">
-                    <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
-                    <%= registration.gig.time.strftime("%I:%M %P") %>
+                    <%= registration.gig.date.strftime("%a, %b %e %Y") %><br>
+                    <%= registration.gig.time_from.strftime("%I:%M %P") %> -                     <%= registration.gig.time_to.strftime("%I:%M %P") %>
                   </p>
                   <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
                   <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location_name%></p>
@@ -68,8 +68,8 @@
                 <div class="dashboard-gig-info-section" style="justify-content: space-between;">
                   <div style="width: 200px;">
                     <p class="dashboard-gig-date-time" style="margin: 0;">
-                      <%= gig.time.strftime("%a, %b %e %Y") %><br>
-                      <%= gig.time.strftime("%I:%M %P") %>
+                      <%= gig.date.strftime("%a, %b %e %Y") %><br>
+                      <%= gig.time_from.strftime("%I:%M %P") %> -                     <%= gig.time_to.strftime("%I:%M %P") %>
                     </p>
                     <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
                     <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %></p>
