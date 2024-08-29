@@ -16,8 +16,7 @@
       <div style="display: flex;flex-wrap: nowrap; gap: 100px;/* padding: 0 15px; */">
         <% @registered_gigs.each do |registration| %>
           <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
-            <div class="dashboard-gig-card" style="border: 1px solid #ddd; backgro
-            und-color: #fff; position: relative;">
+            <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
               <div class="dashboard-gig-image-section" style="margin-bottom: -17px;margin-top: -22px;margin-left: 0px;">
                 <%= link_to gig_path(registration.gig) do %>
                   <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>" style="width: 100%;height: 100%;"/>
@@ -48,7 +47,6 @@
     </div>
   </div>
   <!-- When logged in, this section fetches gigs by genre and matches it -->
-
   <% unless current_user.spotify_accessible? %>
     <%= link_to '/auth/spotify', class: "spotify-signin", method: :post do %>
       <i class="spotify-logo fa-brands fa-spotify"></i>
@@ -76,26 +74,26 @@
         <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
           <% [@recommended_gigs, current_user.recommended_spotify_gigs].flatten.each do |gig| %>
             <%= link_to gig_path(gig), class: 'dashboard-gig-card-container', style: 'text-decoration: none;' do %>
-            <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
-              <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
-                <div class="dashboard-gig-info-section" style="justify-content: space-between;">
-                  <div style="width: 200px;">
-                    <p class="dashboard-gig-date-time" style="margin: 0;">
-                      <%= gig.date.strftime("%a, %b %e %Y") %><br>
-                      <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
-                    </p>
-                    <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
-                    <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
-                      <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
-                    </p>
-                    <% gig.genre_list.first(2).each do |genre| %>
-                      <span class="btn btn-secondary"
-        style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
-                    <% end %>
+              <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
+                <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
+                  <div class="dashboard-gig-info-section" style="justify-content: space-between;">
+                    <div style="width: 200px;">
+                      <p class="dashboard-gig-date-time" style="margin: 0;">
+                        <%= gig.date.strftime("%a, %b %e %Y") %><br>
+                        <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
+                      </p>
+                      <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
+                      <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
+                        <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
+                      </p>
+                      <% gig.genre_list.first(2).each do |genre| %>
+                        <span class="btn btn-secondary" style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
-                <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
-                  <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
+                  <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
+                    <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
+                  </div>
                 </div>
               </div>
             <% end %>
