@@ -8,7 +8,7 @@
     <h2 class="mb-3">
       <i class="fa-solid fa-calendar-day"></i> Upcoming Gigs</h2>
     <!-- Filter buttons -->
-    <div class="filter" style="overflow-x: 100px; height: 30px">
+    <div class="filter" style="overflow-x: 100px;height: 30px;margin-bottom: 15px;">
       <%= render partial: 'filter'%>
     </div>
     <!-- Horizontal scroll container for gigs -->
@@ -20,14 +20,14 @@
             und-color: #fff; position: relative;">
               <div class="dashboard-gig-image-section" style="margin-bottom: -17px;margin-top: -22px;margin-left: 0px;">
                 <%= link_to gig_path(registration.gig) do %>
-                  <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>" style="width: 100%; height: auto;"/>
+                  <img src="<%= registration.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= registration.gig.name %>" style="width: 100%;height: 100%;"/>
                 <% end %>
               </div>
               <div class="dashboard-gig-info-section" style="justify-content: space-between;">
                 <div>
                   <p class="dashboard-gig-date-time" style="margin: 0;">
-                    <%= registration.gig.time.strftime("%a, %b %e %Y") %><br>
-                    <%= registration.gig.time.strftime("%I:%M %P") %>
+                    <%= registration.gig.date.strftime("%a, %b %e %Y") %><br>
+                    <%= registration.gig.time_from.strftime("%I:%M %P") %> -                     <%= registration.gig.time_to.strftime("%I:%M %P") %>
                   </p>
                   <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
                   <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location_name%></p>
@@ -49,48 +49,48 @@
   </div>
   <!-- When logged in, this section fetches gigs by genre and matches it -->
   <div class="recommended-spotify">
-
     <h2 class="mb-3">
       <i class="fa-brands fa-spotify"></i> Recommended from Spotify
     </h2>
   </div>
+  <h2 class="mb-3">
+    <i class="fa-brands fa-spotify"></i> Recommended from Spotify
+  </h2>
+</div>
+<% if current_user.spotify_accessible? %>
+  <%= current_user.top_genres.join(", ") %>
+<% else %>
   <%= link_to 'Sign in to see your top artists', '/auth/spotify', method: :post %>
-
-  <% if @recommended_gigs.any? %>
-    <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
-      <div style="display: flex;flex-wrap: nowrap; gap: 100px;/* padding: 0 15px; */">
-        <% @recommended_gigs.each do |gig| %>
-          <div class="dashboard-gig-card-container" style="flex: 0 0 auto; width: 300px; margin-right: 15px;">
-            <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
-              <div class="dashboard-gig-image-section" style="margin-bottom: -17px;margin-top: -22px;margin-left: 0px; display: contents;">
-                <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: auto;"/>
-                <strong><%= gig.name %></strong><br>
-                Location: <%= gig.location %><br>
-                Band: <%= gig.band %><br>
-                Description: <%= gig.description %><br>
-                Genres: <%= gig.genre_list.join(', ') %>
+<% end %>
+<% if @recommended_gigs.any? %>
+  <div style="overflow-x: auto; white-space: nowrap; width: 100%;">
+    <div style="display: flex; flex-wrap: nowrap; gap: 100px;">
+      <% @recommended_gigs.each do |gig| %>
+        <%= link_to gig_path(gig), class: 'dashboard-gig-card-container', style: 'text-decoration: none;' do %>
+          <div class="dashboard-gig-card" style="border: 1px solid #ddd; background-color: #fff; position: relative;">
+            <div class="dashboard-gig-info-section" style="justify-content: space-between;">
+              <div style="width: 200px;">
+                <p class="dashboard-gig-date-time" style="margin: 0;">
+                  <%= gig.date.strftime("%a, %b %e %Y") %><br>
+                  <%= gig.time_from.strftime("%I:%M %P") %> - <%= gig.time_to.strftime("%I:%M %P") %>
+                </p>
+                <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
+                <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;">
+                  <i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location_name %>
+                </p>
               </div>
-              <div class="dashboard-gig-info-section" style="justify-content: space-between;">
-                <div>
-                  <p class="dashboard-gig-date-time" style="margin: 0;">
-                    <%= gig.time.strftime("%a, %b %e %Y") %><br>
-                    <%= gig.time.strftime("%I:%M %P") %>
-                  </p>
-                  <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= gig.event_name %>: <%= gig.band %></h1>
-                  <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= gig.location.split(',').first %></p>
-                </div>
-              </div>
-              <%= gig.time.strftime("%a, %b %e %Y") %><br>
-              <%= gig.time.strftime("%I:%M %P") %>
+            </div>
+            <div class="dashboard-gig-image-section" style="margin-bottom: -17px; margin-top: -22px; margin-left: 0px; display: contents;">
+              <img src="<%= gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= gig.name %>" style="width: 100%; height: 100%;"/>
             </div>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
-  <% else %>
-    <p><%= @recommended_gigs_message %></p>
-  <% end %>
-  <br>
+  </div>
+<% else %>
+  <p><%= @recommended_gigs_message %></p>
+<% end %>
 </div>
 <div class="favorite-genres">
   <h2 class="mb-3">
@@ -134,18 +134,18 @@
           <i class="fa-solid fa-plus"></i>
         <% end %>
       </div>
-    <% end %>
-  </div>
-  <!-- Horizontal scroll container for artists -->
-  <div style="overflow-x: auto;white-space: nowrap;padding-top: 20px;width: 100%;">
-    <div style="display: flex; flex-wrap: nowrap; gap: 10px;">
-      <% @user.artist_list.each do |artist| %>
-        <%= artist_card_div(artist) do %>
-          <span style="position: relative; z-index: 1; color: white; font-weight: bold; font-size: 18px; line-height: 1.2; white-space: normal;"><%= artist %></span>
-          <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
-        <% end %>
-      <% end %>
+      <!-- Horizontal scroll container for artists -->
+      <div style="overflow-x: auto;white-space: nowrap;padding-top: 20px;width: 100%;">
+        <div style="display: flex; flex-wrap: nowrap; gap: 10px;">
+          <% @user.artist_list.each do |artist| %>
+            <%= artist_card_div(artist) do %>
+              <span style="position: relative; z-index: 1; color: white; font-weight: bold; font-size: 18px; line-height: 1.2; white-space: normal;"><%= artist %></span>
+              <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, remove_artist_user_path(@user, user: {artist: artist}), method: :patch, class: 'btn btn-danger', style: 'position: absolute; top: 5px; right: 5px; color: white; background-color: transparent; border: 2px solid white; border-radius: 100px; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-weight: bold; text-align: center;' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 </div>

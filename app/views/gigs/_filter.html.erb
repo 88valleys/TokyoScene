@@ -1,9 +1,7 @@
-
 <!--Recommended button-->
 <div class="dropdown">
-  <%= button_to 'Recommended', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button' %>
+  <%= button_to 'See all gigs', root_path(recommend: true), method: :get, class: 'btn btn-secondary custom-dropdown-button' %>
 </div>
-
 <!--Filter-2 genre-->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,7 +13,6 @@
       <%end %>
     </ul>
   </div>
-
   <!--Filter-3 date-->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle custom-dropdown-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,5 +25,3 @@
       <li><a class="dropdown-item" href="?date_range=next_month">Next Month</a></li>
     </ul>
   </div>
-
-

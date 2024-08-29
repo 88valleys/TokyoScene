@@ -1,16 +1,18 @@
 <div class="justify-content-center d-flex">
   <div class="container p-3 row justify-content-center mx-0">
     <div class="confirm-card col-12 col-lg-6">
-      <img src="<%= @gig.band_image_url %>" alt="Event Image">
+      <%= image_tag(@gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg', alt: "Gig Image") %>
       <div class="confirm-card-content">
         <div class="confirm-card-title">
           <h1><%= @gig.event_name  %></h1>
           <h2><%= @gig.band %><br>
           </h2>
         </div>
+        <hr>
         <div class="confirm-card-location">
           <i class="fas fa-map-marker-alt"></i>
-          <span><%= @gig.location %></span>
+          <span><%= @gig.location_name %><br>
+            <%= @gig.location %></span>
         </div>
         <br>
         <div class="confirm-card-description">
@@ -20,28 +22,28 @@
         <br>
         <div class="confirm-card-date">
           <i class="fa-regular fa-calendar"></i>
-          <%= @gig.time.strftime("%a, %b %e %Y") %><br>
-          <%= @gig.time.strftime("%I:%M %P") %>
+          <%= @gig.date.strftime("%a, %b %e %Y") %><br>
+          <%= @gig.time_from.strftime("%I:%M %P") %> - <%= @gig.time_to.strftime("%I:%M %P") %>
         </div>
         <br>
-        <h4>Join the Chat Now!</h4>
+        <% if @gig.registrations.find_by(user_id: current_user.id) %>
+          <div class="chat-buttons-section">
+            <%= link_to chatroom_path(@gig.chatroom), class: 'no-underline-link' do %>
+              <div class="icon-button ticket">
+                <i class="fa-solid fa-comment white-icon"></i>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="register-button" data-controller="sweetalert">
+            <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"}, turbo: false } do |f| %>
+              <%= button_tag(type: 'submit', style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 21px; width: 300px;') do %>
+                <i class='fa-solid fa-check'></i> Join the chat now!
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-      <% if @gig.registrations.find_by(user_id: current_user.id) %>
-        <div class="chat-buttons-section">
-          <%= link_to chatroom_path(@gig.chatroom), class: 'no-underline-link' do %>
-            <div class="icon-button ticket">
-              <i class="fa-solid fa-comment white-icon"></i>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="register-button" data-controller="sweetalert">
-          <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"},  turbo: false } do |f| %>
-            <%= f.submit "Register", style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 21px;' %>
-          <% end %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
-

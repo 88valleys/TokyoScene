@@ -63,13 +63,13 @@ class User < ApplicationRecord
         "credentials" => {
           "token" => self.spotify_access_token,
           "refresh_token" => self.spotify_refresh_token,
-          "access_refresh_callback" =>
-            Proc.new { |new_access_token, token_lifetime |
-              now = Time.now.utc.to_i
-              deadline = now+token_lifetime
-              self.save_new_access_token(new_access_token)
+          "access_refresh_callback" => Proc.new { |new_access_token, token_lifetime|
+            now = Time.now.utc.to_i
+            deadline = now + token_lifetime
+            self.save_new_access_token(new_access_token)
+          },
+          "id" => self.spotify_id,
         },
-        "id" => self.spotify_id
       }
     )
   end

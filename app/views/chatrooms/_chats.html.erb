@@ -1,19 +1,19 @@
 <div class="chat-event-card-container">
-<div class="chat-event-card">
-<div class="chat-image-section">
-    <img src="<%= chat.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= chat.gig.band %>"/>
-</div>
-<div class="chat-info-section">
-    <p class="chat-date-time">
-    <%= chat.gig.time.strftime("%a, %b %e %Y") %><br>
-    <h1 class="chat-event-title"><%= chat.gig.event_name %>: <%= chat.gig.band%></h1>
+  <div class="chat-event-card">
+    <div class="chat-image-section">
+      <img src="<%= chat.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= chat.gig.band %>"/>
     </div>
-    <div class="chat-buttons-section">
+    <div class="chat-info-section">
+      <p class="chat-date-time">
+        <%= chat.gig.date.strftime("%a, %b %e %Y") %><br>
+        <h1 class="chat-event-title"><%= chat.gig.event_name %>: <%= chat.gig.band%></h1>
+      </div>
+      <div class="chat-buttons-section">
         <%= link_to chatroom_path(chat), class: 'no-underline-link' do %>
-        <div class="icon-button ticket">
+          <div class="icon-button ticket">
             <i class="fa-solid fa-comment white-icon"></i>
-        </div>
+          </div>
         <% end %>
+      </div>
     </div>
-    </div>
-</div>
+  </div>

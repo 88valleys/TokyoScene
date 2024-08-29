@@ -3,14 +3,14 @@
   <div class="upcoming-events-card-infos col-6">
     <div class="pb-2">
       <%#  Turns the time into a Day, Date, Month, Year format %>
-      <h3 class="top-heading"><%= gig.time.strftime("%a, %b %e %Y") %>
+      <h3 class="top-heading"><%= gig.date.strftime("%a, %b %e %Y") %>
         <br>
-        <%= gig.time.strftime("%I:%M %P") %>
+        <%= gig.time_from.strftime("%I:%M %P") %> -         <%= gig.time_to.strftime("%I:%M %P") %>
       </h3>
     </div>
     <div class="pb-2">
-      <h4 class="middle-heading"><%= gig.event_name %>:</h4>
-      <h4><%= gig.band %> (<%= gig.genre_list %>)</h4>
+      <h2 class="middle-heading"><%= gig.event_name %>:</h2>
+      <h4><%= gig.band %></h4>
     </div>
     <div>
       <strong><i class="fa-solid fa-location-dot"></i></strong>
@@ -32,11 +32,16 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Gig Info</h5>
+            <h5 class="modal-title" id="exampleModalCenterTitle"><%= gig.event_name %>: <%= gig.band %></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" data-modal-target="modalBody">
             <!-- Modal content goes here -->
+          </div>
+          <div class="already-registered text-center">
+            <% if gig.registrations.find_by(user_id: current_user.id) %>
+              <h2>You are already registered for this gig!</h2>
+            <% end %>
           </div>
         </div>
       </div>

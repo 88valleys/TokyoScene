@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_092944) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_092944) do
 
   create_table "gigs", force: :cascade do |t|
     t.string "name"
-    t.datetime "time"
+    t.datetime "time_from"
     t.text "description"
     t.string "location"
     t.bigint "user_id", null: false
@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_092944) do
     t.string "event_name"
     t.string "band"
     t.string "band_image_url"
+    t.datetime "date"
+    t.datetime "time_to"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
