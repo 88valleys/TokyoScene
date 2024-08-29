@@ -1,5 +1,5 @@
 .chat-event-card-container {
-  margin-bottom: 15px; /* Adjust the value as needed */
+  margin-bottom: 25px; /* Adjust the value as needed */
   color: white;
 }
 
@@ -9,13 +9,13 @@
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 380px;
-  height: 120px; 
+  width: 355px;
+  height: 150px;
 }
 
 .image-section {
-  flex: 0 0 160px; 
-  height: 100%; 
+  flex: 0 0 160px;
+  height: 100%;
 }
 
 .chat-image-section img {
@@ -104,4 +104,3 @@
 .white-icon {
   color: white;
 }
-
