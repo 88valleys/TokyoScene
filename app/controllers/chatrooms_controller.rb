@@ -1,8 +1,8 @@
 class ChatroomsController < ApplicationController
-
   def index
     @chatrooms = current_user.chatrooms
   end
+
   # associate a chatroom with a gig
   def create
     @gig = Gig.find(params[:gig_id])
@@ -13,6 +13,7 @@ class ChatroomsController < ApplicationController
       render :new
     end
   end
+
   def show
     @chatroom = Chatroom.find(params[:id])
     @gig = @chatroom.gig
