@@ -38,6 +38,11 @@
           <div class="modal-body" data-modal-target="modalBody">
             <!-- Modal content goes here -->
           </div>
+          <div class="already-registered text-center">
+            <% if gig.registrations.find_by(user_id: current_user.id) %>
+              <h2>You are already registered for this gig!</h2>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

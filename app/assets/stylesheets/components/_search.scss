@@ -2,9 +2,9 @@
 
 .search-bar {
     display: flex;
-    height: 4rem;
-    width: 360px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    height: 3rem;
+    width: 330px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 100px;
 
     // Displays above the map
@@ -21,7 +21,7 @@
 .filter-bar {
   display: flex;
   justify-content: space-between;
-  width: 360px;
+  width: 330px;
   // Displays above the map
 }
 
@@ -43,7 +43,7 @@
 
 .search-form-control .form-control {
   height: 3.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .search-form-control .form-control:focus {

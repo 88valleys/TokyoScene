@@ -8,7 +8,11 @@ class Gig < ApplicationRecord
   # Search form
   include PgSearch::Model
   pg_search_scope :search_by_name_and_location,
+
     against: [:event_name, :location, :band],
+
+    against: [:event_name, :location,:band],
+
     using: {
       tsearch: { prefix: true },
     }
