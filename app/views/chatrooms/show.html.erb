@@ -2,13 +2,15 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="chatroom-info d-flex">
     <div class="gig-image">
-      <%= image_tag @chatroom.gig.band_image_url, alt: "Gig Image" %>
+      <img src="<%= @chatroom.gig.band_image_url || 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg' %>" alt="<%= @chatroom.gig.band %>"/>
     </div>
     <div class="chatroom-details">
       <h1><%= @chatroom.name %></h1>
-      <p class="event-time-location"> <%= @chatroom.gig.time.strftime("%a, %b %e %Y")  %>
-        <br>
-        <i class="fa-solid fa-location-dot"></i> <%= @chatroom.gig.location_name %></p>
+      <p class="event-time-location"><%= @chatroom.gig.date.strftime("%a, %b %e %Y")  %> - <%= @chatroom.gig.time_from.strftime("%I:%M %P") %> - <%= @chatroom.gig.time_to.strftime("%I:%M %P") %></p>
+      <hr style= "margin-left: 10px;">
+      <i class="fa-solid fa-location-dot" style="position: flex; margin-left: 15px;"></i>
+      <p style="margin-left:35px; margin-top: -23px;position: flex;">
+        <%= @chatroom.gig.location_name %></p>
     </div>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
