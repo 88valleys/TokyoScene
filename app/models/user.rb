@@ -68,7 +68,6 @@ class User < ApplicationRecord
               now = Time.now.utc.to_i
               deadline = now+token_lifetime
               self.save_new_access_token(new_access_token)
-            }
         },
         "id" => self.spotify_id
       }
@@ -98,5 +97,12 @@ class User < ApplicationRecord
     return [] unless spotify_accessible?
 
     spotify_user.following(type: "artist")
+  end
+
+  def top_genres
+    return [] unless spotify_accessible?
+
+    # top_artists.map(&:genres).flatten
+    self.top_artists.map { |a| a.genres }.flatten.uniq
   end
 end
