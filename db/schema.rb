@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "band_images", force: :cascade do |t|
+    t.bigint "gig_id", null: false
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gig_id"], name: "index_band_images_on_gig_id"
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -62,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
     t.float "longitude"
     t.string "genre"
     t.string "location_name"
+    t.string "genre"
     t.string "event_name"
     t.string "band"
     t.string "band_image_url"
@@ -141,6 +150,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_29_034902) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "band_images", "gigs"
   add_foreign_key "gigs", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "registrations", "gigs"
