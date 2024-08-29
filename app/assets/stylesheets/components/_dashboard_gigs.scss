@@ -21,15 +21,15 @@
 }
 
 .filter-buttons:last-child {
-  margin-bottom: 0; 
-  border-bottom: none; 
+  margin-bottom: 0;
+  border-bottom: none;
   margin-right: 0; /* Remove margin for the last button in the row */
 }
 
 .upcoming-gigs {
   padding-left: 20px;
   padding-right: 20px;
-  // padding-top: 20px;  
+  // padding-top: 20px;
   // background-color: #1c2639;
 
   h2 {
@@ -68,7 +68,7 @@
     // background-color: #1c2639;
     // color: #E0E0E0;
 
-  
+
     .btn-add-artist {
       background-color: #e1c5e2;
       border: none;
@@ -78,12 +78,12 @@
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-  
+
 }
 
 
 .dashboard-gig-card-container {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 
   a {
@@ -96,20 +96,23 @@
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 400px;
-    height: 151px;
+    width: 390px;
+    height: 185px;
         align-items: center;
   }
 
   .dashboard-gig-image-section {
-    flex: 0 0 160px; 
+    flex: 0 0 190px;
   }
 
+
+
   .dashboard-gig-image-section img {
-    // margin-top: -22px;
-    // margin-left: -13px;
-    // margin-bottom: -19px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    margin: 0;
+    padding: 0;
   }
 
   .dashboard-gig-info-section {
