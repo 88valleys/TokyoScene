@@ -38,7 +38,7 @@
           <div class="register-button" data-controller="sweetalert">
             <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"}, turbo: false } do |f| %>
               <%= button_tag(type: 'submit', style: 'background-color:#8A68CE; color: white; padding: 10px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none; border-radius: 21px; width: 300px;') do %>
-                <i class='fa-solid fa-check'></i> Join the chat now!
+                <i class='fa-solid fa-check'></i> Interested
               <% end %>
             <% end %>
           </div>
