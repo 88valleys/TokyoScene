@@ -125,7 +125,7 @@ livehouses = [
   { livehouse: "KT Zepp Yokohama", address: "KT Zepp Yokohama, 6, Minatomirai 4-chome, Nishi Ward, Yokohama, Kanagawa Prefecture, 220-0012, Japan " },
   { livehouse: "Pacifico Yokohama", address: "PACIFICO Yokohama North, 2, Minatomirai 1-chome, Nishi Ward, Yokohama, Kanagawa Prefecture, 220-0012, Japan" },
   { livehouse: " Pia Arena MM, Yokohama", address: "PIA ARENA MM, 1, Nishi Ward, Yokohama, Kanagawa Prefecture, 231-0017, Japan" },
-  { livehouse: "Impact Hub HQ", address: "Meguro, Tokyo, Japan" },
+  { livehouse: "Impact Hub HQ", address: "Otori shrine, 3-1-12, Meguro-dori, 下目黒三丁目, Shimomeguro, Meguro, Tokyo, 153-0064, Japan" },
 ]
 
 # bands = [
@@ -598,24 +598,24 @@ bands.each_with_index do |band_info, index|
   puts "#{band_info[:band]} - #{email} - user created!"
 end
 
-gig_time_from = Faker::Time.between(from: DateTime.now, to: 30.days.from_now)
-gig_time_to = gig_time_from + 4.hours
 # Create gig for each livehouse
 livehouses.each do |livehouse|
   band_info = bands.sample # create a gig for each band
   matching_event_names = Gig.matching_event_names(event_names, band_info[:genre])
   matching_event_name = matching_event_names.sample || event_names.sample # Fallback to a random event name if no match
+  random_date = Faker::Date.between(from: Date.today, to: 30.days.from_now)
+  gig_time_from = random_date.to_datetime.change(hour: 19, min: 0, sec: 0) + 15.hours
 
   gig = Gig.create!(
     user: band_info[:user], # Associate the user with the gig
     band: band_info[:band],
-    date: Faker::Date.between(from: Date.today, to: 30.days.from_now),
+    date: random_date,
     time_from: gig_time_from,
-    time_to: gig_time_to,
+    time_to: gig_time_from + 3.hours,
     description: band_info[:description],
     location: livehouse[:address],
     location_name: livehouse[:livehouse],
-    event_name: matching_event_name,
+    event_name: matching_event_name
   )
   gig.genre_list.add(band_info[:genre])
   gig.save!
@@ -630,8 +630,8 @@ tokyoscene_event_time_to = tokyoscene_event_time_from + 2.hours
 impact_hub = livehouses.last
 
 # Get the location and address of the last Livehouse
-impact_hub_location = impact_hub[:livehouse]
-impact_hub_location_name = impact_hub[:address]
+impact_hub_location = impact_hub[:address]
+impact_hub_location_name = impact_hub[:livehouse]
 
 team_tokyo_scene_gig = Gig.create!(
   user: User.last,
@@ -641,7 +641,7 @@ team_tokyo_scene_gig = Gig.create!(
   time_to: tokyoscene_event_time_to, # 8:30
   location: impact_hub_location,
   location_name: impact_hub_location_name,
-  event_name: "LeWagon Demo Day - Team TokyoScene",
+  event_name: "LeWagon Demo Day - Team TokyoScene"
 )
 team_tokyo_scene_gig.save!
 
