@@ -684,12 +684,34 @@ users = [
 ]
 
 # Create users, attaches profile photo and adds to the user
-created_users = users.map do |user_data|
-  user = User.create!(user_data)
-  user_profile_pic = "https://picsum.photos/200/200?random=#{rand(1..1000)}"
-  user.profile_pic.attach(io: URI.open(user_profile_pic), filename: "#{user_data[:nickname].downcase}.jpg")
-  user
-end
+# created_users = users.map do |user_data|
+#   user = User.create!(user_data)
+#   user_profile_pic = "https://picsum.photos/200/200?random=#{rand(1..1000)}"
+#   user.profile_pic.attach(io: URI.open(user_profile_pic), filename: "#{user_data[:nickname].downcase}.jpg")
+#   user
+# end
+
+senie = User.create!(users[0])
+senie_profile_pic = URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM25NQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--26134ea8b8b82496feacf22867cfbe9325068835/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/88valleys.jpg")
+senie.profile_pic.attach(io: senie_profile_pic, filename: "#{users[0][:nickname].downcase}.jpg")
+senie.save
+
+dianna = User.create!(users[1])
+dianna_profile_pic = URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM3JNQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7ec5dfc0c6ea08fb3148772f8982b664ae2b8771/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/DiannaAntenucci.jpg")
+dianna.profile_pic.attach(io: dianna_profile_pic, filename: "#{users[1][:nickname].downcase}.jpg")
+dianna.save
+
+yoosun = User.create!(users[2])
+yoosun_profile_pic = URI.open("https://avatars.githubusercontent.com/u/164530843?v=4")
+yoosun.profile_pic.attach(io: yoosun_profile_pic, filename: "#{users[2][:nickname].downcase}.jpg")
+yoosun.save
+
+erika = User.create!(users[3])
+erika_profile_pic = URI.open("https://avatars.githubusercontent.com/u/112060652?v=4")
+erika.profile_pic.attach(io: erika_profile_pic, filename: "#{users[3][:nickname].downcase}.jpg")
+erika.save
+
+created_users = [senie, dianna, yoosun, erika]
 
 # Fetch the first and second gigs
 first_gig = gigs.first

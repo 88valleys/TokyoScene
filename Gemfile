@@ -51,16 +51,17 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 
-
 # Custom gems added to TokyoScene
 gem "faker"
 gem "pg_search"
-gem 'jquery-rails'
+gem "jquery-rails"
 gem "acts-as-taggable-on"
 gem "geocoder"
 
 # add Spotify's API
 gem "rspotify"
+
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"

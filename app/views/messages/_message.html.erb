@@ -18,7 +18,10 @@
     <%= message.created_at.strftime("%l:%M %p") %>
   </div>
   <div class="text-message">      <strong><%= message.user.nickname %></strong>
+    <% if message.user.profile_pic.attached? %>
+      <%= cl_image_tag(message.user.profile_pic.key, class: "avatar") %>
+    <% end %>
     <br>
     <%= message.content %>
-      </div>
-    </div>
+  </div>
+</div>
