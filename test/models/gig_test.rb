@@ -5,6 +5,7 @@
 #  id             :bigint           not null, primary key
 #  band           :string
 #  band_image_url :string
+#  date           :datetime
 #  description    :text
 #  event_name     :string
 #  genre          :string
@@ -13,7 +14,8 @@
 #  location_name  :string
 #  longitude      :float
 #  name           :string
-#  time           :datetime
+#  time_from      :datetime
+#  time_to        :datetime
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  user_id        :bigint           not null
