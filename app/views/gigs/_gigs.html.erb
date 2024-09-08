@@ -15,9 +15,9 @@
     <div>
       <strong><i class="fa-solid fa-location-dot"></i></strong>
       <%= gig.location_name %>
-      <div style="justify-content: space-between;">
+      <div style="justify-content: space-between; margin-top: 8px;">
         <% gig.genre_list.first(2).each do |genre| %>
-          <span class="btn btn-secondary" style="border-radius: 5px;  margin: 10px 2px; padding-top: 2px;padding-bottom: 2px; padding-left: 2px; padding-right: 2px; --bs-btn-font-size: .75rem; width: auto;"><%= genre %></span>
+          <span class="btn btn-secondary" style="border-radius: 5px;  margin: 2px; padding-top: 2px;padding-bottom: 2px; padding-left: 2px; padding-right: 2px; --bs-btn-font-size: .75rem; width: auto;"><%= genre %></span>
         <% end %>
       </div>
     </div>
