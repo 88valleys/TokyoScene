@@ -12,7 +12,8 @@ TokyoScene is a web application designed to help users discover and explore live
 * **Search for Gigs:** Users can search for live music events in Tokyo.
 * **Filter by Genre:** Users can filter events by genre.
 * **Interactive Map:** View event locations on an interactive map.
-* **User Dashboard:** Personalised dashboard displaying user information, favourite genres, and favourite artists. Users can link their Spotify account to get gig recommendations based on their top genres.
+* **User Dashboard:** Personalised dashboard displaying user information, favourite genres, and favourite artists.
+* **Spotify Integration:** Users can link their Spotify account to get gig recommendations based on their top genres.
 * **Chatrooms:** Users can join chatrooms linked to a gig and interact with other users, provided they have registered for the event.
 
 ## Installation
