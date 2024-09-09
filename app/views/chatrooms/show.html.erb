@@ -6,6 +6,11 @@
     </div>
     <div class="chatroom-details">
       <h1><%= @chatroom.name %></h1>
+      <div style="justify-content: space-between; padding-left: 15px; padding-top: 5px; padding-bottom: 5px;">
+        <% @chatroom.gig.genre_list.first(2).each do |genre| %>
+          <span class="btn btn-secondary" style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
+        <% end %>
+      </div>
       <p class="event-time-location"><%= @chatroom.gig.date.strftime("%a, %b %e %Y")  %> - <%= @chatroom.gig.time_from.strftime("%I:%M %P") %> - <%= @chatroom.gig.time_to.strftime("%I:%M %P") %></p>
       <hr style= "margin-left: 10px;">
       <i class="fa-solid fa-location-dot" style="position: flex; margin-left: 15px;"></i>
