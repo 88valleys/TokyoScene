@@ -40,7 +40,7 @@ To get started with TokyoScene, follow these steps:
 7. **Visit the application:**
    Open your browser and go to `http://localhost:3000`.
 
-## Spotify Developer Account
+### Spotify Developer Account
 To use the Spotify API features, you need a Spotify developer account. Follow these steps to set it up:
 
 1. **Create a Spotify Developer Account:**
@@ -49,7 +49,7 @@ To use the Spotify API features, you need a Spotify developer account. Follow th
 2. **Set up environment variables:**
    * Add your `client_id` and `client_secret` to the `.env` file as shown above.
 
-## Mapbox API Key
+### Mapbox API Key
 To use the interactive map features, you need a Mapbox API key. Follow these steps to set it up:
 
 1. **Create a Mapbox Account:**
@@ -58,7 +58,7 @@ To use the interactive map features, you need a Mapbox API key. Follow these ste
 2. **Set up environment variables:**
    * Add your `MAPBOX_API_KEY` to the `.env` file as shown above.
 
-## Cloudinary Key
+### Cloudinary Key
 To use Cloudinary for image uploads, you need a Cloudinary URL. Follow these steps to set it up:
 
 1. **Create a Cloudinary Account:**
