@@ -74,7 +74,9 @@ To use Cloudinary for image uploads, you need a Cloudinary URL. Follow these ste
 * View event details and locations on the interactive map.
 
 ### User Dashboard
-* View your personalised dashboard with your upcoming events, link your Spotify account for gig recommendations around Tokyo based on your music taste, and see your favorite genres and artists.
+* View your personalised dashboard with your upcoming events.
+* Link your Spotify account for gig recommendations around Tokyo based on your music taste.
+* View your favorite genres and artists.
   
 ### Update Band Images
 Fetch and update band images using the Spotify API by running the following command:
