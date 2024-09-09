@@ -20,7 +20,7 @@ TokyoScene is a web application designed to help users discover and explore live
 To get started with TokyoScene, follow these steps:
 
 1. **Clone the repository:**
-   <pre>git clone https://github.com/yourusername/tokyoscene.git
+   <pre>git clone https://github.com/88valleys/tokyoscene.git
    cd tokyoscene</pre>
 2. **Install dependencies:**
    <pre>bundle install 
