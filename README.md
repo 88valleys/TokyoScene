@@ -1,4 +1,4 @@
-# TokyoScene
+# 🎸 TokyoScene
 TokyoScene is a web application designed to help users discover and explore live music events in Tokyo. Users can search for gigs, filter by genre, and view event details on an interactive map.
 
 ## Table of Contents
