@@ -8,6 +8,11 @@
           <h2><%= @gig.band %><br>
           </h2>
         </div>
+        <div style="justify-content: space-between">
+          <% @gig.genre_list.first(4).each do |genre| %>
+            <span class="btn btn-secondary" style="border-radius: 10px; margin: 2px 2px; padding-top: 2px; padding-bottom: 2px; width: auto;"><%= genre %></span>
+          <% end %>
+        </div>
         <hr>
         <div class="confirm-card-location">
           <i class="fas fa-map-marker-alt"></i>

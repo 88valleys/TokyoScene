@@ -11,6 +11,18 @@ class UsersController < ApplicationController
     @user = current_user
     @genres = ActsAsTaggableOn::Tag.for_context("genre")
     # @genres = ActsAsTaggableOn::Tag.all
+    #
+
+    # # if there is an API key, fetch data from the API
+    # begin
+    #   response = RestClient.get("https://api.example.com/data", {
+    #     Authorization: "Bearer #{ENV["API_KEY"]}",
+    #   })
+    #   @data = JSON.parse(response.body)
+    # rescue RestClient::Unauthorized => e
+    #   Rails.logger.error "Unauthorized access: #{e.message}"
+    #   render file: Rails.root.join("public", "401.html"), status: :unauthorized
+    # end
 
     # Convert user's genre list to lowercase
     user_genres = @user.genre_list.map(&:downcase)

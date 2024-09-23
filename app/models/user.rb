@@ -88,6 +88,7 @@ class User < ApplicationRecord
   # https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   def top_tracks
     return [] unless spotify_accessible?
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
 
     spotify_user.top_tracks
   end
@@ -102,12 +103,14 @@ class User < ApplicationRecord
   # https://developer.spotify.com/documentation/web-api/reference/get-followed
   def following_artists
     return [] unless spotify_accessible?
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
 
     spotify_user.following(type: "artist")
   end
 
   def top_genres
     return [] unless spotify_accessible?
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
 
     # top_artists.map(&:genres).flatten
     self.top_artists.map { |a| a.genres }.flatten.uniq

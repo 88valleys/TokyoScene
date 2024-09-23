@@ -7,6 +7,11 @@
       <p class="chat-date-time">
         <%= chat.gig.date.strftime("%a, %b %e %Y") %><br>
         <h1 class="chat-event-title"><%= chat.gig.event_name %>: <%= chat.gig.band%></h1>
+        <div style="justify-content: space-between">
+          <% chat.gig.genre_list.first(2).each do |genre| %>
+            <span class="btn btn-secondary" style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
+          <% end %>
+        </div>
       </div>
       <div class="chat-buttons-section">
         <%= link_to chatroom_path(chat), class: 'no-underline-link' do %>
