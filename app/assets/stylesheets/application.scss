@@ -7,6 +7,9 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
+// Utilities
+@import 'config/utilities';
+
 // CSS partials
 @import 'components/index';
 @import 'pages/index';
