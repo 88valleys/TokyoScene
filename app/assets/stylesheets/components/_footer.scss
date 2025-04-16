@@ -1,43 +1,48 @@
-// All CSS for footer goes here
+// Sticky footer fallback styles
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
+// Layout styles for the page container
 .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > * {
+    flex: 1; // Allow children to grow
+  }
 }
 
-.page-container > * {
-    flex: 1; 
-}
-
+// Footer styles
 .footer {
-    flex-shrink: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #100303;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-
-    // keep footer at the bottom
-    // position: sticky;
-    position: fixed;
-    bottom: 0;
-    z-index: 5; /* Lower than gigs-partial */
+  flex-shrink: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #100303;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; // Keep footer at the bottom
+  bottom: 0;
+  z-index: 5; // Lower than gigs-partial
 }
 
+// Footer navigation items
 .nav-item {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    color: #f7f7f7;
-    text-decoration: none;
-    font-size: 12px;
-}
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  color: #f7f7f7;
+  text-decoration: none;
+  font-size: 12px;
 
-.nav-item i {
+  i {
     display: block;
     font-size: 24px;
     margin-bottom: 5px;
+  }
 }
