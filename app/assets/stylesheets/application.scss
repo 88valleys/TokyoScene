@@ -22,6 +22,7 @@
 @import "components/confirm_card";
 @import "components/dashboard_gigs";
 @import "components/spotify_button";
+@import "components/loginpage";
 
 // Mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
@@ -51,7 +52,7 @@ footer {
   color: white;
   padding: 0px;
   text-align: center;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .no-display {
@@ -62,7 +63,7 @@ footer {
 html, body {
   height: 100%;
   margin: 0;
-  
+
 }
 
 .wrapper {
