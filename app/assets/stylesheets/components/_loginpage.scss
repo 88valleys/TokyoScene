@@ -22,20 +22,23 @@
 .form-actions{
   padding: 12px;
   background-color: #2C2C2C;
-  color: #F5F5F5;
   border-radius: 8px;
   border: 1px solid #2C2C2C;
-  font-size: 16px;
+  font-size: 16px ;
   font-family: Inter, sans-serif;
   font-weight: 400;
   line-height: 16px;
 }
 
-.text-start {
-  color: #1E1E1E !important;
-  font-size: 16px !important;
-  font-family: Inter, sans-serif !important;
-  font-weight: 400 !important;
-  text-decoration: underline !important;
-  line-height: 22.4px !important;
+div.form-actions .btn {
+  color: #F5F5F5;
+}
+
+div.text-start a{
+  color: #1E1E1E;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+  line-height: 22.4px;
 }
