@@ -1,25 +1,28 @@
+// Mapbox
+@import url('https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css');
+
 // Include the styling for the map here
 .mapboxgl-popup {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .mapboxgl-popup-content {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .mapboxgl-canvas-container {
-    position: relative;
-    width: 100vw;  // Full width of the viewport
-    height: 90vh; // Full height of the viewport
-    overflow: hidden; // Prevent scrolling
-  }
+  position: relative;
+  width: 100vw; // Full width of the viewport
+  height: 90vh; // Full height of the viewport
+  overflow: hidden; // Prevent scrolling
+}
 
-  .mapbox {
-    width: 100%;
-    height: 100%;
-  }
+.mapbox {
+  width: 100%;
+  height: 100%;
+}
 
-  svg {
-    color: #95389E
-  }
+svg {
+  color: #95389e;
+}

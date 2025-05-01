@@ -1,27 +1,29 @@
 <div class="container p-3">
   <h2 class="text-center mb-4">Log in to TokyoScene</h2>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <!-- Email Input -->
-      <div class="mb-4">
-        <label for="email" class="form-label">
-          Email
-        </label>
-        <%= f.input_field :email, type: "email", class: "form-control", placeholder: "Enter email"%>
+  <div class="login-form">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <!-- Email Input -->
+        <div class="mb-4">
+          <label for="email" class="form-label">
+            Email
+          </label>
+          <%= f.input_field :email, type: "email", class: "form-control", placeholder: "Enter email"%>
+        </div>
+        <!-- Password Input -->
+        <div class="mb-4">
+          <label for="password" class="form-label">
+            Password
+          </label>
+          <%= f.input_field :password, type: "password", class: "form-control", placeholder: "Enter password"%>
+        </div>
+        <!-- Submit Button -->
+        <div class="form-actions mb-4">
+          <%= f.button :submit, "Log in", class: "btn w-100"%>
+        </div>
       </div>
-      <!-- Password Input -->
-      <div class="mb-4">
-        <label for="password" class="form-label">
-          Password
-        </label>
-        <%= f.input_field :password, type: "password", class: "form-control", placeholder: "Enter password"%>
-      </div>
-      <!-- Submit Button -->
-      <div class="form-actions mb-4">
-        <%= f.button :submit, "Log in", class: "btn w-100"%>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <!-- Forgot Password -->
   <div class="text-start mt-4 ">
     <%= link_to "Forgot password?", new_user_password_path %>

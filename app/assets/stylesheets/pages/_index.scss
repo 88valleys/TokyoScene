@@ -1,2 +1,20 @@
 // Import page-specific CSS files here.
-@import "home";
+@import 'home';
+
+// Layout styles
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: 60px;
+}
+
+.content-wrapper {
+  position: absolute;
+  top: 66%;
+  min-width: 100%;
+}

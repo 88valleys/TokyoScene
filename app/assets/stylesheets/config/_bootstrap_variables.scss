@@ -6,23 +6,32 @@
 
 // General style
 $font-family-sans-serif: $body-font;
-$headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
-$font-size-base:         1rem;
+$headings-font-family: $headers-font;
+$body-bg: $light-gray;
+$font-size-base: 1rem;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headers-font;
+}
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$primary: $blue;
+$success: $green;
+$info: $yellow;
+$danger: $red;
+$warning: $orange;
 
 // Buttons & inputs' radius
-$border-radius-sm:            .0625rem;
-$border-radius:               .125rem;
-$border-radius-lg:            .25rem;
-$border-radius-xl:            .5rem;
-$border-radius-xxl:           1rem;
+$border-radius-sm: 0.0625rem;
+$border-radius: 0.125rem;
+$border-radius-lg: 0.25rem;
+$border-radius-xl: 0.5rem;
+$border-radius-xxl: 1rem;
 
 // Override other variables below!
