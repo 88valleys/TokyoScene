@@ -24,5 +24,57 @@
 @import 'components/chats';
 @import 'components/confirm_card';
 @import 'components/dashboard_gigs';
-@import 'components/map';
 @import 'components/spotify_button';
+@import 'components/loginpage';
+
+// Mapbox
+@import url('https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css');
+
+/*
+ *= require sweetalert2
+ */
+
+// Holds the positioning for the pop-up card on home page
+.content-wrapper {
+  position: absolute;
+  top: 66%;
+  min-width: 100%;
+  //left: 1.53%;
+}
+
+.gig-cards-container {
+  margin-top: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Optional: Add a background color */
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 0px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.no-display {
+  display: none;
+}
+
+/* Sticky footer styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.content {
+  flex: 1; /* Take up remaining space */
+  padding-bottom: 60px;
+}

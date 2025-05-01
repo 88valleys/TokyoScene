@@ -5,29 +5,27 @@
       <div class="form-inputs">
         <!-- Email Input -->
         <div class="mb-4">
-          <label for="email" class="form-label" style="color: #1E1E1E; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 22.4px;">
+          <label for="email" class="form-label">
             Email
           </label>
-          <%= f.input_field :email, type: "email", class: "form-control", placeholder: "Enter email", style: "min-width: 240px; padding: 12px 16px; background: white; border-radius: 8px; border: 1px solid #D9D9D9; color: #B3B3B3; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 16px;" %>
+          <%= f.input_field :email, type: "email", class: "form-control", placeholder: "Enter email"%>
         </div>
         <!-- Password Input -->
         <div class="mb-4">
-          <label for="password" class="form-label" style="color: #1E1E1E; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 22.4px;">
+          <label for="password" class="form-label">
             Password
           </label>
-          <%= f.input_field :password, type: "password", class: "form-control", placeholder: "Enter password", style: "min-width: 240px; padding: 12px 16px; background: white; border-radius: 8px; border: 1px solid #D9D9D9; color: #B3B3B3; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 16px;" %>
+          <%= f.input_field :password, type: "password", class: "form-control", placeholder: "Enter password"%>
         </div>
         <!-- Submit Button -->
         <div class="form-actions mb-4">
-          <%= f.button :submit, "Log in", class: "btn w-100",
-          style: "padding: 12px; background-color: #2C2C2C; color: #F5F5F5; border-radius: 8px; border: 1px solid #2C2C2C; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; line-height: 16px;" %>
+          <%= f.button :submit, "Log in", class: "btn w-100"%>
         </div>
       </div>
     <% end %>
   </div>
   <!-- Forgot Password -->
-  <div class="mt-4 text-start">
-    <%= link_to "Forgot password?", new_user_password_path,
-      style: "color: #1E1E1E; font-size: 16px; font-family: Inter, sans-serif; font-weight: 400; text-decoration: underline; line-height: 22.4px;" %>
+  <div class="text-start mt-4 ">
+    <%= link_to "Forgot password?", new_user_password_path %>
   </div>
 </div>
