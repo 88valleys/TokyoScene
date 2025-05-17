@@ -26,7 +26,8 @@
                 <div>
                   <p class="dashboard-gig-date-time" style="margin: 0;">
                     <%= registration.gig.date.strftime("%a, %b %e %Y") %><br>
-                    <%= registration.gig.time_from.strftime("%I:%M %P") %> -                     <%= registration.gig.time_to.strftime("%I:%M %P") %>
+                    <%= registration.gig.time_from.strftime("%I:%M %P") %> - 
+                    <%= registration.gig.time_to.strftime("%I:%M %P") %>
                   </p>
                   <h1 class="dashboard-gig-title" style="font-size: 16px; margin: 5px 0; text-wrap: wrap"><%= registration.gig.event_name %>: <%= registration.gig.band %></h1>
                   <p class="dashboard-gig-location" style="font-size: 14px; color: #555; margin: 5px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= registration.gig.location_name%></p>
@@ -144,7 +145,7 @@
   </div>
   <div class="favorite-artists">
     <h2 class="mb-3">
-      <i class="fa-solid fa-heart"></i> My Favorite Artists </h2>
+      <i class="fa-solid fa-heart"></i> My Favorite Artists</h2>
     <div class="dropdown" style="margin-bottom: 15px;">
       <%= form_with url: add_artist_user_path(@user), method: :patch, local: true do |form| %>
         <div class="form-group d-flex align-items-center">
