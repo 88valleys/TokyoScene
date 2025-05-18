@@ -11,7 +11,13 @@
           <span class="btn btn-secondary" style="--bs-btn-padding-y: 0rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: .75rem;"><%= genre %></span>
         <% end %>
       </div>
-      <p class="event-time-location"><%= @chatroom.gig.date.strftime("%a, %b %e %Y")  %> - <%= @chatroom.gig.time_from.strftime("%I:%M %P") %> - <%= @chatroom.gig.time_to.strftime("%I:%M %P") %></p>
+      <p class="event-time-location">
+        <%= @chatroom.gig.date ? @chatroom.gig.date.strftime("%a, %b %e %Y") : "TBA" %>
+        -
+        <%= @chatroom.gig.time_from ? @chatroom.gig.time_from.strftime("%I:%M %P") : "TBA" %>
+        -
+        <%= @chatroom.gig.time_to ? @chatroom.gig.time_to.strftime("%I:%M %P") : "TBA" %>
+      </p>
       <hr style= "margin-left: 10px;">
       <i class="fa-solid fa-location-dot" style="position: flex; margin-left: 15px;"></i>
       <p style="margin-left:35px; margin-top: -23px;position: flex;">
