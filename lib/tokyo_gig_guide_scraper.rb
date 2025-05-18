@@ -87,7 +87,7 @@ class TokyoGigGuideScraper
 
       latitude, longitude = geocode_location(location_name, location)
 
-      gigs << Gig.new(
+      gig = Gig.create!(
         band: main_band,
         event_name: event_name,
         band_image_url: band_image_url,
@@ -102,6 +102,11 @@ class TokyoGigGuideScraper
         user: User.first,
       )
 
+      # Create a chatroom for the gig if it doesn't exist
+      gig.create_chatroom unless gig.chatroom
+
+      gigs << gig
+
       progressbar.increment
     end
 
@@ -111,7 +116,7 @@ class TokyoGigGuideScraper
   def self.scrape_description(detail_url)
     html = URI.open(detail_url)
     doc = Nokogiri::HTML(html)
-    desc = doc.at_css(".jem-description")&.text&.strip
+    desc = doc.at_css(".event_desc")&.text&.strip
     desc || ""
   rescue
     ""
