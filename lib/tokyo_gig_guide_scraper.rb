@@ -15,7 +15,7 @@ class TokyoGigGuideScraper
     gigs = []
     offset = 0
     today = Date.today
-    max_gigs = 100
+    max_gigs = 500
     start_time = Time.now
 
     puts "⏳ Scraping started at #{start_time.strftime("%H:%M:%S")}"
@@ -31,6 +31,7 @@ class TokyoGigGuideScraper
       gigs += page_gigs
       offset += 50
       break if gigs.size >= max_gigs
+      break if page_gigs.size < 50
 
       sleep 2
     end
@@ -102,8 +103,8 @@ class TokyoGigGuideScraper
         user: User.first,
       )
 
-      # Create a chatroom for the gig if it doesn't exist
-      gig.create_chatroom unless gig.chatroom
+      # Create a chatroom for the gig if it doesn't exist, with the correct name
+      gig.create_chatroom(name: gig.event_name) unless gig.chatroom
 
       gigs << gig
 
