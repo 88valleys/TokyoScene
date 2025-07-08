@@ -22,9 +22,6 @@ class PagesController < ApplicationController
       if current_user.fav_genres.present?
         @gigs = @gigs.tagged_with(current_user.fav_genres)
       end
-    else
-      flash[:alert] = "You need to be logged in to get recommendations."
-      redirect_to new_user_session_path and return
     end
 
     # Filter by genre
