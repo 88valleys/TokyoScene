@@ -57,11 +57,18 @@ gem "pg_search"
 gem "jquery-rails"
 gem "acts-as-taggable-on"
 gem "geocoder"
+gem 'httparty'
+gem 'nokogiri'
+gem 'open-uri'
+gem 'ruby-progressbar'
+
 
 # add Spotify's API
 gem "rspotify"
 
 gem "cloudinary"
+
+
 
 group :development, :test do
   gem "dotenv-rails"
