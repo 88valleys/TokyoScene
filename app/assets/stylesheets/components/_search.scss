@@ -6,7 +6,7 @@
     width: 330px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 100px;
-
+    overflow: hidden;
     // Displays above the map
   }
 
@@ -25,13 +25,15 @@
   // Displays above the map
 }
 
-.form-control {
+.search-input {
   background: #E0C4E2;
   border: none;  // Remove border
   outline: none; // Remove outline
   // search bar left side round
   border-top-left-radius: 150px;
   border-bottom-left-radius: 150px;
+  flex: 1;
+  padding-left: 1.2rem;
 }
 
 .search-bar .btn {
