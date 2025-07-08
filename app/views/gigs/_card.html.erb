@@ -51,9 +51,11 @@
       <div class="event-bands">
         <%= gig.band %>
       </div>
-      <div class="event-ticket-icon">
-        <img src="<%= asset_path('ticket-icon.png') %>" alt="Ticket Icon" style="width: 40px; height: 40px; border-radius: 50%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">
-      </div>
+      <% if current_user %>
+        <div class="event-ticket-icon">
+          <img src="<%= asset_path('ticket-icon.png') %>" alt="Ticket Icon" style="width: 40px; height: 40px; border-radius: 50%; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
