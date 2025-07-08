@@ -27,8 +27,8 @@
         <br>
         <div class="confirm-card-date">
           <i class="fa-regular fa-calendar"></i>
-          <%= @gig.date.strftime("%a, %b %e %Y") %><br>
-          <%= @gig.time_from.strftime("%I:%M %P") %> - <%= @gig.time_to.strftime("%I:%M %P") %>
+          <%= @gig.time_from ? @gig.time_from.strftime("%I:%M %P") : "TBA" %> - 
+          <%= @gig.time_to ? @gig.time_to.strftime("%I:%M %P") : "TBA" %>
         </div>
         <br>
         <% if @gig.registrations.find_by(user_id: current_user.id) %>
