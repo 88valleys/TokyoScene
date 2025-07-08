@@ -31,14 +31,14 @@
           <%= @gig.time_from ? @gig.time_from.strftime("%I:%M %P") : "TBA" %> - <%= @gig.time_to ? @gig.time_to.strftime("%I:%M %P") : "TBA" %>
         </div>
         <br>
-        <% if @gig.registrations.find_by(user_id: current_user.id) %>
+        <% if current_user && @gig.registrations.find_by(user_id: current_user.id) %>
           <div class="chat-buttons-section">
             <%= link_to chatroom_path(@gig.chatroom), class: 'no-underline-link' do %>
               <div class="icon-button ticket">
                 <i class="fa-solid fa-comment white-icon"></i>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% else %>
           <div class="register-button" data-controller="sweetalert">
             <%= simple_form_for [@gig, @registration], html: { data: {action: "submit->sweetalert#confirm"}, turbo: false } do |f| %>
