@@ -5,8 +5,7 @@
       <%#  Turns the time into a Day, Date, Month, Year format %>
       <h3 class="top-heading"><%= gig.date.strftime("%a, %b %e %Y") %>
         <br>
-        <%= gig.time_from.strftime("%I:%M %P") %> -         <%= gig.time_to.strftime("%I:%M %P") %>
-      </h3>
+        <%= gig.time_from ? gig.time_from.strftime("%I:%M %P") : "TBA" %> - <%= gig.time_to ? gig.time_to.strftime("%I:%M %P") : "TBA" %>      </h3>
     </div>
     <div class="pb-2">
       <h2 class="middle-heading"><%= gig.event_name %>:</h2>
