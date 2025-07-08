@@ -8,8 +8,9 @@ export default class extends Controller {
   confirm(event) {
     event.preventDefault();
     Swal.fire({
-      title: "Sure you want to go?",
-      icon: "warning",
+      title: "Add this to your gigs?",
+      text: "We’ll keep you in the loop.",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#8E79B9",
       cancelButtonColor: "#e1c5e2",
@@ -25,10 +26,10 @@ export default class extends Controller {
     console.log(event);
     event.preventDefault();
     Swal.fire({
-      title: "You Are Going!",
-      text: "Enjoy the gig!",
+      title: "You're on the list!",
+      text: "Hope you meet your next obsession here.",
       icon: "success",
-      confirmButtonText: "Start The Chat!", // route to chatrooms**
+      confirmButtonText: "Enter the chat", // route to chatrooms**
       confirmButtonColor: "#8E79B9",
     })
       .then((action) => {
